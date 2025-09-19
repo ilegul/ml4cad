@@ -1,0 +1,11 @@
+,cluster,auroc,f1_macro,importance
+0,"['fT4', 'Ipertiroidismo']",0.79100,0.61000,1.02951
+1,"['fT3', 'Euthyroid', 'Low T3']",0.79300,0.59400,1.05724
+2,"['TSH', 'Subclinical primary hypothyroidism (SCH)', 'Subclinical primary hyperthyroidism\n(SCT)']",0.79600,0.63100,0.99525
+3,['Ipotiroidismo'],0.80100,0.62800,1.00000
+4,"['Diabetes', 'Hypertension']",0.79400,0.61500,1.02114
+5,"['Angina', 'Angiography', 'Vessels', 'Documented resting \nor exertional ischemia', 'Dyslipidemia']",0.78200,0.57000,1.10175
+6,"['Age', 'Atrial Fibrillation']",0.74000,0.54200,1.15867
+7,"['Gender', 'Smoke']",0.80600,0.65100,0.96467
+8,"['Previous CABG', 'PCI', 'Previous MI', 'Post IDC', 'LVEF']",0.75700,0.53200,1.18045
+9,['Acute MI'],0.80200,0.63300,0.99210

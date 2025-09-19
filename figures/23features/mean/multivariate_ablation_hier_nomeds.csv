@@ -1,0 +1,7 @@
+,cluster,auroc,f1_macro,importance
+0,"['Gender', 'Previous CABG', 'PCI', 'Previous MI', 'Post IDC', 'LVEF', 'Total cholesterol', 'HDL', 'LDL', 'Creatinina']",0.69600,0.52300,1.24283
+1,['Diabetes'],0.80500,0.64400,1.00932
+2,"['Angina', 'Angiography', 'Vessels', 'Documented resting \nor exertional ischemia', 'Dyslipidemia', 'Atrial Fibrillation', 'Triglycerides']",0.79100,0.61200,1.06209
+3,"['Age', 'Hypertension']",0.77500,0.55800,1.16487
+4,['Smoke'],0.81800,0.64500,1.00775
+5,['Acute MI'],0.81200,0.65600,0.99085

@@ -1,0 +1,272 @@
+####################   lr    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.387     0.661     0.488       505
+         1.0      0.945     0.849     0.894      3494
+
+    accuracy                          0.825      3999
+   macro avg      0.666     0.755     0.691      3999
+weighted avg      0.875     0.825     0.843      3999
+
+auc macro 0.846
+confusion matrix
+[[ 334  171]
+ [ 529 2965]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.310     0.587     0.406       143
+         1.0      0.938     0.827     0.879      1082
+
+    accuracy                          0.799      1225
+   macro avg      0.624     0.707     0.642      1225
+weighted avg      0.865     0.799     0.824      1225
+
+auc macro 0.801
+confusion matrix
+[[ 84  59]
+ [187 895]]
+Model rank: 1
+Mean validation score: 0.683 (std: 0.008)
+Parameters: {'model__C': 9, 'model__dual': True, 'model__max_iter': 66, 'model__penalty': 'l2', 'model__solver': 'liblinear', 'model__warm_start': True}
+
+####################   lr  END   #########################
+####################   svc    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.468     0.632     0.537       505
+         1.0      0.944     0.896     0.919      3494
+
+    accuracy                          0.863      3999
+   macro avg      0.706     0.764     0.728      3999
+weighted avg      0.884     0.863     0.871      3999
+
+auc macro 0.883
+confusion matrix
+[[ 319  186]
+ [ 363 3131]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.266     0.406     0.321       143
+         1.0      0.916     0.852     0.883      1082
+
+    accuracy                          0.800      1225
+   macro avg      0.591     0.629     0.602      1225
+weighted avg      0.840     0.800     0.817      1225
+
+auc macro 0.709
+confusion matrix
+[[ 58  85]
+ [160 922]]
+Model rank: 1
+Mean validation score: 0.658 (std: 0.015)
+Parameters: {'model__C': 148, 'model__coef0': np.float64(0.2349930205400379), 'model__degree': 142, 'model__gamma': 'scale', 'model__kernel': 'rbf', 'model__max_iter': 800}
+
+####################   svc  END   #########################
+####################   knn    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.651     0.547     0.594       505
+         1.0      0.936     0.958     0.947      3494
+
+    accuracy                          0.906      3999
+   macro avg      0.793     0.752     0.770      3999
+weighted avg      0.900     0.906     0.902      3999
+
+auc macro 0.937
+confusion matrix
+[[ 276  229]
+ [ 148 3346]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.445     0.371     0.405       143
+         1.0      0.919     0.939     0.929      1082
+
+    accuracy                          0.873      1225
+   macro avg      0.682     0.655     0.667      1225
+weighted avg      0.863     0.873     0.868      1225
+
+auc macro 0.693
+confusion matrix
+[[  53   90]
+ [  66 1016]]
+Model rank: 1
+Mean validation score: 0.639 (std: 0.001)
+Parameters: {'model__algorithm': 'ball_tree', 'model__leaf_size': 11, 'model__n_neighbors': 4, 'model__weights': 'uniform'}
+
+####################   knn  END   #########################
+####################   rf    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.793     0.911     0.848       505
+         1.0      0.987     0.966     0.976      3494
+
+    accuracy                          0.959      3999
+   macro avg      0.890     0.938     0.912      3999
+weighted avg      0.962     0.959     0.960      3999
+
+auc macro 0.989
+confusion matrix
+[[ 460   45]
+ [ 120 3374]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.396     0.385     0.390       143
+         1.0      0.919     0.922     0.921      1082
+
+    accuracy                          0.860      1225
+   macro avg      0.657     0.653     0.655      1225
+weighted avg      0.858     0.860     0.859      1225
+
+auc macro 0.782
+confusion matrix
+[[ 55  88]
+ [ 84 998]]
+Model rank: 1
+Mean validation score: 0.715 (std: 0.011)
+Parameters: {'model__class_weight': 'balanced_subsample', 'model__criterion': 'gini', 'model__max_features': 'log2', 'model__min_samples_leaf': 4, 'model__min_samples_split': 6, 'model__n_estimators': 26}
+
+####################   rf  END   #########################
+####################   adaboost    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.651     0.295     0.406       505
+         1.0      0.906     0.977     0.940      3494
+
+    accuracy                          0.891      3999
+   macro avg      0.778     0.636     0.673      3999
+weighted avg      0.873     0.891     0.873      3999
+
+auc macro 0.862
+confusion matrix
+[[ 149  356]
+ [  80 3414]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.492     0.210     0.294       143
+         1.0      0.903     0.971     0.936      1082
+
+    accuracy                          0.882      1225
+   macro avg      0.697     0.591     0.615      1225
+weighted avg      0.855     0.882     0.861      1225
+
+auc macro 0.793
+confusion matrix
+[[  30  113]
+ [  31 1051]]
+Model rank: 1
+Mean validation score: 0.672 (std: 0.006)
+Parameters: {'model__learning_rate': np.float64(1.1714415031622034), 'model__n_estimators': 68}
+
+####################   adaboost  END   #########################
+####################   nn    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.599     0.420     0.494       505
+         1.0      0.920     0.959     0.939      3494
+
+    accuracy                          0.891      3999
+   macro avg      0.759     0.690     0.716      3999
+weighted avg      0.879     0.891     0.883      3999
+
+auc macro 0.861
+confusion matrix
+[[ 212  293]
+ [ 142 3352]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.452     0.294     0.356       143
+         1.0      0.911     0.953     0.931      1082
+
+    accuracy                          0.876      1225
+   macro avg      0.681     0.623     0.644      1225
+weighted avg      0.857     0.876     0.864      1225
+
+auc macro 0.807
+confusion matrix
+[[  42  101]
+ [  51 1031]]
+Model rank: 1
+Mean validation score: 0.700 (std: 0.003)
+Parameters: {'model__alpha': np.float64(0.7938747667257389), 'model__early_stopping': True, 'model__hidden_layer_sizes': [212, 131], 'model__learning_rate': 'constant', 'model__learning_rate_init': np.float64(0.003448439159781927), 'model__max_iter': 342, 'model__solver': 'adam'}
+
+####################   nn  END   #########################
+####################   gb    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.824     0.418     0.555       505
+         1.0      0.921     0.987     0.953      3494
+
+    accuracy                          0.915      3999
+   macro avg      0.873     0.702     0.754      3999
+weighted avg      0.909     0.915     0.903      3999
+
+auc macro 0.899
+confusion matrix
+[[ 211  294]
+ [  45 3449]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.493     0.245     0.327       143
+         1.0      0.906     0.967     0.936      1082
+
+    accuracy                          0.882      1225
+   macro avg      0.700     0.606     0.631      1225
+weighted avg      0.858     0.882     0.865      1225
+
+auc macro 0.805
+confusion matrix
+[[  35  108]
+ [  36 1046]]
+Model rank: 1
+Mean validation score: 0.694 (std: 0.005)
+Parameters: {'model__learning_rate': np.float64(0.10661746593679802), 'model__max_depth': 3, 'model__max_features': None, 'model__n_estimators': 81, 'model__subsample': 0.5}
+
+####################   gb  END   #########################
+####################   xgb    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.537     0.568     0.552       505
+         1.0      0.937     0.929     0.933      3494
+
+    accuracy                          0.884      3999
+   macro avg      0.737     0.749     0.743      3999
+weighted avg      0.887     0.884     0.885      3999
+
+auc macro 0.880
+confusion matrix
+[[ 287  218]
+ [ 247 3247]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.387     0.420     0.403       143
+         1.0      0.922     0.912     0.917      1082
+
+    accuracy                          0.855      1225
+   macro avg      0.655     0.666     0.660      1225
+weighted avg      0.860     0.855     0.857      1225
+
+auc macro 0.808
+confusion matrix
+[[ 60  83]
+ [ 95 987]]
+Model rank: 1
+Mean validation score: 0.719 (std: 0.005)
+Parameters: {'model__alpha': np.float64(0.028579408282966567), 'model__booster': 'gbtree', 'model__eta': np.float64(0.2677105433714155), 'model__gamma': np.float64(0.02163388071865542), 'model__lambda': np.float64(1.2497223255245111), 'model__max_depth': 2, 'model__n_estimators': 38, 'model__scale_pos_weight': 0.4, 'model__subsample': 0.75}
+
+####################   xgb  END   #########################

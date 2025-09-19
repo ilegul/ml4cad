@@ -1,0 +1,316 @@
+####################   svc    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.839     0.714     0.771      1442
+         1.0      0.751     0.863     0.803      1442
+
+    accuracy                          0.788      2884
+   macro avg      0.795     0.788     0.787      2884
+weighted avg      0.795     0.788     0.787      2884
+
+auc macro 0.877
+confusion matrix
+[[1029  413]
+ [ 198 1244]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.320     0.594     0.416       143
+         1.0      0.940     0.833     0.883      1082
+
+    accuracy                          0.805      1225
+   macro avg      0.630     0.714     0.649      1225
+weighted avg      0.867     0.805     0.828      1225
+
+auc macro 0.793
+confusion matrix
+[[ 85  58]
+ [181 901]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', SVC(C=119, class_weight='balanced', coef0=np.float64(0.6971844289451361),
+    degree=151, max_iter=1600, probability=True))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': SVC(C=119, class_weight='balanced', coef0=np.float64(0.6971844289451361),
+    degree=151, max_iter=1600, probability=True), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__C': 119, 'model__break_ties': False, 'model__cache_size': 200, 'model__class_weight': 'balanced', 'model__coef0': np.float64(0.6971844289451361), 'model__decision_function_shape': 'ovr', 'model__degree': 151, 'model__gamma': 'scale', 'model__kernel': 'rbf', 'model__max_iter': 1600, 'model__probability': True, 'model__random_state': None, 'model__shrinking': True, 'model__tol': 0.001, 'model__verbose': False}
+####################   svc  END   #########################
+####################   rf    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.990     0.960     0.975      1683
+         1.0      0.961     0.990     0.975      1683
+
+    accuracy                          0.975      3366
+   macro avg      0.975     0.975     0.975      3366
+weighted avg      0.975     0.975     0.975      3366
+
+auc macro 0.998
+confusion matrix
+[[1615   68]
+ [  16 1667]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.434     0.434     0.434       143
+         1.0      0.925     0.925     0.925      1082
+
+    accuracy                          0.868      1225
+   macro avg      0.679     0.679     0.679      1225
+weighted avg      0.868     0.868     0.868      1225
+
+auc macro 0.814
+confusion matrix
+[[  62   81]
+ [  81 1001]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', RandomForestClassifier(class_weight='balanced', criterion='entropy',
+                       min_samples_leaf=4, min_samples_split=3,
+                       n_estimators=124))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': RandomForestClassifier(class_weight='balanced', criterion='entropy',
+                       min_samples_leaf=4, min_samples_split=3,
+                       n_estimators=124), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__bootstrap': True, 'model__ccp_alpha': 0.0, 'model__class_weight': 'balanced', 'model__criterion': 'entropy', 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__max_leaf_nodes': None, 'model__max_samples': None, 'model__min_impurity_decrease': 0.0, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__min_weight_fraction_leaf': 0.0, 'model__monotonic_cst': None, 'model__n_estimators': 124, 'model__n_jobs': None, 'model__oob_score': False, 'model__random_state': None, 'model__verbose': 0, 'model__warm_start': False}
+####################   rf  END   #########################
+####################   adaboost    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.900     0.863     0.881      1683
+         1.0      0.868     0.904     0.886      1683
+
+    accuracy                          0.884      3366
+   macro avg      0.884     0.884     0.883      3366
+weighted avg      0.884     0.884     0.883      3366
+
+auc macro 0.956
+confusion matrix
+[[1452  231]
+ [ 161 1522]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.393     0.552     0.459       143
+         1.0      0.938     0.887     0.912      1082
+
+    accuracy                          0.848      1225
+   macro avg      0.665     0.720     0.685      1225
+weighted avg      0.874     0.848     0.859      1225
+
+auc macro 0.808
+confusion matrix
+[[ 79  64]
+ [122 960]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', AdaBoostClassifier(learning_rate=np.float64(1.1674688399832753),
+                   n_estimators=58))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': AdaBoostClassifier(learning_rate=np.float64(1.1674688399832753),
+                   n_estimators=58), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__algorithm': 'deprecated', 'model__estimator': None, 'model__learning_rate': np.float64(1.1674688399832753), 'model__n_estimators': 58, 'model__random_state': None}
+####################   adaboost  END   #########################
+####################   gb    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.949     0.893     0.920      2525
+         1.0      0.899     0.952     0.925      2525
+
+    accuracy                          0.923      5050
+   macro avg      0.924     0.923     0.923      5050
+weighted avg      0.924     0.923     0.923      5050
+
+auc macro 0.977
+confusion matrix
+[[2255  270]
+ [ 121 2404]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.418     0.413     0.415       143
+         1.0      0.923     0.924     0.923      1082
+
+    accuracy                          0.864      1225
+   macro avg      0.670     0.668     0.669      1225
+weighted avg      0.864     0.864     0.864      1225
+
+auc macro 0.819
+confusion matrix
+[[  59   84]
+ [  82 1000]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', GradientBoostingClassifier(learning_rate=np.float64(0.06384160006481765),
+                           n_estimators=90, subsample=0.25))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': GradientBoostingClassifier(learning_rate=np.float64(0.06384160006481765),
+                           n_estimators=90, subsample=0.25), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__ccp_alpha': 0.0, 'model__criterion': 'friedman_mse', 'model__init': None, 'model__learning_rate': np.float64(0.06384160006481765), 'model__loss': 'log_loss', 'model__max_depth': 3, 'model__max_features': None, 'model__max_leaf_nodes': None, 'model__min_impurity_decrease': 0.0, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__min_weight_fraction_leaf': 0.0, 'model__n_estimators': 90, 'model__n_iter_no_change': None, 'model__random_state': None, 'model__subsample': 0.25, 'model__tol': 0.0001, 'model__validation_fraction': 0.1, 'model__verbose': 0, 'model__warm_start': False}
+####################   gb  END   #########################
+####################   svc    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.826     0.675     0.743      1262
+         1.0      0.725     0.858     0.786      1262
+
+    accuracy                          0.767      2524
+   macro avg      0.776     0.767     0.765      2524
+weighted avg      0.776     0.767     0.765      2524
+
+auc macro 0.866
+confusion matrix
+[[ 852  410]
+ [ 179 1083]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.320     0.615     0.421       143
+         1.0      0.942     0.827     0.881      1082
+
+    accuracy                          0.802      1225
+   macro avg      0.631     0.721     0.651      1225
+weighted avg      0.869     0.802     0.827      1225
+
+auc macro 0.793
+confusion matrix
+[[ 88  55]
+ [187 895]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', SVC(C=119, class_weight='balanced', coef0=np.float64(0.6971844289451361),
+    degree=151, max_iter=1600, probability=True))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': SVC(C=119, class_weight='balanced', coef0=np.float64(0.6971844289451361),
+    degree=151, max_iter=1600, probability=True), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__C': 119, 'model__break_ties': False, 'model__cache_size': 200, 'model__class_weight': 'balanced', 'model__coef0': np.float64(0.6971844289451361), 'model__decision_function_shape': 'ovr', 'model__degree': 151, 'model__gamma': 'scale', 'model__kernel': 'rbf', 'model__max_iter': 1600, 'model__probability': True, 'model__random_state': None, 'model__shrinking': True, 'model__tol': 0.001, 'model__verbose': False}
+####################   svc  END   #########################
+####################   rf    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.984     0.957     0.970      1442
+         1.0      0.958     0.984     0.971      1442
+
+    accuracy                          0.971      2884
+   macro avg      0.971     0.971     0.971      2884
+weighted avg      0.971     0.971     0.971      2884
+
+auc macro 0.997
+confusion matrix
+[[1380   62]
+ [  23 1419]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.419     0.503     0.457       143
+         1.0      0.933     0.908     0.920      1082
+
+    accuracy                          0.860      1225
+   macro avg      0.676     0.706     0.689      1225
+weighted avg      0.873     0.860     0.866      1225
+
+auc macro 0.822
+confusion matrix
+[[ 72  71]
+ [100 982]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', RandomForestClassifier(class_weight='balanced', criterion='entropy',
+                       min_samples_leaf=4, min_samples_split=3,
+                       n_estimators=124))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': RandomForestClassifier(class_weight='balanced', criterion='entropy',
+                       min_samples_leaf=4, min_samples_split=3,
+                       n_estimators=124), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__bootstrap': True, 'model__ccp_alpha': 0.0, 'model__class_weight': 'balanced', 'model__criterion': 'entropy', 'model__max_depth': None, 'model__max_features': 'sqrt', 'model__max_leaf_nodes': None, 'model__max_samples': None, 'model__min_impurity_decrease': 0.0, 'model__min_samples_leaf': 4, 'model__min_samples_split': 3, 'model__min_weight_fraction_leaf': 0.0, 'model__monotonic_cst': None, 'model__n_estimators': 124, 'model__n_jobs': None, 'model__oob_score': False, 'model__random_state': None, 'model__verbose': 0, 'model__warm_start': False}
+####################   rf  END   #########################
+####################   adaboost    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.913     0.869     0.891      2020
+         1.0      0.875     0.917     0.896      2020
+
+    accuracy                          0.893      4040
+   macro avg      0.894     0.893     0.893      4040
+weighted avg      0.894     0.893     0.893      4040
+
+auc macro 0.964
+confusion matrix
+[[1756  264]
+ [ 167 1853]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.421     0.483     0.450       143
+         1.0      0.930     0.912     0.921      1082
+
+    accuracy                          0.862      1225
+   macro avg      0.675     0.697     0.685      1225
+weighted avg      0.871     0.862     0.866      1225
+
+auc macro 0.795
+confusion matrix
+[[ 69  74]
+ [ 95 987]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', AdaBoostClassifier(learning_rate=np.float64(1.1674688399832753),
+                   n_estimators=58))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': AdaBoostClassifier(learning_rate=np.float64(1.1674688399832753),
+                   n_estimators=58), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__algorithm': 'deprecated', 'model__estimator': None, 'model__learning_rate': np.float64(1.1674688399832753), 'model__n_estimators': 58, 'model__random_state': None}
+####################   adaboost  END   #########################
+####################   gb    #########################
+Testing on training set:
+              precision    recall  f1-score   support
+
+         0.0      0.942     0.900     0.921      2525
+         1.0      0.904     0.945     0.924      2525
+
+    accuracy                          0.922      5050
+   macro avg      0.923     0.922     0.922      5050
+weighted avg      0.923     0.922     0.922      5050
+
+auc macro 0.976
+confusion matrix
+[[2272  253]
+ [ 139 2386]]
+Testing on validation set:
+              precision    recall  f1-score   support
+
+         0.0      0.445     0.427     0.436       143
+         1.0      0.925     0.930     0.927      1082
+
+    accuracy                          0.871      1225
+   macro avg      0.685     0.678     0.681      1225
+weighted avg      0.869     0.871     0.870      1225
+
+auc macro 0.818
+confusion matrix
+[[  61   82]
+ [  76 1006]]
+Parameters: {'memory': None, 'steps': [('preprocess', ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False)), ('model', GradientBoostingClassifier(learning_rate=np.float64(0.06384160006481765),
+                           n_estimators=90, subsample=0.25))], 'transform_input': None, 'verbose': False, 'preprocess': ColumnTransformer(remainder='passthrough',
+                  transformers=[('stand', StandardScaler(),
+                                 [1, 25, 17, 2, 26, 27, 28, 29, 30])],
+                  verbose_feature_names_out=False), 'model': GradientBoostingClassifier(learning_rate=np.float64(0.06384160006481765),
+                           n_estimators=90, subsample=0.25), 'preprocess__force_int_remainder_cols': 'deprecated', 'preprocess__n_jobs': None, 'preprocess__remainder': 'passthrough', 'preprocess__sparse_threshold': 0.3, 'preprocess__transformer_weights': None, 'preprocess__transformers': [('stand', StandardScaler(), [1, 25, 17, 2, 26, 27, 28, 29, 30])], 'preprocess__verbose': False, 'preprocess__verbose_feature_names_out': False, 'preprocess__stand': StandardScaler(), 'preprocess__stand__copy': True, 'preprocess__stand__with_mean': True, 'preprocess__stand__with_std': True, 'model__ccp_alpha': 0.0, 'model__criterion': 'friedman_mse', 'model__init': None, 'model__learning_rate': np.float64(0.06384160006481765), 'model__loss': 'log_loss', 'model__max_depth': 3, 'model__max_features': None, 'model__max_leaf_nodes': None, 'model__min_impurity_decrease': 0.0, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__min_weight_fraction_leaf': 0.0, 'model__n_estimators': 90, 'model__n_iter_no_change': None, 'model__random_state': None, 'model__subsample': 0.25, 'model__tol': 0.0001, 'model__validation_fraction': 0.1, 'model__verbose': 0, 'model__warm_start': False}
+####################   gb  END   #########################
