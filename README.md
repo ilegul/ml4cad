@@ -15,7 +15,6 @@ Machine learning and data analysis project for coronary artery disease.
 ## Project structure
 
 - data/raw: original input data, not tracked by Git
-- data/interim: intermediate transformed data
 - data/processed: final datasets used for modeling
 - notebooks: exploratory and experimental notebooks
 - src/classification: classification models
