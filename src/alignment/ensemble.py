@@ -32,12 +32,48 @@ from configs.config import RANDOM_STATE
 # Individual models that make up the paper ensemble, in order.
 ENSEMBLE_MEMBERS = ["LogisticRegression", "RandomForest", "AdaBoost"]
 
-# All models reported in the alignment notebook.
+# ── Ensemble registry ───────────────────────────────────────────────────
+# Each ensemble is defined by a combination method and its base members:
+#   method "vote"  -> VotingClassifier(soft) == mean of member probabilities
+#   method "stack" -> StackingClassifier with a LogisticRegression meta-learner
+# The paper ensemble (ENSEMBLE) is a soft-vote of LR+RF+AdaBoost; the others
+# are diversified alternatives spanning combination method and base mix.
+ENSEMBLE_SPECS = {
+    "ENSEMBLE":         {"method": "vote",  "members": ENSEMBLE_MEMBERS},
+    "ENS_VOTE_XGB":     {"method": "vote",
+                         "members": ["LogisticRegression", "RandomForest",
+                                     "XGBoost"]},
+    "ENS_VOTE_BOOST":   {"method": "vote",
+                         "members": ["AdaBoost", "GradientBoosting",
+                                     "XGBoost"]},
+    "ENS_VOTE_DIVERSE": {"method": "vote",
+                         "members": ["LogisticRegression", "RandomForest",
+                                     "XGBoost", "SVC"]},
+    "ENS_VOTE_WIDE":    {"method": "vote",
+                         "members": ["LogisticRegression", "RandomForest",
+                                     "XGBoost", "MLP"]},
+    "ENS_STACK":        {"method": "stack",
+                         "members": ["LogisticRegression", "RandomForest",
+                                     "XGBoost"], "meta": "LogisticRegression"},
+    "ENS_STACK_GB":     {"method": "stack",
+                         "members": ["LogisticRegression", "RandomForest",
+                                     "GradientBoosting", "XGBoost"],
+                         "meta": "LogisticRegression"},
+}
+
+ENSEMBLE_NAMES = list(ENSEMBLE_SPECS.keys())
+
+# All models reported in the alignment notebook (single models + ensembles).
 ALIGN_MODELS = [
     "LogisticRegression", "RandomForest", "AdaBoost",   # ensemble members
     "SVC", "KNeighbors", "MLP", "GradientBoosting", "XGBoost",
-    "ENSEMBLE",
-]
+] + ENSEMBLE_NAMES
+
+
+def _is_stacking(name: str) -> bool:
+    """True for stacking ensembles (resampling must move inside the base CV)."""
+    spec = ENSEMBLE_SPECS.get(name)
+    return bool(spec) and spec.get("method") == "stack"
 
 
 def build_estimator(name: str, random_state: int = RANDOM_STATE):
@@ -80,11 +116,33 @@ def build_estimator(name: str, random_state: int = RANDOM_STATE):
                 random_state=random_state)
         raise ValueError(f"Unknown model: {n}")
 
-    if name == "ENSEMBLE":
-        estimators = [(m, _make(m)) for m in ENSEMBLE_MEMBERS]
-        # soft voting == mean of predicted probabilities (the paper's recipe)
-        return VotingClassifier(estimators=estimators, voting="soft",
-                                n_jobs=1)
+    spec = ENSEMBLE_SPECS.get(name)
+    if spec is not None:
+        if spec["method"] == "vote":
+            estimators = [(m, _make(m)) for m in spec["members"]]
+            # soft voting == mean of predicted probabilities (paper's recipe)
+            return VotingClassifier(estimators=estimators, voting="soft",
+                                    n_jobs=1)
+        if spec["method"] == "stack":
+            from sklearn.ensemble import StackingClassifier
+            from imblearn.over_sampling import RandomOverSampler
+            from imblearn.pipeline import Pipeline as ImbPipeline
+            # Resampling lives INSIDE each base estimator so it happens within
+            # the stacking internal CV folds (no minority duplicates shared
+            # across folds). The outer pipeline therefore carries no sampler
+            # for stacking ensembles (see build_pipeline / _is_stacking).
+            estimators = [
+                (m, ImbPipeline([
+                    ("sampler", RandomOverSampler(random_state=random_state)),
+                    ("clf", _make(m)),
+                ]))
+                for m in spec["members"]
+            ]
+            return StackingClassifier(
+                estimators=estimators,
+                final_estimator=_make(spec.get("meta", "LogisticRegression")),
+                stack_method="predict_proba", cv=5, n_jobs=1, passthrough=False)
+        raise ValueError(f"Unknown ensemble method: {spec['method']}")
     return _make(name)
 
 
@@ -121,8 +179,11 @@ def build_pipeline(model_name: str,
         ("imputer", SimpleImputer(strategy="median")),
         ("scaler", StandardScaler()),
     ]
-    samp = _make_sampler(sampler, categorical_features, random_state)
-    if samp is not None:
-        steps.append(("sampler", samp))
+    # Stacking ensembles carry their oversampler inside each base estimator
+    # (see build_estimator), so no global sampler is added for them.
+    if not _is_stacking(model_name):
+        samp = _make_sampler(sampler, categorical_features, random_state)
+        if samp is not None:
+            steps.append(("sampler", samp))
     steps.append(("clf", build_estimator(model_name, random_state)))
     return ImbPipeline(steps)

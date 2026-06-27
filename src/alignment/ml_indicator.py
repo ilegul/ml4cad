@@ -148,9 +148,10 @@ def km_stratify(strict_df, risk_df, horizon_years, threshold,
 
 def compare_indicator(strict_df, horizon_years, base_set="CV17",
                       thy_set="CV17_THY26", target_col=None,
-                      scheme="A", seed=RANDOM_STATE):
+                      scheme="A", model_name="ENSEMBLE", seed=RANDOM_STATE):
     """
-    Full ML-indicator comparison CV17 vs a thyroid set for one horizon/scheme.
+    Full ML-indicator comparison CV17 vs a thyroid set for one horizon/scheme,
+    using ``model_name`` to produce the predicted risk.
 
     Returns a dict with the Cox C-index for each set, the Δ C-index, and the KM
     stratification (0.6 and median thresholds) for both sets.
@@ -159,10 +160,10 @@ def compare_indicator(strict_df, horizon_years, base_set="CV17",
     if target_col is None:
         target_col = f"y{h}"
 
-    results = {"horizon": h, "scheme": scheme}
+    results = {"horizon": h, "scheme": scheme, "model": model_name}
     for tag, fs in [("base", base_set), ("thy", thy_set)]:
         risk = predicted_risk(strict_df, fs, target_col, scheme=scheme,
-                              seed=seed)
+                              model_name=model_name, seed=seed)
         cidx = cox_cindex(strict_df, risk, horizon_years)
         med = float(risk["p_survive"].median())
         km_06 = km_stratify(strict_df, risk, horizon_years, 0.6, "fixed_0.6")
