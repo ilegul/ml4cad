@@ -14,9 +14,8 @@ Method (per feature / per group):
 
 Two flavours, both run on the SAME fitted model:
   - single-variable: one feature at a time.
-  - multi-variable:  thyroid markers grouped by hierarchical clustering of their
-    correlation (so a group of correlated markers does not mask each other's
-    importance). Cardiac features remain single-feature groups.
+  - multi-variable: all predictors are grouped by hierarchical clustering,
+    matching the paper's seven-cluster ablation workflow.
 
 A 60/20/20 split (scheme B) provides train / val(threshold) / test, so the
 knock-out is evaluated on held-out rows and never leaks.
@@ -45,24 +44,24 @@ def _thyroid_columns(cols) -> list:
     return [c for c in cols if c not in CARDIO_17]
 
 
-def _cluster_thyroid(X_train_thy: pd.DataFrame, dist_threshold=0.5) -> dict:
+def _cluster_features(X_train: pd.DataFrame, n_clusters=7) -> dict:
     """
-    Hierarchical clustering of thyroid markers by |Spearman correlation|.
+    Hierarchical clustering of all predictors by |Spearman correlation|.
 
-    Distance = 1 - |rho|; average linkage; flat clusters at ``dist_threshold``
-    (so markers with |rho| > 1 - dist_threshold land together).
+    Distance = 1 - |rho|; average linkage; the dendrogram is cut into at most
+    ``n_clusters`` groups, as in the paper's seven-cluster analysis.
     Returns {cluster_label: [columns]}.
     """
-    cols = list(X_train_thy.columns)
+    cols = list(X_train.columns)
     if len(cols) <= 1:
         return {1: cols}
-    corr = X_train_thy.corr(method="spearman").abs().fillna(0.0).values
+    corr = X_train.corr(method="spearman").abs().fillna(0.0).values
     np.fill_diagonal(corr, 1.0)
     dist = 1.0 - corr
     dist = (dist + dist.T) / 2.0          # enforce symmetry
     np.fill_diagonal(dist, 0.0)
     Z = linkage(squareform(dist, checks=False), method="average")
-    labels = fcluster(Z, t=dist_threshold, criterion="distance")
+    labels = fcluster(Z, t=min(n_clusters, len(cols)), criterion="maxclust")
     groups = {}
     for col, lab in zip(cols, labels):
         groups.setdefault(int(lab), []).append(col)
@@ -99,7 +98,7 @@ def _knockout_f1(pipe, X_te, y_te, thr, cols_to_knock, train_means):
 
 def run_ablation(X, y, feature_set_name, model_name="ENSEMBLE",
                  sampler="RandomOverSampler", seed=RANDOM_STATE,
-                 dist_threshold=0.5) -> pd.DataFrame:
+                 n_clusters=7) -> pd.DataFrame:
     """
     Single- and multi-variable knock-out ablation for one feature set.
 
@@ -123,15 +122,11 @@ def run_ablation(X, y, feature_set_name, model_name="ENSEMBLE",
             "is_thyroid": col in thy_cols,
         })
 
-    # ── multi-variable (thyroid markers clustered; cardiac as singletons) ──
-    groups = {}
-    if thy_cols:
-        groups.update({f"THY_cluster_{lab}": members
-                       for lab, members in
-                       _cluster_thyroid(X_tr[thy_cols], dist_threshold).items()})
-    for col in CARDIO_17:
-        if col in X.columns:
-            groups[col] = [col]
+    # ── multi-variable: cluster ALL predictors, matching the paper ──
+    groups = {
+        f"cluster_{lab}": members
+        for lab, members in _cluster_features(X_tr, n_clusters).items()
+    }
 
     for gname, members in groups.items():
         ko = _knockout_f1(pipe, X_te, y_te, thr, members, train_means)

@@ -5,7 +5,7 @@ Fine-tuning of leader models.
 Pipeline.md section 6 -- fine-tuning.
 
 RandomizedSearchCV(scoring='f1_macro', cv=4, n_iter~15) + threshold + SVMSMOTE
-on at least {CV17, CV17_THY26, CV17_CONT}.
+on at least {CV17, CV17_THY_CONT_STATES, CV17_THY_CONT}.
 Also produces the AUC-by-feature-set comparison plot.
 """
 

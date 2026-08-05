@@ -1,0 +1,59 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_AdaBoost_5d75a53c7edf1ecaa4d5.joblib",
+  "base_signature": "744182fea615977ee2c7f789ce0e32dee1b4acbde6c2358ca282d9f77f66d577",
+  "chosen_sampling": {
+    "k_neighbors": 4,
+    "over_sampler": "SMOTE",
+    "under_ratio": 0.25
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17",
+  "horizon": 7,
+  "model": "AdaBoost",
+  "selection_validation_f1": 0.7194660998974525,
+  "signature": "5d75a53c7edf1ecaa4d5bb82c4d3b5924e2cd6d451affed5aa734e5d85774efd",
+  "stage": "sampling",
+  "test_metrics": {
+    "brier": 0.21005508299626485,
+    "f1_macro": 0.7279758261933904,
+    "precision_0": 0.9114114114114115,
+    "precision_1": 0.5141509433962265,
+    "recall_0": 0.8549295774647887,
+    "recall_1": 0.6488095238095238,
+    "roc_auc": 0.8185320254862508
+  },
+  "validation_metrics": {
+    "brier": 0.20806476868318344,
+    "f1_macro": 0.726933443914576,
+    "precision_0": 0.9088191330343797,
+    "precision_1": 0.5167464114832536,
+    "recall_0": 0.8575458392101551,
+    "recall_1": 0.6390532544378699,
+    "roc_auc": 0.841872459752464
+  }
+}

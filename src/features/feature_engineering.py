@@ -17,7 +17,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 
 from configs.config import (
     CARDIO_17, THYROID_RAW9, FEATURE_SETS,
-    CONTINUOUS_FEATURES, THYROID_ORD_MAP,
+    CONTINUOUS_FEATURES, THYROID_ORD_MAP, canonical_feature_set_name,
 )
 
 
@@ -59,10 +59,11 @@ def add_derived_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def get_feature_set(name: str) -> list:
     """Return the feature list for a given set name."""
-    if name not in FEATURE_SETS:
+    canonical = canonical_feature_set_name(name)
+    if canonical not in FEATURE_SETS:
         raise ValueError(f"Unknown feature set: {name}. "
                          f"Available: {list(FEATURE_SETS.keys())}")
-    return FEATURE_SETS[name]
+    return FEATURE_SETS[canonical]
 
 
 def extract_Xy(df: pd.DataFrame, feature_set_name: str,

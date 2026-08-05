@@ -95,6 +95,53 @@ def cox_cindex(strict_df, risk_df, horizon_years) -> dict:
     }
 
 
+def paired_cindex_delta(strict_df, base_risk, thy_risk, horizon_years,
+                        n_boot=1000, seed=RANDOM_STATE) -> dict:
+    """Paired bootstrap CI for Δ Harrell C-index (thyroid - baseline).
+
+    Both risk scores are evaluated on the same patients. ``p_event`` is
+    negated because ``lifelines.utils.concordance_index`` expects larger scores
+    to indicate longer survival.
+    """
+    from lifelines.utils import concordance_index
+
+    surv = _survival_frame(strict_df, horizon_years)
+    data = (surv[["surv_time", "surv_event"]]
+            .join(base_risk[["p_event"]].rename(
+                columns={"p_event": "p_event_base"}), how="inner")
+            .join(thy_risk[["p_event"]].rename(
+                columns={"p_event": "p_event_thy"}), how="inner")
+            .dropna())
+
+    def _cindex(frame, col):
+        return concordance_index(
+            frame["surv_time"], -frame[col], frame["surv_event"])
+
+    base = _cindex(data, "p_event_base")
+    thy = _cindex(data, "p_event_thy")
+    rng = np.random.default_rng(seed)
+    deltas = []
+    n = len(data)
+    for _ in range(n_boot):
+        sample = data.iloc[rng.integers(0, n, n)]
+        if sample["surv_event"].nunique() < 2:
+            continue
+        try:
+            deltas.append(
+                _cindex(sample, "p_event_thy")
+                - _cindex(sample, "p_event_base"))
+        except ZeroDivisionError:
+            continue
+    lo, hi = np.percentile(deltas, [2.5, 97.5])
+    return {
+        "delta_c_index": float(thy - base),
+        "delta_c_index_ci_lo": float(lo),
+        "delta_c_index_ci_hi": float(hi),
+        "n": int(n),
+        "events": int(data["surv_event"].sum()),
+    }
+
+
 def km_stratify(strict_df, risk_df, horizon_years, threshold,
                 threshold_name) -> dict:
     """
@@ -147,8 +194,9 @@ def km_stratify(strict_df, risk_df, horizon_years, threshold,
 
 
 def compare_indicator(strict_df, horizon_years, base_set="CV17",
-                      thy_set="CV17_THY26", target_col=None,
-                      scheme="A", model_name="ENSEMBLE", seed=RANDOM_STATE):
+                      thy_set="CV17_THY_CONT_STATES", target_col=None,
+                      scheme="A", model_name="ENSEMBLE", seed=RANDOM_STATE,
+                      n_boot=1000):
     """
     Full ML-indicator comparison CV17 vs a thyroid set for one horizon/scheme,
     using ``model_name`` to produce the predicted risk.
@@ -161,9 +209,11 @@ def compare_indicator(strict_df, horizon_years, base_set="CV17",
         target_col = f"y{h}"
 
     results = {"horizon": h, "scheme": scheme, "model": model_name}
+    risks = {}
     for tag, fs in [("base", base_set), ("thy", thy_set)]:
         risk = predicted_risk(strict_df, fs, target_col, scheme=scheme,
                               model_name=model_name, seed=seed)
+        risks[tag] = risk
         cidx = cox_cindex(strict_df, risk, horizon_years)
         med = float(risk["p_survive"].median())
         km_06 = km_stratify(strict_df, risk, horizon_years, 0.6, "fixed_0.6")
@@ -174,6 +224,10 @@ def compare_indicator(strict_df, horizon_years, base_set="CV17",
             "km_0.6": km_06,
             "km_median": km_md,
         }
-    results["delta_c_index"] = (results["thy"]["cox"]["c_index"]
-                                - results["base"]["cox"]["c_index"])
+    delta = paired_cindex_delta(
+        strict_df, risks["base"], risks["thy"], horizon_years,
+        n_boot=n_boot, seed=seed)
+    results["delta_c_index"] = delta["delta_c_index"]
+    results["delta_c_index_ci_lo"] = delta["delta_c_index_ci_lo"]
+    results["delta_c_index_ci_hi"] = delta["delta_c_index_ci_hi"]
     return results

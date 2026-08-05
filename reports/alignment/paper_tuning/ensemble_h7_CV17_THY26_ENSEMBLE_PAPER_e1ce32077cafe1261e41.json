@@ -1,0 +1,68 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_THY26_ENSEMBLE_PAPER_e1ce32077cafe1261e41.joblib",
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17_THY26",
+  "horizon": 7,
+  "member_joblib": [
+    "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_LogisticRegression_bf8496a7a2e4a7390981.joblib",
+    "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_RandomForest_44ed56c8486931eda54c.joblib",
+    "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_AdaBoost_952b9fca92ba13c66f5a.joblib"
+  ],
+  "member_models": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "member_signatures": [
+    "bf8496a7a2e4a73909815d6fafb248d919a578ae7fda93dd296267613a0ba407",
+    "44ed56c8486931eda54c908c3234282860db761b04707b89e087216f9d725767",
+    "952b9fca92ba13c66f5a5d58a630f78ad6a058d35c5b3013ff2b873f1b9019eb"
+  ],
+  "model": "ENSEMBLE_PAPER",
+  "predictions_csv": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_THY26_ENSEMBLE_PAPER_e1ce32077cafe1261e41_predictions.csv",
+  "signature": "e1ce32077cafe1261e41d2d96d1a46c2d082739b062b659f37a0bd4373124c95",
+  "stage": "ensemble",
+  "test_metrics": {
+    "brier": 0.1384509902042597,
+    "f1_macro": 0.7510133951657297,
+    "precision_0": 0.9291217257318952,
+    "precision_1": 0.5327510917030568,
+    "recall_0": 0.8492957746478873,
+    "recall_1": 0.7261904761904762,
+    "roc_auc": 0.8431673373574781
+  },
+  "validation_metrics": {
+    "brier": 0.1409370719473354,
+    "f1_macro": 0.7199298607218154,
+    "precision_0": 0.9090909090909091,
+    "precision_1": 0.5,
+    "recall_0": 0.846262341325811,
+    "recall_1": 0.6449704142011834,
+    "roc_auc": 0.8333096869497
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_LogisticRegression_48dc3ad3da0fb28a88d1.joblib",
+  "base_signature": "6283ad9036facc91bd2c187f9cb031c032aa7b485ad86048fc70973b46903727",
+  "chosen_sampling": {
+    "k_neighbors": 3,
+    "over_sampler": "SVMSMOTE",
+    "under_ratio": null
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17",
+  "horizon": 10,
+  "model": "LogisticRegression",
+  "selection_validation_f1": 0.7316926523347587,
+  "signature": "48dc3ad3da0fb28a88d103b1d2e9d8f1f2e13fb45f6efa36965a552373a180a5",
+  "stage": "sampling",
+  "test_metrics": {
+    "brier": 0.1656956717389395,
+    "f1_macro": 0.7479593988132887,
+    "precision_0": 0.8612099644128114,
+    "precision_1": 0.6322314049586777,
+    "recall_0": 0.7311178247734139,
+    "recall_1": 0.796875,
+    "roc_auc": 0.8520581570996979
+  },
+  "validation_metrics": {
+    "brier": 0.17643178580394137,
+    "f1_macro": 0.726262315270936,
+    "precision_0": 0.8129032258064516,
+    "precision_1": 0.6338028169014085,
+    "recall_0": 0.7636363636363637,
+    "recall_1": 0.6994818652849741,
+    "roc_auc": 0.8083686607002669
+  }
+}

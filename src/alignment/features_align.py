@@ -11,8 +11,9 @@ them. The only alignment-specific adjustments are:
 1.  **5-dummy thyroid-state encoding.**  The paper-alignment uses the eutiroideo
     (Euthyroid) state as the *reference* category, so the ``Euthyroid`` dummy is
     dropped from any feature set that carries the full block of mutually
-    exclusive thyroid-state dummies (CV17_CAT, CV17_THY26, CV17_RATIO). This
-    mirrors what ``survival_cohort._cox_covariates`` already does for the Cox
+    exclusive thyroid-state indicators (``CV17_THY_STATES``,
+    ``CV17_THY_CONT_STATES`` and ``CV17_THY_CONT_STATES_RATIO``). This mirrors
+    what ``survival_cohort._cox_covariates`` already does for the Cox
     models, and produces 5 dummies (SCH, SCT, Low_T3, Hypothyroid, Hyperthyroid)
     with Euthyroid as the implicit reference.
 
@@ -35,7 +36,11 @@ _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from configs.config import FEATURE_SETS, CONTINUOUS_FEATURES
+from configs.config import (
+    FEATURE_SETS,
+    CONTINUOUS_FEATURES,
+    canonical_feature_set_name,
+)
 
 # The full block of mutually exclusive thyroid-state dummies.
 _THYROID_STATE_DUMMIES = {
@@ -52,10 +57,11 @@ def get_align_feature_set(name: str) -> list:
     carries the full thyroid-state dummy block, the Euthyroid reference dummy is
     dropped (5-dummy encoding, eutiroideo = reference).
     """
-    if name not in FEATURE_SETS:
+    canonical = canonical_feature_set_name(name)
+    if canonical not in FEATURE_SETS:
         raise ValueError(
             f"Unknown feature set: {name}. Available: {list(FEATURE_SETS)}")
-    feats = list(FEATURE_SETS[name])
+    feats = list(FEATURE_SETS[canonical])
     has_full_block = _THYROID_STATE_DUMMIES.issubset(set(feats))
     if has_full_block and _REFERENCE_STATE in feats:
         feats = [f for f in feats if f != _REFERENCE_STATE]

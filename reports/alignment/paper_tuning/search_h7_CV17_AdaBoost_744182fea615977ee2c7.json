@@ -1,0 +1,79 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_AdaBoost_744182fea615977ee2c7.joblib",
+  "best_cv_score": 0.6993058212005838,
+  "best_params": {
+    "clf__learning_rate": 1.0571916570595887,
+    "clf__n_estimators": 79
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17",
+  "features": [
+    "Gender",
+    "Age",
+    "Angina",
+    "Previous_CABG",
+    "Previous_PCI",
+    "Previous_MI",
+    "Acute_MI",
+    "Angiography",
+    "Vessels",
+    "Ischemia",
+    "PostIsch_DCM",
+    "Smoke",
+    "Diabetes",
+    "Hypertension",
+    "Dyslipidemia",
+    "AFib",
+    "fe"
+  ],
+  "horizon": 7,
+  "model": "AdaBoost",
+  "n_test": 878,
+  "n_train": 2634,
+  "n_validation": 878,
+  "signature": "744182fea615977ee2c7f789ce0e32dee1b4acbde6c2358ca282d9f77f66d577",
+  "stage": "search",
+  "test_metrics": {
+    "brier": 0.17850657804328046,
+    "f1_macro": 0.6847188018102222,
+    "precision_0": 0.8633461047254151,
+    "precision_1": 0.6421052631578947,
+    "recall_0": 0.952112676056338,
+    "recall_1": 0.3630952380952381,
+    "roc_auc": 0.830617035546613
+  },
+  "validation_metrics": {
+    "brier": 0.17672914920846364,
+    "f1_macro": 0.7300170248723135,
+    "precision_0": 0.8766066838046273,
+    "precision_1": 0.73,
+    "recall_0": 0.9619181946403385,
+    "recall_1": 0.4319526627218935,
+    "roc_auc": 0.8501222657130219
+  }
+}

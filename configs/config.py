@@ -108,20 +108,67 @@ THYROID_RAW9 = [
     'Low_T3', 'Hypothyroid', 'Hyperthyroid',
 ]
 
-# Definition of the 8 feature sets
+# Canonical feature-set grammar:
+#   THY_CONT     = continuous TSH, fT3 and fT4 values
+#   THY_STATES   = binary thyroid-state indicators
+#   ABNORMAL_BIN = one any-abnormality flag
+#   STATE_ORD    = one hypo-to-hyper ordinal-axis variable
+#   RATIO        = the continuous fT3/fT4 ratio
 FEATURE_SETS = {
-    'CV17':            CARDIO_17,
-    'CV17_THY26':      CARDIO_17 + THYROID_RAW9,
-    'CV17_BIN':        CARDIO_17 + ['Thyroid_abnormal'],
-    'CV17_ORD':        CARDIO_17 + ['thyroid_ord'],
-    'CV17_CONT':       CARDIO_17 + ['TSH', 'fT3', 'fT4'],
-    'CV17_CAT':        CARDIO_17 + ['Euthyroid', 'SCH', 'SCT',
-                                     'Low_T3', 'Hypothyroid', 'Hyperthyroid'],
-    'CV17_RATIO':      CARDIO_17 + THYROID_RAW9 + ['fT3_fT4_ratio'],
-    'CV17_RATIO_ONLY': CARDIO_17 + ['TSH', 'fT3', 'fT4', 'fT3_fT4_ratio'],
+    'CV17': CARDIO_17,
+    'CV17_THY_CONT_STATES': CARDIO_17 + THYROID_RAW9,
+    'CV17_THY_ABNORMAL_BIN': CARDIO_17 + ['Thyroid_abnormal'],
+    'CV17_THY_STATE_ORD': CARDIO_17 + ['thyroid_ord'],
+    'CV17_THY_CONT': CARDIO_17 + ['TSH', 'fT3', 'fT4'],
+    'CV17_THY_STATES': CARDIO_17 + [
+        'Euthyroid', 'SCH', 'SCT', 'Low_T3', 'Hypothyroid', 'Hyperthyroid',
+    ],
+    'CV17_THY_CONT_STATES_RATIO': (
+        CARDIO_17 + THYROID_RAW9 + ['fT3_fT4_ratio']
+    ),
+    'CV17_THY_CONT_RATIO': (
+        CARDIO_17 + ['TSH', 'fT3', 'fT4', 'fT3_fT4_ratio']
+    ),
 }
 
 FEATURE_SET_ORDER = list(FEATURE_SETS.keys())
+
+# Compatibility is deliberately kept outside FEATURE_SETS: iterating the
+# canonical dictionary must still yield exactly eight non-duplicated sets.
+LEGACY_FEATURE_SET_ALIASES = {
+    'CV17_THY26': 'CV17_THY_CONT_STATES',
+    'CV17_BIN': 'CV17_THY_ABNORMAL_BIN',
+    'CV17_ORD': 'CV17_THY_STATE_ORD',
+    'CV17_CONT': 'CV17_THY_CONT',
+    'CV17_CAT': 'CV17_THY_STATES',
+    'CV17_RATIO': 'CV17_THY_CONT_STATES_RATIO',
+    'CV17_RATIO_ONLY': 'CV17_THY_CONT_RATIO',
+    'CV17_CONT_RATIO': 'CV17_THY_CONT_RATIO',
+}
+
+# These stable IDs preserve the expensive paper-tuning cache. They are an
+# internal persistence detail and are never exposed as current feature names.
+FEATURE_SET_CACHE_IDS = {
+    'CV17': 'CV17',
+    'CV17_THY_CONT_STATES': 'CV17_THY26',
+    'CV17_THY_ABNORMAL_BIN': 'CV17_BIN',
+    'CV17_THY_STATE_ORD': 'CV17_ORD',
+    'CV17_THY_CONT': 'CV17_CONT',
+    'CV17_THY_STATES': 'CV17_CAT',
+    'CV17_THY_CONT_STATES_RATIO': 'CV17_RATIO',
+    'CV17_THY_CONT_RATIO': 'CV17_CONT_RATIO',
+}
+
+
+def canonical_feature_set_name(name):
+    """Return the canonical label for a current or historical set name."""
+    return LEGACY_FEATURE_SET_ALIASES.get(str(name), str(name))
+
+
+def feature_set_cache_id(name):
+    """Stable persistence ID used only by the paper-tuning cache."""
+    canonical = canonical_feature_set_name(name)
+    return FEATURE_SET_CACHE_IDS.get(canonical, canonical)
 
 # Continuous features to standardise
 CONTINUOUS_FEATURES = ['Age', 'Vessels', 'fe', 'TSH', 'fT3', 'fT4',

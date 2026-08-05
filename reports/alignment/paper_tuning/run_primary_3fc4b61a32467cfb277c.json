@@ -1,0 +1,283 @@
+{
+  "artifacts": {
+    "ensemble|h10|CV17_THY26|ENSEMBLE_PAPER": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_THY26_ENSEMBLE_PAPER_3f8deb569ca22efb4bba.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_THY26_ENSEMBLE_PAPER_3f8deb569ca22efb4bba.json",
+      "predictions_csv": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_THY26_ENSEMBLE_PAPER_3f8deb569ca22efb4bba_predictions.csv",
+      "signature": "3f8deb569ca22efb4bba3d8c2bcd7637aaa3a4a6997177e19119049a2cd22469"
+    },
+    "ensemble|h10|CV17|ENSEMBLE_PAPER": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_ENSEMBLE_PAPER_9640ce12a862e1e703b3.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_ENSEMBLE_PAPER_9640ce12a862e1e703b3.json",
+      "predictions_csv": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h10_CV17_ENSEMBLE_PAPER_9640ce12a862e1e703b3_predictions.csv",
+      "signature": "9640ce12a862e1e703b3b65607817fd63797398ef8cea89a1ec543a7e7df0499"
+    },
+    "ensemble|h7|CV17_THY26|ENSEMBLE_PAPER": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_THY26_ENSEMBLE_PAPER_e1ce32077cafe1261e41.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_THY26_ENSEMBLE_PAPER_e1ce32077cafe1261e41.json",
+      "predictions_csv": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_THY26_ENSEMBLE_PAPER_e1ce32077cafe1261e41_predictions.csv",
+      "signature": "e1ce32077cafe1261e41d2d96d1a46c2d082739b062b659f37a0bd4373124c95"
+    },
+    "ensemble|h7|CV17|ENSEMBLE_PAPER": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_ENSEMBLE_PAPER_26789f1405052da3832d.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_ENSEMBLE_PAPER_26789f1405052da3832d.json",
+      "predictions_csv": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\ensemble_h7_CV17_ENSEMBLE_PAPER_26789f1405052da3832d_predictions.csv",
+      "signature": "26789f1405052da3832dcc652528101af6179cef3c55923db729b2f0ae886997"
+    },
+    "sampling|h10|CV17_THY26|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_AdaBoost_8a5f0ce0813a36fcccd9.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_AdaBoost_8a5f0ce0813a36fcccd9.json",
+      "signature": "8a5f0ce0813a36fcccd94d3ad537f5f9145bcc78692cbc438a021eceacebc9c7"
+    },
+    "sampling|h10|CV17_THY26|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_LogisticRegression_347146effcab4b1f24ca.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_LogisticRegression_347146effcab4b1f24ca.json",
+      "signature": "347146effcab4b1f24caf1af36dad7ca3127b6ea6c89b70165cdff4a4326ca40"
+    },
+    "sampling|h10|CV17_THY26|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_RandomForest_57544d20794fa0cd2879.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_THY26_RandomForest_57544d20794fa0cd2879.json",
+      "signature": "57544d20794fa0cd2879ac247abdfee3c294fbf5eff69b5eb057ce7cb5fa6f12"
+    },
+    "sampling|h10|CV17|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_AdaBoost_0405b35a76b1aded8f32.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_AdaBoost_0405b35a76b1aded8f32.json",
+      "signature": "0405b35a76b1aded8f326bb53e831a55f5a59e6645f7eaabba9230def96a9096"
+    },
+    "sampling|h10|CV17|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_LogisticRegression_48dc3ad3da0fb28a88d1.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_LogisticRegression_48dc3ad3da0fb28a88d1.json",
+      "signature": "48dc3ad3da0fb28a88d103b1d2e9d8f1f2e13fb45f6efa36965a552373a180a5"
+    },
+    "sampling|h10|CV17|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_RandomForest_acc0739c56470d122ed1.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h10_CV17_RandomForest_acc0739c56470d122ed1.json",
+      "signature": "acc0739c56470d122ed176c096fcc72cf5404903aecb1b0856e5aeef1af6368e"
+    },
+    "sampling|h7|CV17_THY26|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_AdaBoost_952b9fca92ba13c66f5a.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_AdaBoost_952b9fca92ba13c66f5a.json",
+      "signature": "952b9fca92ba13c66f5a5d58a630f78ad6a058d35c5b3013ff2b873f1b9019eb"
+    },
+    "sampling|h7|CV17_THY26|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_LogisticRegression_bf8496a7a2e4a7390981.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_LogisticRegression_bf8496a7a2e4a7390981.json",
+      "signature": "bf8496a7a2e4a73909815d6fafb248d919a578ae7fda93dd296267613a0ba407"
+    },
+    "sampling|h7|CV17_THY26|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_RandomForest_44ed56c8486931eda54c.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_RandomForest_44ed56c8486931eda54c.json",
+      "signature": "44ed56c8486931eda54c908c3234282860db761b04707b89e087216f9d725767"
+    },
+    "sampling|h7|CV17|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_AdaBoost_5d75a53c7edf1ecaa4d5.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_AdaBoost_5d75a53c7edf1ecaa4d5.json",
+      "signature": "5d75a53c7edf1ecaa4d5bb82c4d3b5924e2cd6d451affed5aa734e5d85774efd"
+    },
+    "sampling|h7|CV17|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_LogisticRegression_f8aceb7f05c9ab088574.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_LogisticRegression_f8aceb7f05c9ab088574.json",
+      "signature": "f8aceb7f05c9ab088574a5c50f623906bd56da4a53ea2af84b4080179a172d8c"
+    },
+    "sampling|h7|CV17|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_RandomForest_aa7f57f276cecdfb6849.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_RandomForest_aa7f57f276cecdfb6849.json",
+      "signature": "aa7f57f276cecdfb6849e91c222d4304623853b898631478b95fc60e2926a466"
+    },
+    "search|h10|CV17_THY26|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_AdaBoost_c1d6b207709beb37128b.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_AdaBoost_c1d6b207709beb37128b.json",
+      "signature": "c1d6b207709beb37128bd4bd30864c2b099e06208da7cd8d63fc604a054aee9a"
+    },
+    "search|h10|CV17_THY26|GradientBoosting": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_GradientBoosting_f85f0f3a8760fbf7a3eb.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_GradientBoosting_f85f0f3a8760fbf7a3eb.json",
+      "signature": "f85f0f3a8760fbf7a3ebda502942ceb01c8190845ebc3b0840c564a60b06091a"
+    },
+    "search|h10|CV17_THY26|KNeighbors": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_KNeighbors_1c76e4bac79cb134214f.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_KNeighbors_1c76e4bac79cb134214f.json",
+      "signature": "1c76e4bac79cb134214f283949ffa0117c6bca6b281fc200140f6b6b98efcb61"
+    },
+    "search|h10|CV17_THY26|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_LogisticRegression_d2623b54b08c7d039654.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_LogisticRegression_d2623b54b08c7d039654.json",
+      "signature": "d2623b54b08c7d039654b4474d7c28908d9d420412911e4daceec9d2ac52cabd"
+    },
+    "search|h10|CV17_THY26|MLP": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_MLP_b4b1a7eb9999cb62ccf0.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_MLP_b4b1a7eb9999cb62ccf0.json",
+      "signature": "b4b1a7eb9999cb62ccf0eb8875df1b8f0e3cfc55a9d168886869a158f0596c7a"
+    },
+    "search|h10|CV17_THY26|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_RandomForest_0dde5a2a7b659efe58ab.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_RandomForest_0dde5a2a7b659efe58ab.json",
+      "signature": "0dde5a2a7b659efe58ab27fb168f37e62b2528b74a999e21eba87b4abdfe0f8a"
+    },
+    "search|h10|CV17_THY26|SVC": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_SVC_3417e35b9b5b58c34cbc.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_SVC_3417e35b9b5b58c34cbc.json",
+      "signature": "3417e35b9b5b58c34cbc7b2a7b829d5e2de05e7a35c32e95168b7a3899070fee"
+    },
+    "search|h10|CV17_THY26|XGBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_XGBoost_039d5d96b1d3d082e095.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_THY26_XGBoost_039d5d96b1d3d082e095.json",
+      "signature": "039d5d96b1d3d082e0951acf6db050f1ba22499855f515092280118e68bdf035"
+    },
+    "search|h10|CV17|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_AdaBoost_cec2b12f13842f18c0a9.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_AdaBoost_cec2b12f13842f18c0a9.json",
+      "signature": "cec2b12f13842f18c0a95ab38f9983ac3cfe9302637125c85aaebabd2c9e13e1"
+    },
+    "search|h10|CV17|GradientBoosting": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_GradientBoosting_09e83986796eda443033.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_GradientBoosting_09e83986796eda443033.json",
+      "signature": "09e83986796eda44303338918a3a5a689a3a1abf83507e2ddf7bce572d0a32e7"
+    },
+    "search|h10|CV17|KNeighbors": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_KNeighbors_d48081bed78ea1ff3e38.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_KNeighbors_d48081bed78ea1ff3e38.json",
+      "signature": "d48081bed78ea1ff3e38e4d47bd6059a304ce6b4735cdeb8004d386a973977e6"
+    },
+    "search|h10|CV17|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_LogisticRegression_6283ad9036facc91bd2c.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_LogisticRegression_6283ad9036facc91bd2c.json",
+      "signature": "6283ad9036facc91bd2c187f9cb031c032aa7b485ad86048fc70973b46903727"
+    },
+    "search|h10|CV17|MLP": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_MLP_56969739f29ffa7014c4.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_MLP_56969739f29ffa7014c4.json",
+      "signature": "56969739f29ffa7014c48156e2d31dc144e2488fb5eab679abf31695062301f6"
+    },
+    "search|h10|CV17|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_RandomForest_1f6a36392bb600b18034.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_RandomForest_1f6a36392bb600b18034.json",
+      "signature": "1f6a36392bb600b1803462133f16466fe641e5c9fda947d023a92d221264771d"
+    },
+    "search|h10|CV17|SVC": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_SVC_c09b98e9a863e5312295.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_SVC_c09b98e9a863e5312295.json",
+      "signature": "c09b98e9a863e5312295b7b38a9dd1e7b8074a3dcba26dce1b20d2d3d6af768f"
+    },
+    "search|h10|CV17|XGBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_XGBoost_b0fc7492549c28e8b2bc.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h10_CV17_XGBoost_b0fc7492549c28e8b2bc.json",
+      "signature": "b0fc7492549c28e8b2bccce31159c1b20c1393f87564f7ad32d912a2d9041bcb"
+    },
+    "search|h7|CV17_THY26|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_AdaBoost_c1880b0cd99383ee6d21.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_AdaBoost_c1880b0cd99383ee6d21.json",
+      "signature": "c1880b0cd99383ee6d2179bd3ad3bb23cef2e1778d680a0480ce3d3b499cf209"
+    },
+    "search|h7|CV17_THY26|GradientBoosting": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_GradientBoosting_e70eafbfc3e30ab1007f.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_GradientBoosting_e70eafbfc3e30ab1007f.json",
+      "signature": "e70eafbfc3e30ab1007f79d0d902ec4aa309e8289287e3d7c515c171ad9808ad"
+    },
+    "search|h7|CV17_THY26|KNeighbors": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_KNeighbors_7c98632629829a9cadd6.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_KNeighbors_7c98632629829a9cadd6.json",
+      "signature": "7c98632629829a9cadd6aee38a276dbf8205d823ec0c2354ba8215b7a7344b69"
+    },
+    "search|h7|CV17_THY26|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_LogisticRegression_63007491a1d13cdc8d87.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_LogisticRegression_63007491a1d13cdc8d87.json",
+      "signature": "63007491a1d13cdc8d874046410163c4dae5fd79274140a21932c1c98e0bdfeb"
+    },
+    "search|h7|CV17_THY26|MLP": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_MLP_7dd01e6c5b1eb8a4fb6d.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_MLP_7dd01e6c5b1eb8a4fb6d.json",
+      "signature": "7dd01e6c5b1eb8a4fb6def8ad0b0f608f7fa2ff58fcb4521bfa280dec86e994c"
+    },
+    "search|h7|CV17_THY26|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_RandomForest_c7914a15bf7060f33dff.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_RandomForest_c7914a15bf7060f33dff.json",
+      "signature": "c7914a15bf7060f33dff07ba850f7ef7c6d1d43b2489d548a158e54150fca2df"
+    },
+    "search|h7|CV17_THY26|SVC": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_SVC_23979e07bae4b16fdea7.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_SVC_23979e07bae4b16fdea7.json",
+      "signature": "23979e07bae4b16fdea7015268379da7980ee99c341b150d48c5d5d30380b70b"
+    },
+    "search|h7|CV17_THY26|XGBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_XGBoost_b42d17263ee04dea9450.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_THY26_XGBoost_b42d17263ee04dea9450.json",
+      "signature": "b42d17263ee04dea9450f4e734a7ec6405004b5b01c7b504f0d749f2c51b34a4"
+    },
+    "search|h7|CV17|AdaBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_AdaBoost_744182fea615977ee2c7.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_AdaBoost_744182fea615977ee2c7.json",
+      "signature": "744182fea615977ee2c7f789ce0e32dee1b4acbde6c2358ca282d9f77f66d577"
+    },
+    "search|h7|CV17|GradientBoosting": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_GradientBoosting_b41077900a1abc92230b.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_GradientBoosting_b41077900a1abc92230b.json",
+      "signature": "b41077900a1abc92230b6535bb8bbc3a56b6a408055c210d3520f298ce2466e0"
+    },
+    "search|h7|CV17|KNeighbors": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_KNeighbors_014cfa341c4d7033f423.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_KNeighbors_014cfa341c4d7033f423.json",
+      "signature": "014cfa341c4d7033f42309709a04687ac5277f2b880b8666b5a44a6f41735972"
+    },
+    "search|h7|CV17|LogisticRegression": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_LogisticRegression_5576e0526385232150cc.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_LogisticRegression_5576e0526385232150cc.json",
+      "signature": "5576e0526385232150ccf74ed977d697a255026ba12a831583681687428733ce"
+    },
+    "search|h7|CV17|MLP": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_MLP_92d034ef811109130385.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_MLP_92d034ef811109130385.json",
+      "signature": "92d034ef811109130385e584b222190db2703a9147a464ca55b7fc1dc695376f"
+    },
+    "search|h7|CV17|RandomForest": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_RandomForest_205fd6543e523efc4bb4.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_RandomForest_205fd6543e523efc4bb4.json",
+      "signature": "205fd6543e523efc4bb448f27dafa9769ffb9e2000182f682765661651f4b201"
+    },
+    "search|h7|CV17|SVC": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_SVC_50ef390f2ba9ca5fc429.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_SVC_50ef390f2ba9ca5fc429.json",
+      "signature": "50ef390f2ba9ca5fc4291974fbba86880a41beb54a817671964c882219c972d4"
+    },
+    "search|h7|CV17|XGBoost": {
+      "joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_XGBoost_636069859b582d39d3ed.joblib",
+      "json": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_XGBoost_636069859b582d39d3ed.json",
+      "signature": "636069859b582d39d3eddb8f9071e6f7d73abb1a5cce8c4d496c99648698e3e7"
+    }
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "profile": "primary",
+  "run_signature": "3fc4b61a32467cfb277ceb1a5a9b670b9620537365426b93af2605e415c69f09",
+  "status": "cache_complete",
+  "tables": {
+    "ensemble_results": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\run_primary_3fc4b61a32467cfb277c_ensemble.csv",
+    "incremental_results": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\run_primary_3fc4b61a32467cfb277c_incremental.csv",
+    "sampling_results": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\run_primary_3fc4b61a32467cfb277c_sampling.csv",
+    "search_results": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\run_primary_3fc4b61a32467cfb277c_search.csv"
+  }
+}

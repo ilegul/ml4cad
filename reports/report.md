@@ -83,17 +83,17 @@ Lo screening single split è completo: 640/640 combinazioni, senza duplicati. La
 
 Strict cohort, migliori risultati per F1-macro:
 
-- `CV17_RATIO_ONLY` + LogisticRegression: F1-macro 0,738 ± 0,022; AUC 0,840 ± 0,016.
+- `CV17_THY_CONT_RATIO` + LogisticRegression: F1-macro 0,738 ± 0,022; AUC 0,840 ± 0,016.
 - `CV17` + LogisticRegression: F1-macro 0,738 ± 0,031; AUC 0,840 ± 0,016.
-- `CV17_CONT` + LogisticRegression: F1-macro 0,733 ± 0,027; AUC 0,840 ± 0,016.
-- `CV17_THY26` + LogisticRegression: F1-macro 0,733 ± 0,022; AUC 0,838 ± 0,016.
+- `CV17_THY_CONT` + LogisticRegression: F1-macro 0,733 ± 0,027; AUC 0,840 ± 0,016.
+- `CV17_THY_CONT_STATES` + LogisticRegression: F1-macro 0,733 ± 0,022; AUC 0,838 ± 0,016.
 
 Competing cohort, migliori risultati per F1-macro:
 
-- `CV17_RATIO` + LogisticRegression: F1-macro circa 0,659.
+- `CV17_THY_CONT_STATES_RATIO` + LogisticRegression: F1-macro circa 0,659.
 - `CV17` + LogisticRegression: F1-macro circa 0,658.
-- `CV17_RATIO_ONLY` + LogisticRegression: F1-macro circa 0,657.
-- `CV17_THY26` + LogisticRegression: F1-macro circa 0,657.
+- `CV17_THY_CONT_RATIO` + LogisticRegression: F1-macro circa 0,657.
+- `CV17_THY_CONT_STATES` + LogisticRegression: F1-macro circa 0,657.
 
 Interpretazione: le feature tiroidee non producono un miglioramento predittivo robusto in classificazione. Le curve dei feature set sono quasi sovrapposte; i piccoli delta stanno entro la variabilità tra fold.
 
@@ -101,7 +101,7 @@ Interpretazione: le feature tiroidee non producono un miglioramento predittivo r
 
 Il miglior tuning strict per F1-macro è:
 
-- `CV17_THY26` + HistGradientBoosting + SVMSMOTE: CV-F1-macro 0,7395.
+- `CV17_THY_CONT_STATES` + HistGradientBoosting + SVMSMOTE: CV-F1-macro 0,7395.
 
 Questo valore è solo marginalmente superiore alla Logistic Regression in robust CV e va interpretato con cautela. RandomForest mostra train AUC molto elevati in tuning, segnale di possibile overfitting; per confronto scientifico il riferimento resta la CV robusta.
 
@@ -153,17 +153,17 @@ Il test di Schoenfeld segnala violazioni dell'assunzione di proportional hazards
 
 Full survival cohort, migliori c-index:
 
-- `CV17_BIN` + CoxNet: 0,7939 ± 0,0123.
-- `CV17_BIN` + CoxPH: 0,7938 ± 0,0122.
-- `CV17_CAT` + CoxNet: 0,7934 ± 0,0123.
-- `CV17_THY26` + CoxPH/CoxNet: circa 0,7929.
+- `CV17_THY_ABNORMAL_BIN` + CoxNet: 0,7939 ± 0,0123.
+- `CV17_THY_ABNORMAL_BIN` + CoxPH: 0,7938 ± 0,0122.
+- `CV17_THY_STATES` + CoxNet: 0,7934 ± 0,0123.
+- `CV17_THY_CONT_STATES` + CoxPH/CoxNet: circa 0,7929.
 
 La precedente anomalia CoxNet=0,50 è risolta.
 
 Survival su coorti di classificazione:
 
-- Strict, migliore: `CV17_BIN` + CoxPH, c-index 0,8123 ± 0,0157.
-- Competing, migliore: `CV17_BIN` + CoxPH, c-index 0,7846 ± 0,0136.
+- Strict, migliore: `CV17_THY_ABNORMAL_BIN` + CoxPH, c-index 0,8123 ± 0,0157.
+- Competing, migliore: `CV17_THY_ABNORMAL_BIN` + CoxPH, c-index 0,7846 ± 0,0136.
 
 Questa variante serve solo per confronto con la classificazione: rimuove pazienti censurati prima dei 7 anni e non va usata come stima epidemiologica assoluta.
 
@@ -179,18 +179,18 @@ SHAP con XGBoost 3.2 non era compatibile con il formato `base_score` serializzat
 
 Percentuale di importanza SHAP attribuita al blocco tiroideo:
 
-- `CV17_BIN`: 6,0%.
-- `CV17_ORD`: 1,6%.
-- `CV17_CAT`: 4,5%.
-- `CV17_CONT`: 13,3%.
-- `CV17_THY26`: 13,9%.
-- `CV17_RATIO`: 15,7%.
-- `CV17_RATIO_ONLY`: 16,5%.
+- `CV17_THY_ABNORMAL_BIN`: 6,0%.
+- `CV17_THY_STATE_ORD`: 1,6%.
+- `CV17_THY_STATES`: 4,5%.
+- `CV17_THY_CONT`: 13,3%.
+- `CV17_THY_CONT_STATES`: 13,9%.
+- `CV17_THY_CONT_STATES_RATIO`: 15,7%.
+- `CV17_THY_CONT_RATIO`: 16,5%.
 
 Controllo SHAP vs permutation importance:
 
-- `CV17_THY26`: correlazione circa 0,903.
-- `CV17_RATIO`: correlazione circa 0,940.
+- `CV17_THY_CONT_STATES`: correlazione circa 0,903.
+- `CV17_THY_CONT_STATES_RATIO`: correlazione circa 0,940.
 
 Interpretazione: RandomForest assegna un contributo non nullo alle variabili tiroidee, specialmente quando si includono TSH/fT3/fT4/ratio. Tuttavia questo contributo non si traduce in un miglioramento robusto di F1-macro in classificazione. Quindi le feature tiroidee sono informative/associate, ma il loro valore incrementale predittivo rispetto a `CV17` è debole.
 
@@ -204,7 +204,7 @@ Output:
 
 Modello finale selezionato per F1-macro tuned strict:
 
-- HistGradientBoosting + `CV17_THY26` + SVMSMOTE.
+- HistGradientBoosting + `CV17_THY_CONT_STATES` + SVMSMOTE.
 
 Risultati su test:
 

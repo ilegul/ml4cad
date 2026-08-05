@@ -1,0 +1,81 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_KNeighbors_014cfa341c4d7033f423.joblib",
+  "best_cv_score": 0.6409565852730341,
+  "best_params": {
+    "clf__algorithm": "kd_tree",
+    "clf__leaf_size": 20,
+    "clf__n_neighbors": 5,
+    "clf__weights": "uniform"
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17",
+  "features": [
+    "Gender",
+    "Age",
+    "Angina",
+    "Previous_CABG",
+    "Previous_PCI",
+    "Previous_MI",
+    "Acute_MI",
+    "Angiography",
+    "Vessels",
+    "Ischemia",
+    "PostIsch_DCM",
+    "Smoke",
+    "Diabetes",
+    "Hypertension",
+    "Dyslipidemia",
+    "AFib",
+    "fe"
+  ],
+  "horizon": 7,
+  "model": "KNeighbors",
+  "n_test": 878,
+  "n_train": 2634,
+  "n_validation": 878,
+  "signature": "014cfa341c4d7033f42309709a04687ac5277f2b880b8666b5a44a6f41735972",
+  "stage": "search",
+  "test_metrics": {
+    "brier": 0.13189066059225513,
+    "f1_macro": 0.6478458971506802,
+    "precision_0": 0.8508771929824561,
+    "precision_1": 0.6125,
+    "recall_0": 0.956338028169014,
+    "recall_1": 0.2916666666666667,
+    "roc_auc": 0.7493460764587525
+  },
+  "validation_metrics": {
+    "brier": 0.13585421412300683,
+    "f1_macro": 0.6602262971078563,
+    "precision_0": 0.8549618320610687,
+    "precision_1": 0.5978260869565217,
+    "recall_0": 0.9478138222849083,
+    "recall_1": 0.3254437869822485,
+    "roc_auc": 0.7367740212483621
+  }
+}

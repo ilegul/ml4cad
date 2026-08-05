@@ -1,0 +1,59 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\sampling_h7_CV17_THY26_RandomForest_44ed56c8486931eda54c.joblib",
+  "base_signature": "c7914a15bf7060f33dff07ba850f7ef7c6d1d43b2489d548a158e54150fca2df",
+  "chosen_sampling": {
+    "k_neighbors": 3,
+    "over_sampler": "SVMSMOTE",
+    "under_ratio": null
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17_THY26",
+  "horizon": 7,
+  "model": "RandomForest",
+  "selection_validation_f1": 0.7327557018601677,
+  "signature": "44ed56c8486931eda54c908c3234282860db761b04707b89e087216f9d725767",
+  "stage": "sampling",
+  "test_metrics": {
+    "brier": 0.1177182963852882,
+    "f1_macro": 0.7349712613169623,
+    "precision_0": 0.8995756718528995,
+    "precision_1": 0.5672514619883041,
+    "recall_0": 0.895774647887324,
+    "recall_1": 0.5773809523809523,
+    "roc_auc": 0.8417588866532529
+  },
+  "validation_metrics": {
+    "brier": 0.12276437227309943,
+    "f1_macro": 0.733774150308551,
+    "precision_0": 0.8971830985915493,
+    "precision_1": 0.5714285714285714,
+    "recall_0": 0.8984485190409027,
+    "recall_1": 0.5680473372781065,
+    "roc_auc": 0.8233197853464751
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "artifact_joblib": "C:\\Users\\ileni\\ml4cad\\reports\\alignment\\paper_tuning\\search_h7_CV17_LogisticRegression_5576e0526385232150cc.joblib",
+  "best_cv_score": 0.7106334676992787,
+  "best_params": {
+    "clf__C": 8,
+    "clf__dual": true,
+    "clf__max_iter": 76,
+    "clf__penalty": "l2",
+    "clf__solver": "liblinear",
+    "clf__warm_start": true
+  },
+  "config": {
+    "bootstrap_repeats": 1000,
+    "cv": 2,
+    "n_iter": 5000,
+    "n_jobs": -1,
+    "paper_tuning_version": "paper-tuning-scheme-b-v1",
+    "pre_dispatch": "2*n_jobs",
+    "profile": "primary",
+    "sampling_refinement": true,
+    "sampling_repeats": 5,
+    "sampling_version": "pingitore-under-over-validation-v1",
+    "scoring": "f1_macro",
+    "search_space_version": "pingitore-public-ranges-compatible-v1",
+    "seed": 42,
+    "threshold": 0.5
+  },
+  "dependencies": {
+    "imbalanced-learn": "0.14.2",
+    "joblib": "1.5.3",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "python": "3.11.5",
+    "scikit-learn": "1.7.2",
+    "scipy": "1.15.3",
+    "xgboost": "3.2.0"
+  },
+  "feature_set": "CV17",
+  "features": [
+    "Gender",
+    "Age",
+    "Angina",
+    "Previous_CABG",
+    "Previous_PCI",
+    "Previous_MI",
+    "Acute_MI",
+    "Angiography",
+    "Vessels",
+    "Ischemia",
+    "PostIsch_DCM",
+    "Smoke",
+    "Diabetes",
+    "Hypertension",
+    "Dyslipidemia",
+    "AFib",
+    "fe"
+  ],
+  "horizon": 7,
+  "model": "LogisticRegression",
+  "n_test": 878,
+  "n_train": 2634,
+  "n_validation": 878,
+  "signature": "5576e0526385232150ccf74ed977d697a255026ba12a831583681687428733ce",
+  "stage": "search",
+  "test_metrics": {
+    "brier": 0.13752948891231095,
+    "f1_macro": 0.7284020296855073,
+    "precision_0": 0.9244094488188976,
+    "precision_1": 0.49382716049382713,
+    "recall_0": 0.8267605633802817,
+    "recall_1": 0.7142857142857143,
+    "roc_auc": 0.8396965124077801
+  },
+  "validation_metrics": {
+    "brier": 0.13725675820047895,
+    "f1_macro": 0.7314850340022576,
+    "precision_0": 0.9184615384615384,
+    "precision_1": 0.5087719298245614,
+    "recall_0": 0.842031029619182,
+    "recall_1": 0.6863905325443787,
+    "roc_auc": 0.8358718421645621
+  }
+}

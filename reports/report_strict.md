@@ -70,10 +70,10 @@ La classificazione evita leakage evidente: lo scaling e il sampling sono dentro 
 
    | Feature set | Pearson | Spearman corretto |
    |---|---:|---:|
-   | CV17_THY26 | 0,903 | 0,362 |
-   | CV17_RATIO | 0,940 | 0,825 |
+   | CV17_THY_CONT_STATES | 0,903 | 0,362 |
+   | CV17_THY_CONT_STATES_RATIO | 0,940 | 0,825 |
 
-   L'accordo SHAP/permutation resta buono per `CV17_RATIO`, ma e' molto meno convincente per `CV17_THY26`.
+   L'accordo SHAP/permutation resta buono per `CV17_THY_CONT_STATES_RATIO`, ma e' molto meno convincente per `CV17_THY_CONT_STATES`.
 
 3. Il tuning non e' nested rispetto alla stima finale delle performance.
 
@@ -115,13 +115,13 @@ Il riferimento e' `CV17`, composto da 17 variabili cardiovascolari. I set con ti
 
 | Feature set | Informazione tiroidea aggiunta |
 |---|---|
-| CV17_THY26 | 9 variabili tiroidee raw |
-| CV17_BIN | `Thyroid_abnormal` |
-| CV17_ORD | `thyroid_ord` |
-| CV17_CONT | `TSH`, `fT3`, `fT4` |
-| CV17_CAT | categorie tiroidee separate |
-| CV17_RATIO | raw9 + `fT3_fT4_ratio` |
-| CV17_RATIO_ONLY | `TSH`, `fT3`, `fT4`, ratio |
+| CV17_THY_CONT_STATES | 9 variabili tiroidee raw |
+| CV17_THY_ABNORMAL_BIN | `Thyroid_abnormal` |
+| CV17_THY_STATE_ORD | `thyroid_ord` |
+| CV17_THY_CONT | `TSH`, `fT3`, `fT4` |
+| CV17_THY_STATES | categorie tiroidee separate |
+| CV17_THY_CONT_STATES_RATIO | raw9 + `fT3_fT4_ratio` |
+| CV17_THY_CONT_RATIO | `TSH`, `fT3`, `fT4`, ratio |
 
 ## 5. EDA strict
 
@@ -154,12 +154,12 @@ Lo screening 70/30 e' utile per esplorare molte combinazioni, ma non deve guidar
 
 | Rank | Feature set | Modello | Sampler | F1-macro | ROC-AUC | PR-AUC |
 |---:|---|---|---|---:|---:|---:|
-| 1 | CV17_CONT | RandomForest | SVMSMOTE | 0,750 | 0,835 | 0,640 |
-| 2 | CV17_RATIO | HistGradientBoosting | BorderlineSMOTE | 0,747 | 0,823 | 0,616 |
-| 3 | CV17_CONT | RandomForest | SMOTE | 0,746 | 0,830 | 0,626 |
-| 4 | CV17_RATIO_ONLY | RandomForest | SVMSMOTE | 0,744 | 0,831 | 0,628 |
-| 5 | CV17_RATIO | HistGradientBoosting | SVMSMOTE | 0,744 | 0,827 | 0,619 |
-| 6 | CV17_THY26 | HistGradientBoosting | SVMSMOTE | 0,744 | 0,824 | 0,607 |
+| 1 | CV17_THY_CONT | RandomForest | SVMSMOTE | 0,750 | 0,835 | 0,640 |
+| 2 | CV17_THY_CONT_STATES_RATIO | HistGradientBoosting | BorderlineSMOTE | 0,747 | 0,823 | 0,616 |
+| 3 | CV17_THY_CONT | RandomForest | SMOTE | 0,746 | 0,830 | 0,626 |
+| 4 | CV17_THY_CONT_RATIO | RandomForest | SVMSMOTE | 0,744 | 0,831 | 0,628 |
+| 5 | CV17_THY_CONT_STATES_RATIO | HistGradientBoosting | SVMSMOTE | 0,744 | 0,827 | 0,619 |
+| 6 | CV17_THY_CONT_STATES | HistGradientBoosting | SVMSMOTE | 0,744 | 0,824 | 0,607 |
 
 Lo screening suggerisce che alcuni set con tiroide possono arrivare in alto in specifiche combinazioni modello/sampler, ma questo vantaggio non si conferma in modo robusto nella CV.
 
@@ -169,29 +169,29 @@ Metrica primaria: F1-macro con soglia ottimizzata. Tutti i migliori risultati pe
 
 | Feature set | Modello migliore | F1-macro media | F1-macro sd | ROC-AUC media | ROC-AUC sd |
 |---|---|---:|---:|---:|---:|
-| CV17_RATIO_ONLY | LogisticRegression | 0,738 | 0,022 | 0,840 | 0,016 |
+| CV17_THY_CONT_RATIO | LogisticRegression | 0,738 | 0,022 | 0,840 | 0,016 |
 | CV17 | LogisticRegression | 0,738 | 0,030 | 0,840 | 0,016 |
-| CV17_CONT | LogisticRegression | 0,733 | 0,027 | 0,840 | 0,016 |
-| CV17_BIN | LogisticRegression | 0,733 | 0,026 | 0,839 | 0,016 |
-| CV17_RATIO | LogisticRegression | 0,733 | 0,019 | 0,838 | 0,017 |
-| CV17_THY26 | LogisticRegression | 0,732 | 0,022 | 0,838 | 0,016 |
-| CV17_CAT | LogisticRegression | 0,732 | 0,031 | 0,839 | 0,016 |
-| CV17_ORD | LogisticRegression | 0,732 | 0,023 | 0,839 | 0,016 |
+| CV17_THY_CONT | LogisticRegression | 0,733 | 0,027 | 0,840 | 0,016 |
+| CV17_THY_ABNORMAL_BIN | LogisticRegression | 0,733 | 0,026 | 0,839 | 0,016 |
+| CV17_THY_CONT_STATES_RATIO | LogisticRegression | 0,733 | 0,019 | 0,838 | 0,017 |
+| CV17_THY_CONT_STATES | LogisticRegression | 0,732 | 0,022 | 0,838 | 0,016 |
+| CV17_THY_STATES | LogisticRegression | 0,732 | 0,031 | 0,839 | 0,016 |
+| CV17_THY_STATE_ORD | LogisticRegression | 0,732 | 0,023 | 0,839 | 0,016 |
 
 Il confronto piu' importante e' contro `CV17`:
 
 | Set | F1-macro | Delta F1 vs CV17 | ROC-AUC | Delta AUC vs CV17 |
 |---|---:|---:|---:|---:|
 | CV17 | 0,7378 | riferimento | 0,8397 | riferimento |
-| CV17_RATIO_ONLY | 0,7381 | +0,0003 | 0,8397 | -0,0000 |
-| CV17_CONT | 0,7334 | -0,0044 | 0,8396 | -0,0001 |
-| CV17_BIN | 0,7328 | -0,0050 | 0,8394 | -0,0003 |
-| CV17_RATIO | 0,7326 | -0,0052 | 0,8377 | -0,0019 |
-| CV17_THY26 | 0,7325 | -0,0053 | 0,8377 | -0,0020 |
+| CV17_THY_CONT_RATIO | 0,7381 | +0,0003 | 0,8397 | -0,0000 |
+| CV17_THY_CONT | 0,7334 | -0,0044 | 0,8396 | -0,0001 |
+| CV17_THY_ABNORMAL_BIN | 0,7328 | -0,0050 | 0,8394 | -0,0003 |
+| CV17_THY_CONT_STATES_RATIO | 0,7326 | -0,0052 | 0,8377 | -0,0019 |
+| CV17_THY_CONT_STATES | 0,7325 | -0,0053 | 0,8377 | -0,0020 |
 
 Conclusione classificazione strict: non c'e' evidenza robusta che i set tiroidei migliorino il modello. Il massimo incremento F1 rispetto a `CV17` nella migliore famiglia di modello e' praticamente nullo per la LogisticRegression (`+0,0003`) e molto piu' piccolo della deviazione standard tra fold.
 
-Alcuni modelli non lineari beneficiano localmente delle feature tiroidee rispetto alla loro versione `CV17`: per RandomForest, `CV17_THY26` migliora F1 di circa `+0,014` e AUC di circa `+0,010`. Tuttavia RandomForest resta sotto la LogisticRegression `CV17`, quindi questo non cambia la conclusione generale.
+Alcuni modelli non lineari beneficiano localmente delle feature tiroidee rispetto alla loro versione `CV17`: per RandomForest, `CV17_THY_CONT_STATES` migliora F1 di circa `+0,014` e AUC di circa `+0,010`. Tuttavia RandomForest resta sotto la LogisticRegression `CV17`, quindi questo non cambia la conclusione generale.
 
 ### 6.3 Tuning
 
@@ -199,10 +199,10 @@ Il miglior tuning strict e':
 
 | Feature set | Modello | Sampler | CV F1-macro |
 |---|---|---|---:|
-| CV17_THY26 | HistGradientBoosting | SVMSMOTE | 0,7395 |
-| CV17_THY26 | XGBoost | SVMSMOTE | 0,7341 |
-| CV17_CONT | RandomForest | SVMSMOTE | 0,7339 |
-| CV17_CONT | XGBoost | SVMSMOTE | 0,7320 |
+| CV17_THY_CONT_STATES | HistGradientBoosting | SVMSMOTE | 0,7395 |
+| CV17_THY_CONT_STATES | XGBoost | SVMSMOTE | 0,7341 |
+| CV17_THY_CONT | RandomForest | SVMSMOTE | 0,7339 |
+| CV17_THY_CONT | XGBoost | SVMSMOTE | 0,7320 |
 | CV17 | XGBoost | SVMSMOTE | 0,7311 |
 
 Il valore migliore (`0,7395`) e' solo `+0,0017` sopra la robust CV di `CV17` con LogisticRegression (`0,7378`) e non e' nested. Lo considero un segnale esplorativo, non una dimostrazione di miglioramento.
@@ -217,29 +217,29 @@ Sono stati valutati CoxPH e Random Survival Forest su tutti gli 8 feature set.
 
 | Feature set | Modello | c-index medio | sd |
 |---|---|---:|---:|
-| CV17_BIN | CoxPH | 0,8123 | 0,0157 |
+| CV17_THY_ABNORMAL_BIN | CoxPH | 0,8123 | 0,0157 |
 | CV17 | CoxPH | 0,8117 | 0,0175 |
-| CV17_CAT | CoxPH | 0,8117 | 0,0158 |
-| CV17_ORD | CoxPH | 0,8116 | 0,0175 |
-| CV17_RATIO_ONLY | CoxPH | 0,8115 | 0,0168 |
-| CV17_CONT | CoxPH | 0,8114 | 0,0167 |
-| CV17_RATIO | CoxPH | 0,8105 | 0,0161 |
-| CV17_THY26 | CoxPH | 0,8105 | 0,0156 |
-| CV17_CONT | RSF | 0,8087 | 0,0185 |
-| CV17_THY26 | RSF | 0,8080 | 0,0191 |
-| CV17_BIN | RSF | 0,8074 | 0,0168 |
-| CV17_RATIO | RSF | 0,8074 | 0,0169 |
-| CV17_RATIO_ONLY | RSF | 0,8072 | 0,0183 |
-| CV17_CAT | RSF | 0,8067 | 0,0150 |
+| CV17_THY_STATES | CoxPH | 0,8117 | 0,0158 |
+| CV17_THY_STATE_ORD | CoxPH | 0,8116 | 0,0175 |
+| CV17_THY_CONT_RATIO | CoxPH | 0,8115 | 0,0168 |
+| CV17_THY_CONT | CoxPH | 0,8114 | 0,0167 |
+| CV17_THY_CONT_STATES_RATIO | CoxPH | 0,8105 | 0,0161 |
+| CV17_THY_CONT_STATES | CoxPH | 0,8105 | 0,0156 |
+| CV17_THY_CONT | RSF | 0,8087 | 0,0185 |
+| CV17_THY_CONT_STATES | RSF | 0,8080 | 0,0191 |
+| CV17_THY_ABNORMAL_BIN | RSF | 0,8074 | 0,0168 |
+| CV17_THY_CONT_STATES_RATIO | RSF | 0,8074 | 0,0169 |
+| CV17_THY_CONT_RATIO | RSF | 0,8072 | 0,0183 |
+| CV17_THY_STATES | RSF | 0,8067 | 0,0150 |
 | CV17 | RSF | 0,8064 | 0,0176 |
-| CV17_ORD | RSF | 0,8060 | 0,0188 |
+| CV17_THY_STATE_ORD | RSF | 0,8060 | 0,0188 |
 
 Delta rispetto a `CV17` nello stesso modello:
 
 | Modello | Miglior set tiroideo | Delta c-index vs CV17 |
 |---|---|---:|
-| CoxPH | CV17_BIN | +0,0006 |
-| RSF | CV17_CONT | +0,0023 |
+| CoxPH | CV17_THY_ABNORMAL_BIN | +0,0006 |
+| RSF | CV17_THY_CONT | +0,0023 |
 
 Conclusione survival strict: nessun set tiroideo migliora in modo materialmente rilevante il c-index. I delta sono nell'ordine di `0,001-0,002`, molto inferiori alla variabilita' tra fold (`sd` circa `0,016-0,019`).
 
@@ -253,13 +253,13 @@ Quota di importanza SHAP attribuita al blocco tiroideo:
 
 | Feature set | Importanza tiroide |
 |---|---:|
-| CV17_BIN | 6,0% |
-| CV17_ORD | 1,6% |
-| CV17_CAT | 4,5% |
-| CV17_CONT | 13,3% |
-| CV17_THY26 | 13,9% |
-| CV17_RATIO | 15,7% |
-| CV17_RATIO_ONLY | 16,5% |
+| CV17_THY_ABNORMAL_BIN | 6,0% |
+| CV17_THY_STATE_ORD | 1,6% |
+| CV17_THY_STATES | 4,5% |
+| CV17_THY_CONT | 13,3% |
+| CV17_THY_CONT_STATES | 13,9% |
+| CV17_THY_CONT_STATES_RATIO | 15,7% |
+| CV17_THY_CONT_RATIO | 16,5% |
 
 Le feature tiroidee piu' importanti sono soprattutto `fT4`, `TSH`, `fT3` e `fT3_fT4_ratio`. Le top feature globali restano pero' cardiovascolari o cliniche generali: `Age`, `fe`, `Diabetes`, `Dyslipidemia`, `Vessels`, `PostIsch_DCM`.
 
@@ -269,16 +269,16 @@ La comparison con permutation importance richiede correzione: il codice stampa "
 
 | Feature set | Spearman corretto SHAP vs permutation |
 |---|---:|
-| CV17_THY26 | 0,362 |
-| CV17_CONT | 0,759 |
-| CV17_RATIO | 0,825 |
-| CV17_RATIO_ONLY | 0,566 |
+| CV17_THY_CONT_STATES | 0,362 |
+| CV17_THY_CONT | 0,759 |
+| CV17_THY_CONT_STATES_RATIO | 0,825 |
+| CV17_THY_CONT_RATIO | 0,566 |
 
 Quindi l'importanza tiroidea e' plausibile per i set continui/ratio, ma non abbastanza stabile da sostenere da sola un claim forte.
 
 ## 9. Calibrazione strict
 
-Il modello selezionato dal tuning strict e' `HistGradientBoosting + CV17_THY26 + SVMSMOTE`. Tuttavia, per il bug indicato sopra, la calibrazione usa la configurazione default della pipeline, non gli iperparametri migliori salvati in `best_params`.
+Il modello selezionato dal tuning strict e' `HistGradientBoosting + CV17_THY_CONT_STATES + SVMSMOTE`. Tuttavia, per il bug indicato sopra, la calibrazione usa la configurazione default della pipeline, non gli iperparametri migliori salvati in `best_params`.
 
 Risultati sul test split strict:
 
@@ -297,15 +297,15 @@ Sulla coorte strict, le feature tiroidee sono associate all'outcome e contribuis
 Classificazione:
 
 - `CV17` con LogisticRegression + SMOTE: F1-macro `0,7378`, AUC `0,8397`.
-- Miglior set tiroideo robust CV: `CV17_RATIO_ONLY`, F1-macro `0,7381`, AUC `0,8397`.
+- Miglior set tiroideo robust CV: `CV17_THY_CONT_RATIO`, F1-macro `0,7381`, AUC `0,8397`.
 - Delta pratico: nullo.
 - Il miglior tuning con tiroide arriva a `0,7395`, ma il vantaggio e' minimo e non nested.
 
 Survival strict:
 
 - `CV17` con CoxPH: c-index `0,8117`.
-- Miglior set tiroideo CoxPH: `CV17_BIN`, c-index `0,8123`, delta `+0,0006`.
-- Miglior set tiroideo RSF: `CV17_CONT`, delta `+0,0023`.
+- Miglior set tiroideo CoxPH: `CV17_THY_ABNORMAL_BIN`, c-index `0,8123`, delta `+0,0006`.
+- Miglior set tiroideo RSF: `CV17_THY_CONT`, delta `+0,0023`.
 - Delta pratico: non rilevante.
 
 Conclusione senior:

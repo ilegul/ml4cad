@@ -15,6 +15,7 @@ ENSEMBLE (LR+RF+AdaBoost soft-vote).
 """
 
 import sys
+import hashlib
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -26,7 +27,7 @@ if str(_PROJECT_ROOT) not in sys.path:
 from configs.config import RANDOM_STATE, REPORTS_DIR
 from src.alignment.cohorts10 import build_strict_cohorts, summarize
 from src.alignment.features_align import (
-    get_all_align_feature_set_names, extract_Xy_align,
+    get_all_align_feature_set_names, get_align_feature_set, extract_Xy_align,
 )
 from src.alignment.ensemble import ALIGN_MODELS, ENSEMBLE_NAMES
 from src.alignment.evaluation import (
@@ -41,6 +42,40 @@ ALIGN_DIR.mkdir(parents=True, exist_ok=True)
 
 METRIC_KEYS = ["f1_macro", "roc_auc", "precision_1", "recall_1",
                "precision_0", "recall_0", "brier", "threshold"]
+CACHE_VERSION = "alignment-v2-no-test-threshold-leakage-all-feature-clusters"
+
+
+def _cohort_digest(cohorts, horizons) -> str:
+    """Stable digest of the in-memory cohorts used by a cached computation."""
+    digest = hashlib.sha256()
+    for h in horizons:
+        df = cohorts[int(h)]
+        cols = sorted(set(
+            [f"y{int(h)}", "time_days", "event_cvd", "event_noncvd"]
+            + [c for fs in get_all_align_feature_set_names()
+               for c in get_align_feature_set(fs)]
+        ).intersection(df.columns))
+        hashed = pd.util.hash_pandas_object(df[cols], index=True).values
+        digest.update(hashed.tobytes())
+    return digest.hexdigest()[:16]
+
+
+def _cache_key(cohorts, horizons, seed, *parts) -> str:
+    payload = "|".join(map(str, (
+        CACHE_VERSION, _cohort_digest(cohorts, horizons), tuple(horizons),
+        seed, *parts)))
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:20]
+
+
+def _read_valid_cache(path, key):
+    if not path.exists():
+        return None
+    frame = pd.read_csv(path)
+    if "cache_key" not in frame or frame.empty:
+        return None
+    if not frame["cache_key"].eq(key).all():
+        return None
+    return frame
 
 
 # ─── 1. Classification metrics table (all sets x models x schemes x horizons) ─
@@ -61,9 +96,11 @@ def build_classification_table(cohorts, models=None, horizons=(7, 10),
     """
     models = models or ALIGN_MODELS
     fs_names = get_all_align_feature_set_names()
+    key = _cache_key(cohorts, horizons, seed, "classification")
 
-    if CLF_CSV.exists() and not force:
-        existing = pd.read_csv(CLF_CSV)
+    cached = None if force else _read_valid_cache(CLF_CSV, key)
+    if cached is not None:
+        existing = cached
         done = {(int(r["horizon"]), r["feature_set"], r["model"], r["scheme"])
                 for _, r in existing.iterrows()}
     else:
@@ -103,6 +140,7 @@ def build_classification_table(cohorts, models=None, horizons=(7, 10),
     if rows:
         out = pd.concat([existing, pd.DataFrame(rows)], ignore_index=True,
                         sort=False)
+        out["cache_key"] = key
         out.to_csv(CLF_CSV, index=False)
     else:
         out = existing
@@ -131,8 +169,11 @@ def build_incremental_table(cohorts, base="CV17", horizons=(7, 10),
     ensemble — so the paper-ENSEMBLE cache is left untouched).
     """
     csv = _suffixed(INCR_CSV, out_suffix)
-    if csv.exists() and not force:
-        return pd.read_csv(csv)
+    key = _cache_key(
+        cohorts, horizons, seed, "incremental", base, model_name, n_boot)
+    cached = None if force else _read_valid_cache(csv, key)
+    if cached is not None:
+        return cached
 
     thy_sets = [fs for fs in get_all_align_feature_set_names() if fs != base]
     rows = []
@@ -152,6 +193,7 @@ def build_incremental_table(cohorts, base="CV17", horizons=(7, 10),
             print(f"  [incr] h{h} {fs} done", flush=True)
     out = pd.DataFrame(rows)
     out.insert(0, "model", model_name)
+    out["cache_key"] = key
     out.to_csv(csv, index=False)
     return out
 
@@ -162,10 +204,11 @@ CINDEX_CSV = ALIGN_DIR / "ml_indicator_cindex.csv"
 KM_CSV = ALIGN_DIR / "ml_indicator_km.csv"
 
 
-def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY26",
+def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY_CONT_STATES",
                        horizons=(7, 10), schemes=("A", "B"),
                        model_name="ENSEMBLE",
-                       seed=RANDOM_STATE, force=False, out_suffix=""):
+                       seed=RANDOM_STATE, n_boot=1000, force=False,
+                       out_suffix=""):
     """
     ML-indicator survival analysis on ``model_name``: single-covariate Cox
     C-index for CV17 and CV17+thyroid, Δ C-index, and KM stratification
@@ -174,8 +217,13 @@ def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY26",
     """
     cindex_csv = _suffixed(CINDEX_CSV, out_suffix)
     km_csv = _suffixed(KM_CSV, out_suffix)
-    if cindex_csv.exists() and km_csv.exists() and not force:
-        return pd.read_csv(cindex_csv), pd.read_csv(km_csv)
+    key = _cache_key(
+        cohorts, horizons, seed, "ml_indicator", base, thy, tuple(schemes),
+        model_name, n_boot)
+    cached_c = None if force else _read_valid_cache(cindex_csv, key)
+    cached_k = None if force else _read_valid_cache(km_csv, key)
+    if cached_c is not None and cached_k is not None:
+        return cached_c, cached_k
 
     cidx_rows, km_rows = [], []
     for h in horizons:
@@ -183,7 +231,7 @@ def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY26",
         for scheme in schemes:
             res = compare_indicator(df, h, base_set=base, thy_set=thy,
                                     scheme=scheme, model_name=model_name,
-                                    seed=seed)
+                                    seed=seed, n_boot=n_boot)
             for tag in ("base", "thy"):
                 cox = res[tag]["cox"]
                 cidx_rows.append({
@@ -209,6 +257,8 @@ def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY26",
                 "horizon": int(h), "scheme": scheme,
                 "feature_set": f"DELTA({thy}-{base})",
                 "c_index": res["delta_c_index"], "n": np.nan, "events": np.nan,
+                "c_index_ci_lo": res["delta_c_index_ci_lo"],
+                "c_index_ci_hi": res["delta_c_index_ci_hi"],
             })
             print(f"  [mlind] h{h} scheme {scheme} done", flush=True)
 
@@ -216,6 +266,8 @@ def build_ml_indicator(cohorts, base="CV17", thy="CV17_THY26",
     km_df = pd.DataFrame(km_rows)
     cindex_df.insert(0, "model", model_name)
     km_df.insert(0, "model", model_name)
+    cindex_df["cache_key"] = key
+    km_df["cache_key"] = key
     cindex_df.to_csv(cindex_csv, index=False)
     km_df.to_csv(km_csv, index=False)
     return cindex_df, km_df
@@ -234,8 +286,10 @@ def build_ablation(cohorts, horizons=(7, 10), model_name="ENSEMBLE",
     ``out_suffix`` is given).
     """
     csv = _suffixed(ABLATION_CSV, out_suffix)
-    if csv.exists() and not force:
-        return pd.read_csv(csv)
+    key = _cache_key(cohorts, horizons, seed, "ablation", model_name)
+    cached = None if force else _read_valid_cache(csv, key)
+    if cached is not None:
+        return cached
 
     fs_names = get_all_align_feature_set_names()
     frames = []
@@ -250,6 +304,7 @@ def build_ablation(cohorts, horizons=(7, 10), model_name="ENSEMBLE",
             frames.append(ab)
             print(f"  [abl] h{h} {fs} done", flush=True)
     out = pd.concat(frames, ignore_index=True)
+    out["cache_key"] = key
     out.to_csv(csv, index=False)
     return out
 
@@ -257,23 +312,23 @@ def build_ablation(cohorts, horizons=(7, 10), model_name="ENSEMBLE",
 # ─── Winner selection + winner pipeline ──────────────────────────────────────
 
 def pick_winner(clf_df, sets=("CV17",), candidates=None,
-                exclude=("ENSEMBLE",)) -> str:
+                exclude=("ENSEMBLE",), selection_scheme="A_5fold_cv") -> str:
     """
-    Pick the best ensemble by mean F1-macro over {horizons}x{schemes} on the
-    given feature ``sets`` (AUROC as tiebreak). Candidates default to all
-    ensemble names except the paper ENSEMBLE (kept as the reference). Returns
-    the winning model name.
+    Exploratory ensemble selection using cross-validation only. Holdout-test
+    rows are never used to pick the winner. Candidates default to all ensemble
+    names except the prespecified paper ENSEMBLE.
     """
     if candidates is None:
         candidates = [m for m in ENSEMBLE_NAMES if m not in exclude]
     sub = clf_df[clf_df["model"].isin(candidates) &
-                 clf_df["feature_set"].isin(sets)]
+                 clf_df["feature_set"].isin(sets) &
+                 (clf_df["scheme"] == selection_scheme)]
     agg = (sub.groupby("model")[["f1_macro", "roc_auc"]].mean()
            .sort_values(["f1_macro", "roc_auc"], ascending=False))
     return agg.index[0]
 
 
-def build_winner_pipeline(cohorts, winner, base="CV17", thy="CV17_THY26",
+def build_winner_pipeline(cohorts, winner, base="CV17", thy="CV17_THY_CONT_STATES",
                           horizons=(7, 10), n_boot=1000, seed=RANDOM_STATE,
                           force=False):
     """
@@ -286,7 +341,7 @@ def build_winner_pipeline(cohorts, winner, base="CV17", thy="CV17_THY26",
                             model_name=winner, n_boot=n_boot, seed=seed,
                             force=force, out_suffix=winner)
     build_ml_indicator(cohorts, base=base, thy=thy, horizons=horizons,
-                       model_name=winner, seed=seed, force=force,
+                       model_name=winner, seed=seed, n_boot=n_boot, force=force,
                        out_suffix=winner)
     build_ablation(cohorts, horizons=horizons, model_name=winner, seed=seed,
                    force=force, out_suffix=winner)
@@ -309,7 +364,8 @@ def build_all(horizons=(7, 10), seed=RANDOM_STATE, n_boot=1000, force=False):
     build_incremental_table(cohorts, horizons=horizons, n_boot=n_boot,
                             seed=seed, force=force)
     print("[run_alignment] 3/5 ML indicator (paper ENSEMBLE) ...", flush=True)
-    build_ml_indicator(cohorts, horizons=horizons, seed=seed, force=force)
+    build_ml_indicator(cohorts, horizons=horizons, seed=seed,
+                       n_boot=n_boot, force=force)
     print("[run_alignment] 4/5 ablation (paper ENSEMBLE) ...", flush=True)
     build_ablation(cohorts, horizons=horizons, seed=seed, force=force)
 

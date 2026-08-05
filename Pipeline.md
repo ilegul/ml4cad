@@ -69,15 +69,20 @@ Per la **survival analysis** usa **tutti i pazienti con `time_days > 0`** (tutti
 
 Otto feature set:
 ```
-CV17            = CARDIO_17
-CV17_THY26      = CARDIO_17 + THYROID_RAW9
-CV17_BIN        = CARDIO_17 + [Thyroid_abnormal]      # cardio + BINARIA eutiroideo/non-eutiroideo
-CV17_ORD        = CARDIO_17 + [thyroid_ord]            # cardio + ORDINALE ipo->iper
-CV17_CONT       = CARDIO_17 + [TSH, fT3, fT4]
-CV17_CAT        = CARDIO_17 + [Euthyroid, SCH, SCT, Low_T3, Hypothyroid, Hyperthyroid]  # cardio + ONE-HOT categorie separate
-CV17_RATIO      = CARDIO_17 + THYROID_RAW9 + [fT3_fT4_ratio]
-CV17_RATIO_ONLY = CARDIO_17 + [TSH, fT3, fT4, fT3_fT4_ratio]
+CV17                              = CARDIO_17
+CV17_THY_CONT_STATES              = CARDIO_17 + THYROID_RAW9
+CV17_THY_ABNORMAL_BIN             = CARDIO_17 + [Thyroid_abnormal]
+CV17_THY_STATE_ORD                = CARDIO_17 + [thyroid_ord]
+CV17_THY_CONT                     = CARDIO_17 + [TSH, fT3, fT4]
+CV17_THY_STATES                   = CARDIO_17 + [Euthyroid, SCH, SCT, Low_T3, Hypothyroid, Hyperthyroid]
+CV17_THY_CONT_STATES_RATIO        = CARDIO_17 + THYROID_RAW9 + [fT3_fT4_ratio]
+CV17_THY_CONT_RATIO               = CARDIO_17 + [TSH, fT3, fT4, fT3_fT4_ratio]
 ```
+Convenzione: `CONT` indica TSH/fT3/fT4 continui; `STATES` gli indicatori binari
+degli stati tiroidei; `ABNORMAL_BIN` il singolo flag normale/anomalo;
+`STATE_ORD` l'asse ordinale ipoâ†”iper; `RATIO` il rapporto fT3/fT4. Nel flusso
+allineato al paper, `Euthyroid` Ã¨ la categoria di riferimento e viene rimosso
+dai set con `STATES` (5 indicatori effettivi anzichÃ© 6).
 Ognuna delle seguenti richieste va ripetuta per **ciascuno degli 8 set**, in modo da verificare se qualcuno migliora i risultati.
 
 ## 5. Analisi esplorativa (EDA) + grafici
@@ -97,7 +102,7 @@ Pipeline `imblearn.Pipeline([StandardScaler, sampler, classifier])` (il sampler 
 - **Sampler (5)**: none, RandomUnderSampler, SMOTE, BorderlineSMOTE, SVMSMOTE.
 - **Screening** (full grid): 2 coorti × 8 feature set × 8 modelli × 5 sampler, su split stratificato 70/30, F1-macro su test (+ F1 per classe, ROC-AUC, PR-AUC, precision/recall). Salva ogni riga su `results_clf.csv` (append, ripristinabile).
 - **CV robusta** sui set/modelli forti (LR, RF, HistGB, XGB con SMOTE): StratifiedKFold 5-fold, riportando media±sd di F1-macro e AUC. **Ottimizza la soglia decisionale** per max F1-macro (cerca su `np.linspace(0.1,0.9,41)` usando le predizioni sul training fold) — leva chiave assente nell'impostazione originale.
-- **Fine-tuning** dei leader: `RandomizedSearchCV(scoring='f1_macro', cv=4, n_iter≈15)` + soglia + SVMSMOTE su almeno {CV17, CV17_THY26, CV17_CONT}.
+- **Fine-tuning** dei leader: `RandomizedSearchCV(scoring='f1_macro', cv=4, n_iter≈15)` + soglia + SVMSMOTE su almeno {CV17, CV17_THY_CONT_STATES, CV17_THY_CONT}.
 - **GRAFICO 5** — AUC (5-fold CV) per feature set, una linea per modello, due pannelli (strict/competing). Deve mostrare che le 8 curve sono quasi sovrapposte.
 
 ## 7. Survival analysis (su tutti i pazienti) — output = RISCHIO di morte CVD (prima la sopravvivenza)
@@ -130,7 +135,7 @@ Sul **modello tunato migliore** (e in parallelo su un modello ad albero, es. XGB
    - **GRAFICO** — **beeswarm** (summary plot) di tutti i set di features: mostra direzione ed entità dell'effetto per ogni paziente.
    - **GRAFICO** — **bar plot** della SHAP importance media `mean(|SHAP|)`, evidenziando dove cadono le feature tiroidee.
    - **GRAFICO** — **dependence plot** per le 2-3 feature top (es. `Age`, `fe`) e per la migliore tiroidea (es. `fT4` o `Low_T3`), per leggere non-linearità e interazioni.
-   - **Quantificazione**: somma di `mean(|SHAP|)` del blocco cardiaco vs blocco tiroideo; riporta la **percentuale di importanza totale attribuibile alla tiroide**. Confronta con la SHAP importance ottenuta su `CV17_CONT`.
+   - **Quantificazione**: somma di `mean(|SHAP|)` del blocco cardiaco vs blocco tiroideo; riporta la **percentuale di importanza totale attribuibile alla tiroide**. Confronta con la SHAP importance ottenuta su `CV17_THY_CONT`.
 4. **Lettura critica chiave**: Confronta la classifica SHAP con la **permutation importance** (sklearn) come check di robustezza.
 
 ## 9. Calibrazione (completa l'uso clinico)

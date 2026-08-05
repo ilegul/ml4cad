@@ -94,7 +94,10 @@ def evaluate_cv(X, y, model_name, sampler="RandomOverSampler",
     Returns dict with:
       - per-metric ``{m}_mean`` / ``{m}_std`` across folds,
       - ``oof_proba`` : np.array of out-of-fold P(y=1) aligned to X rows,
-      - ``oof_index`` : the index of X (for joining to survival data).
+      - ``oof_index`` : the index of X (for joining to survival data),
+      - ``oof_pred`` : hard predictions using each outer fold's independently
+        tuned threshold,
+      - ``oof_threshold`` : threshold applied to each OOF observation.
     """
     X = X.reset_index(drop=False)
     index_col = X.columns[0]
@@ -104,6 +107,8 @@ def evaluate_cv(X, y, model_name, sampler="RandomOverSampler",
 
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed)
     oof_proba = np.full(len(y), np.nan)
+    oof_pred = np.full(len(y), -1, dtype=int)
+    oof_threshold = np.full(len(y), np.nan)
     fold_rows = []
 
     for tr, te in skf.split(X, y):
@@ -119,6 +124,8 @@ def evaluate_cv(X, y, model_name, sampler="RandomOverSampler",
         pipe.fit(X_tr, y_tr)
         proba = pipe.predict_proba(X_te)[:, 1]
         oof_proba[te] = proba
+        oof_pred[te] = (proba >= thr).astype(int)
+        oof_threshold[te] = thr
         fold_rows.append(_metrics(y_te, proba, thr))
 
     fm = pd.DataFrame(fold_rows)
@@ -127,6 +134,8 @@ def evaluate_cv(X, y, model_name, sampler="RandomOverSampler",
         out[f"{col}_mean"] = float(fm[col].mean())
         out[f"{col}_std"] = float(fm[col].std())
     out["oof_proba"] = oof_proba
+    out["oof_pred"] = oof_pred
+    out["oof_threshold"] = oof_threshold
     out["oof_index"] = orig_index
     out["scheme"] = "A_5fold_cv"
     out["model"] = model_name
@@ -167,6 +176,7 @@ def evaluate_holdout(X, y, model_name, sampler="RandomOverSampler",
     proba_te = pipe.predict_proba(X_te)[:, 1]
     out = _metrics(y_te, proba_te, thr)
     out["test_proba"] = proba_te
+    out["test_pred"] = (proba_te >= thr).astype(int)
     out["test_index"] = orig_index[idx_te]   # original labels (survival join)
     out["test_pos"] = idx_te                  # positional (paired Δ on y order)
     out["test_y"] = y_te.values
@@ -180,25 +190,27 @@ def evaluate_holdout(X, y, model_name, sampler="RandomOverSampler",
 
 # ─── Paired incremental value with bootstrap CI ─────────────────────────
 
-def _paired_delta(y_true, proba_base, proba_thy, n_boot=1000,
-                  seed=RANDOM_STATE):
+def _paired_delta(y_true, proba_base, proba_thy, pred_base, pred_thy,
+                  n_boot=1000, seed=RANDOM_STATE):
     """
     Bootstrap the paired Δ between a thyroid set and the base set on the SAME
-    samples/predictions. Threshold for each set is chosen on the full set by
-    maximising F1-macro and applied to every bootstrap resample (applied
-    identically to both sides, so the Δ comparison is fair).
+    samples/predictions. Hard predictions must already use thresholds selected
+    without seeing the evaluated observations: inner validation for scheme A,
+    validation split for scheme B. No threshold is re-tuned on OOF/test labels.
 
     Returns dict with Δ F1-macro and Δ AUROC point estimates + 95% CI.
     """
     rng = np.random.default_rng(seed)
     y_true = np.asarray(y_true)
-    thr_b, _ = optimize_threshold(y_true, proba_base)
-    thr_t, _ = optimize_threshold(y_true, proba_thy)
+    proba_base = np.asarray(proba_base)
+    proba_thy = np.asarray(proba_thy)
+    pred_base = np.asarray(pred_base)
+    pred_thy = np.asarray(pred_thy)
 
-    def _f1(y, p, thr):
-        return f1_score(y, (p >= thr).astype(int), average="macro")
+    def _f1(y, pred):
+        return f1_score(y, pred, average="macro")
 
-    d_f1_point = _f1(y_true, proba_thy, thr_t) - _f1(y_true, proba_base, thr_b)
+    d_f1_point = _f1(y_true, pred_thy) - _f1(y_true, pred_base)
     d_auc_point = (roc_auc_score(y_true, proba_thy)
                    - roc_auc_score(y_true, proba_base))
 
@@ -209,8 +221,7 @@ def _paired_delta(y_true, proba_base, proba_thy, n_boot=1000,
         yb = y_true[bs]
         if yb.min() == yb.max():       # need both classes for AUROC
             continue
-        d_f1s.append(_f1(yb, proba_thy[bs], thr_t)
-                     - _f1(yb, proba_base[bs], thr_b))
+        d_f1s.append(_f1(yb, pred_thy[bs]) - _f1(yb, pred_base[bs]))
         d_aucs.append(roc_auc_score(yb, proba_thy[bs])
                       - roc_auc_score(yb, proba_base[bs]))
 
@@ -241,8 +252,10 @@ def incremental_value_cv(X_base, X_thy, y, model_name="ENSEMBLE",
     res_b = evaluate_cv(X_base, y, model_name, sampler, n_splits, seed)
     res_t = evaluate_cv(X_thy, y, model_name, sampler, n_splits, seed)
     y_arr = np.asarray(pd.Series(np.asarray(y)))
-    delta = _paired_delta(y_arr, res_b["oof_proba"], res_t["oof_proba"],
-                          n_boot=n_boot, seed=seed)
+    delta = _paired_delta(
+        y_arr, res_b["oof_proba"], res_t["oof_proba"],
+        res_b["oof_pred"], res_t["oof_pred"],
+        n_boot=n_boot, seed=seed)
     delta["scheme"] = "A_5fold_cv"
     return delta
 
@@ -256,7 +269,9 @@ def incremental_value_holdout(X_base, X_thy, y, model_name="ENSEMBLE",
     res_b = evaluate_holdout(X_base, y, model_name, sampler, seed)
     res_t = evaluate_holdout(X_thy, y, model_name, sampler, seed)
     y_te = res_b["test_y"]              # same split (same seed) -> same test rows
-    delta = _paired_delta(y_te, res_b["test_proba"], res_t["test_proba"],
-                          n_boot=n_boot, seed=seed)
+    delta = _paired_delta(
+        y_te, res_b["test_proba"], res_t["test_proba"],
+        res_b["test_pred"], res_t["test_pred"],
+        n_boot=n_boot, seed=seed)
     delta["scheme"] = "B_60_20_20"
     return delta
