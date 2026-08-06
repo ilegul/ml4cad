@@ -1,0 +1,4 @@
+risk_group,n,events,survival_at_horizon,cut_origin,aj_horizon,aj_n,aj_events_cardiac,aj_events_noncardiac,aj_cif_aalen_johansen,aj_risk_one_minus_km,aj_overestimate_of_one_minus_km
+low,515,18,0.9665542227359372,tertiles of the training-fold predicted risk,7.0,515,18,34,0.03250773249347724,0.03344577726406284,0.0009380447705855943
+medium,565,41,0.940798281494249,tertiles of the training-fold predicted risk,7.0,565,41,84,0.05701386317969092,0.059201718505750955,0.0021878553260600356
+high,533,143,0.7083281968978582,tertiles of the training-fold predicted risk,7.0,533,143,152,0.2563607378546439,0.2916718031021418,0.035311065247497886

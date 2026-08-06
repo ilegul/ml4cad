@@ -1,0 +1,23 @@
+{
+  "written_at": "2026-08-06T22:26:11+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "stage": "5_survival_analysis",
+  "analysis_a": "paper-aligned ML indicator on the strict cohort",
+  "analysis_b": "cause-specific Cox and Random Survival Forest on the full cohort",
+  "horizon": 7.0,
+  "outer_folds": 5,
+  "rsf_search_iter": 25,
+  "note": "Non-cardiac death is censoring in analysis B; Aalen-Johansen is reported separately for competing-risk cumulative incidence."
+}

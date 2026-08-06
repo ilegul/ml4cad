@@ -1,0 +1,7 @@
+horizon,split,n,n_events,prevalence
+7,train,2634,506,0.1921
+7,valid,878,169,0.1925
+7,test,878,168,0.1913
+10,train,1568,577,0.368
+10,valid,523,193,0.369
+10,test,523,192,0.3671

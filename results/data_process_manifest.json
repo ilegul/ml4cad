@@ -1,0 +1,25 @@
+{
+  "written_at": "2026-08-06T11:23:45+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "stage": "1_data_process",
+  "n_full": 8065,
+  "n_survival": 8063,
+  "strict_cohorts": {
+    "7": 4390,
+    "10": 2614
+  },
+  "corrections_applied": 2,
+  "data_fingerprint": "b63d7357ebf39941"
+}

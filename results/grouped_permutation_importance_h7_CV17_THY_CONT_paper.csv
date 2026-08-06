@@ -1,0 +1,4 @@
+group,n_variables,f1_drop_mean,f1_drop_std
+all thyroid variables,3,0.015646484077493982,0.006253547051428942
+continuous thyroid biomarkers,3,0.015646484077493982,0.006253547051428942
+all cardiovascular variables,17,0.2666746649600168,0.01701962483042737

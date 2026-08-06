@@ -18,22 +18,30 @@ __pycache__/
 # Environment variables
 .env
 
-# Raw and generated data
+# Raw and processed data
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
 
-# Trained models and artifacts
+# Fitted artifacts and predictions
 models/*
 !models/.gitkeep
+predictions/*
+!predictions/.gitkeep
+cache/*
+!cache/.gitkeep
 *.joblib
 *.pkl
 *.pickle
 
-# Reports and generated figures
-reports/figures/*
-!reports/figures/.gitkeep
+# Generated figures
+figures/*
+!figures/.gitkeep
+
+# Superseded artifacts kept outside the tracked tree for traceability.
+# results/legacy_cache_manifest.json records what lives here and why.
+legacy_cache/
 
 # Logs and temporary files
 *.log

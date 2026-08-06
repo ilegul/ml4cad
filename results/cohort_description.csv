@@ -1,0 +1,27 @@
+variable,type,event_summary,event_free_summary,test,p_value
+Age,continuous,75.12 (10.34),64.99 (12.27),Mann-Whitney,5.142166214025442e-106
+LVEF,continuous,41.66 (15.05),53.26 (10.57),Mann-Whitney,1.3223847023400142e-98
+PostIsch_DCM,binary,26.2 percent,5.6 percent,chi-squared,3.7443822552862575e-74
+fT3_fT4_ratio,continuous,0.20 (0.35),0.21 (0.17),Mann-Whitney,4.734692441926705e-36
+fT4,continuous,13.02 (3.96),12.11 (5.06),Mann-Whitney,9.478280563402875e-23
+Diabetes,binary,33.9 percent,18.4 percent,chi-squared,1.0484569957667372e-22
+AFib,binary,30.2 percent,16.2 percent,chi-squared,1.0495289171792483e-20
+Dyslipidemia,binary,53.1 percent,69.5 percent,chi-squared,2.8504224084015928e-19
+Previous_CABG,binary,15.8 percent,6.8 percent,chi-squared,8.172410796098129e-17
+Previous_MI,binary,39.3 percent,25.3 percent,chi-squared,8.531985351726048e-16
+Acute_MI,binary,13.6 percent,5.9 percent,chi-squared,2.472344358760916e-14
+fT3,continuous,2.33 (2.78),2.44 (2.11),Mann-Whitney,2.185127248078318e-11
+Ischemia,binary,32.6 percent,45.2 percent,chi-squared,4.3187621645909395e-11
+Low_T3,binary,28.4 percent,18.9 percent,chi-squared,1.6766304278851472e-09
+Angiography,binary,54.6 percent,64.8 percent,chi-squared,3.5603023182103715e-08
+Angina,binary,46.9 percent,55.8 percent,chi-squared,3.708191052906917e-06
+SCH,binary,9.4 percent,5.1 percent,chi-squared,4.251298026733717e-06
+Smoke,binary,37.2 percent,42.8 percent,chi-squared,0.003584698072518456
+TSH,continuous,2.50 (4.46),2.01 (3.43),Mann-Whitney,0.0054267138878470265
+Hypertension,binary,60.9 percent,56.4 percent,chi-squared,0.022075410398800368
+Previous_PCI,binary,14.8 percent,12.0 percent,chi-squared,0.030622231975849925
+Hyperthyroid,binary,2.8 percent,1.8 percent,chi-squared,0.06180308829268464
+Hypothyroid,binary,2.5 percent,1.5 percent,chi-squared,0.07137550699068423
+Vessels,continuous,0.97 (1.28),0.79 (1.06),Mann-Whitney,0.07679478932025079
+Gender,binary,67.4 percent,65.7 percent,chi-squared,0.37334451413169956
+SCT,binary,3.7 percent,3.5 percent,chi-squared,0.8785908174629864

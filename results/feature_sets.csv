@@ -1,0 +1,6 @@
+feature_set,n_features,role,rationale
+CV17,17,primary baseline,Cardiovascular predictors alone (baseline).
+CV17_THY_CONT,20,primary thyroid,Do the continuous thyroid biomarkers add value?
+CV17_THY_STATES,22,secondary,Do the clinical thyroid categories add value?
+CV17_THY_CONT_STATES,25,secondary,Do the categories add anything beyond the continuous values?
+CV17_THY_CONT_RATIO,21,secondary,Does the fT3/fT4 ratio add value?

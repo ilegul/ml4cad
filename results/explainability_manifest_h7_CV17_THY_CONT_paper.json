@@ -1,0 +1,23 @@
+{
+  "written_at": "2026-08-06T17:11:11+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "stage": "4_feature_cluster_explainability",
+  "explained_arm": "h7_CV17_THY_CONT_paper",
+  "feature_set": "CV17_THY_CONT",
+  "threshold": 0.38999999999999996,
+  "baseline_test_f1_macro": 0.7596902502253029,
+  "shap_member": "RandomForest",
+  "note": "Post-development analysis of a frozen model; nothing was refitted."
+}

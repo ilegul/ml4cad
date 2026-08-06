@@ -1,0 +1,69 @@
+{
+  "written_at": "2026-08-06T17:06:17+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "stage": "3_sampling_ensemble_calibration",
+  "adapted_ensemble": {
+    "7": "paper",
+    "10": "diverse"
+  },
+  "paper_ensemble": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "calibration_primary": "sigmoid",
+  "thresholds": {
+    "h7_CV17_paper": 0.43999999999999995,
+    "h7_CV17_THY_CONT_paper": 0.38999999999999996,
+    "h7_CV17_THY_STATES_paper": 0.4099999999999999,
+    "h7_CV17_THY_CONT_STATES_paper": 0.3999999999999999,
+    "h7_CV17_THY_CONT_RATIO_paper": 0.3499999999999999,
+    "h10_CV17_paper": 0.37999999999999995,
+    "h10_CV17_diverse": 0.41999999999999993,
+    "h10_CV17_THY_CONT_paper": 0.37999999999999995,
+    "h10_CV17_THY_CONT_diverse": 0.37999999999999995,
+    "h10_CV17_THY_STATES_paper": 0.3499999999999999,
+    "h10_CV17_THY_STATES_diverse": 0.4599999999999999,
+    "h10_CV17_THY_CONT_STATES_paper": 0.41999999999999993,
+    "h10_CV17_THY_CONT_STATES_diverse": 0.4799999999999999,
+    "h10_CV17_THY_CONT_RATIO_paper": 0.36999999999999994,
+    "h10_CV17_THY_CONT_RATIO_diverse": 0.41999999999999993
+  },
+  "frozen_artifacts": [
+    "h10_CV17_THY_CONT_RATIO_diverse_test.csv",
+    "h10_CV17_THY_CONT_RATIO_paper_locked_test.csv",
+    "h10_CV17_THY_CONT_RATIO_paper_test.csv",
+    "h10_CV17_THY_CONT_STATES_diverse_test.csv",
+    "h10_CV17_THY_CONT_STATES_paper_locked_test.csv",
+    "h10_CV17_THY_CONT_STATES_paper_test.csv",
+    "h10_CV17_THY_CONT_diverse_test.csv",
+    "h10_CV17_THY_CONT_paper_locked_test.csv",
+    "h10_CV17_THY_CONT_paper_test.csv",
+    "h10_CV17_THY_STATES_diverse_test.csv",
+    "h10_CV17_THY_STATES_paper_locked_test.csv",
+    "h10_CV17_THY_STATES_paper_test.csv",
+    "h10_CV17_diverse_test.csv",
+    "h10_CV17_paper_test.csv",
+    "h7_CV17_THY_CONT_RATIO_paper_locked_test.csv",
+    "h7_CV17_THY_CONT_RATIO_paper_test.csv",
+    "h7_CV17_THY_CONT_STATES_paper_locked_test.csv",
+    "h7_CV17_THY_CONT_STATES_paper_test.csv",
+    "h7_CV17_THY_CONT_paper_locked_test.csv",
+    "h7_CV17_THY_CONT_paper_test.csv",
+    "h7_CV17_THY_STATES_paper_locked_test.csv",
+    "h7_CV17_THY_STATES_paper_test.csv",
+    "h7_CV17_paper_test.csv"
+  ]
+}

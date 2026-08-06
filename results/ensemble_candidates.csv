@@ -1,0 +1,7 @@
+horizon,candidate,members
+7,paper,"LogisticRegression,RandomForest,AdaBoost"
+7,top3_train_cv,"GradientBoosting,LogisticRegression,AdaBoost"
+7,diverse,"LogisticRegression,XGBoost,MLP"
+10,paper,"LogisticRegression,RandomForest,AdaBoost"
+10,top3_train_cv,"RandomForest,LogisticRegression,SVC"
+10,diverse,"LogisticRegression,XGBoost,MLP"
