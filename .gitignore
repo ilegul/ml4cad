@@ -18,30 +18,21 @@ __pycache__/
 # Environment variables
 .env
 
-# Raw and processed data
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*
-!data/processed/.gitkeep
+# Inputs (data/raw, data/processed) and outputs (results, figures,
+# predictions) are tracked, so the analysis can be reproduced and audited
+# from the repository alone.
 
-# Fitted artifacts and predictions
+# Fitted estimators are not tracked: 177 MB of binaries that the pipeline
+# regenerates from the data and the cached search results.
 models/*
 !models/.gitkeep
-predictions/*
-!predictions/.gitkeep
-cache/*
-!cache/.gitkeep
 *.joblib
 *.pkl
 *.pickle
 
-# Generated figures
-figures/*
-!figures/.gitkeep
-
-# Superseded artifacts kept outside the tracked tree for traceability.
-# results/legacy_cache_manifest.json records what lives here and why.
-legacy_cache/
+# Resumable intermediates, regenerated on demand.
+cache/*
+!cache/.gitkeep
 
 # Logs and temporary files
 *.log

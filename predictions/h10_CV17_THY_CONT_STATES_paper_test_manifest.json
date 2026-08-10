@@ -1,0 +1,37 @@
+{
+  "written_at": "2026-08-06T17:00:55+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "h10_CV17_THY_CONT_STATES_paper",
+  "signature": "ca68fe24e63de18ba9ec",
+  "threshold": 0.41999999999999993,
+  "n_test": 523,
+  "n_events": 192,
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT_STATES",
+  "candidate": "paper",
+  "members": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "samplers": {
+    "LogisticRegression": "RandomOverSampler",
+    "RandomForest": "RandomOverSampler",
+    "AdaBoost": "RandomOverSampler"
+  },
+  "calibration": "sigmoid",
+  "threshold_source": "own validation",
+  "params_source": "CV17_THY_CONT_STATES"
+}
