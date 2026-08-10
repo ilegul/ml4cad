@@ -56,9 +56,11 @@ models            fitted estimators and their manifests
 predictions       frozen validation and test predictions
 results           result tables
 figures           generated figures
-cache             resumable intermediate results
-docs              thesis documents
+cache             resumable intermediate results, not tracked
 ```
+
+`models` and `cache` are not versioned: they are regenerated from the data and
+the cached search results, and the fitted estimators alone weigh 177 MB.
 
 ## Setup
 
