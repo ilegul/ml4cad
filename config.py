@@ -222,13 +222,12 @@ PROFILES = {
         run_strict_rsf_sensitivity=True,
         run_shap=True,
     ),
-    # Two budgets here depart from the paper, both measured rather than guessed.
-    # Search: 1000 draws instead of 5000. Measured cost over these spaces is
-    # 8.45 h per cell at 5000 draws, so ten cells would take 84 h. The paper
-    # reports that 10000 draws gave results very similar to 5000, which places
-    # the search well inside its plateau; 1000 draws over the same spaces cost
-    # 17 h and are ample. Survival: the paper trains no survival model, so the
-    # RSF draw count is sized to keep the extension affordable.
+    # Two budgets depart from the paper, both sized from measurement. Search:
+    # 1000 draws instead of 5000, because 5000 costs 8.45 h per cell over these
+    # spaces and ten cells would take 84 h. This is a computational compromise;
+    # run the primary profile to check the primary contrast at 5000. Survival:
+    # the paper trains no survival model, so the draw count is sized to keep
+    # the extension affordable.
     "full": dict(
         horizons=(7, 10),
         tuning_feature_sets=tuple(FEATURE_SETS),

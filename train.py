@@ -38,7 +38,7 @@ EPS = 1e-6
 # model's cached tuning and leaves every other cached job usable.
 SEARCH_SPACE_VERSION = {
     "LogisticRegression": "v1",
-    "SVC": "v2",  # bounded max_iter and C; the unbounded space did not terminate
+    "SVC": "v2",  # bounded max_iter and C
     "KNeighbors": "v1",
     "RandomForest": "v1",
     "AdaBoost": "v1",
@@ -66,10 +66,10 @@ def get_model(name: str, class_weight: bool = False, seed: int = config.SEED,
         return LogisticRegression(max_iter=5000, class_weight=balanced,
                                   random_state=seed)
     if name == "SVC":
-        # A finite iteration budget bounds pathological candidates and lets them
-        # surface as convergence warnings. Leaving it unbounded made a single
-        # 5000-draw search run for eleven hours.
-        # probability=False is used during the search only: the f1_macro scorer
+        # A finite iteration budget bounds candidates whose solver would not
+        # terminate in reasonable time, and lets them surface as convergence
+        # warnings rather than stalling the search.
+        # probability=False applies to the search only: the f1_macro scorer
         # calls predict, so fitting Platt probabilities for every candidate is
         # wasted work. The winner is refitted with probabilities afterwards.
         return SVC(probability=probability, class_weight=balanced,
@@ -466,11 +466,12 @@ def freeze_test_predictions(name: str, patient_ids, y_true, proba_raw,
                             proba_calibrated, threshold: float,
                             signature: str = None,
                             **manifest_fields) -> pd.DataFrame:
-    """Persist the final test predictions once; later steps only read them.
+    """Persist the final test predictions; later steps only read them.
 
     Everything downstream of the test set (ablation, permutation importance,
     the ML indicator) consumes these immutable artifacts and must never refit
-    a model, refit calibration or move a threshold.
+    a model, refit calibration or move a threshold. Test outcomes are used for
+    none of the development decisions.
     """
     frame = pd.DataFrame({
         config.ID_COL: np.asarray(patient_ids),

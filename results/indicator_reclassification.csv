@@ -1,0 +1,5 @@
+thyroid_set,n,n_high_baseline,n_high_thyroid,net_change,moved_up,moved_down,reclassified
+CV17_THY_CONT,878,737,741,4,13,9,22
+CV17_THY_STATES,878,737,746,9,15,6,21
+CV17_THY_CONT_STATES,878,737,738,1,14,13,27
+CV17_THY_CONT_RATIO,878,737,745,8,17,9,26

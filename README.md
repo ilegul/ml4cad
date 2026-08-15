@@ -25,13 +25,21 @@ compact notebook-driven layout this repository follows.
 
 | Paper | Here | Why |
 |---|---|---|
-| 18 cardiovascular predictors including creatinine | 17; creatinine excluded | creatinine is missing for a large share of this cohort. The baseline is a 17-variable model and is never described as the paper's 18-variable model. |
+| 18 cardiovascular predictors including creatinine | 17; creatinine excluded | creatinine is missing for 7.4 percent of this cohort and was left out of the prespecified baseline. The pipeline does impute, so the exclusion is a protocol choice rather than a technical necessity, and the baseline is therefore a 17-variable model that is never described as the paper's 18-variable model. |
 | Target `survive7Y`, positive class is survival | `y_event`, positive class is cardiac death within the horizon | the clinical question is who dies. `p_survive = 1 - p_event` is derived where paper terminology needs it. |
 | Sampler chosen inside the hyperparameter search | hyperparameters searched first, sampler chosen afterwards on validation | keeps the search affordable and keeps sampler selection out of the training folds. Reported as a deviation. |
 | Ensemble members fixed at logistic regression, random forest and AdaBoost | that ensemble is kept and always reported, plus an adapted ensemble chosen on validation from a closed candidate set | the paper selected its three members empirically; both the prespecified and the adapted choice are shown. |
 | No calibration model | sigmoid calibration fitted on training out-of-fold probabilities, isotonic as a sensitivity | the uncalibrated ensemble over-predicts risk by roughly a factor of two, which makes any absolute-risk or decision-analytic reading meaningless. |
 | Survival analysis only through the classifier output | that analysis is kept, plus a cause-specific Random Survival Forest on the full time-to-event cohort | a survival model can use right-censored patients that the fixed-horizon cohort has to drop. |
 | Single 7-year horizon | 7 and 10 years under the primary profile | the paper reports the 10-year variant as a robustness check. |
+
+### Endpoint
+
+The event is the source field `CVD Death`, mapped once during preprocessing to
+`death_cardiac` and referred to throughout as cardiac death. The rename
+operationalises the endpoint and does not assert that cardiovascular death and
+cardiac death are interchangeable; the thesis should state the clinical
+definition the source field encodes.
 
 ## Repository structure
 
@@ -84,11 +92,17 @@ Run the notebooks in order, from a fresh kernel:
 jupyter lab
 ```
 
-Expensive steps are cached by a signature covering the data fingerprint, the
-feature list, the target, the horizon, the split, the model, its
-hyperparameters, sampling, calibration, threshold strategy, seed, protocol
-version and dependency versions. Loading a cache never triggers a fit; a cache
-whose signature no longer matches is ignored rather than reused.
+Expensive steps are cached. Every signature covers the seed, the protocol
+version and the dependency versions, plus the parameters of the step itself.
+Coverage is not uniform: the hyperparameter-search cache is the strongest, and
+also fingerprints the data and the feature list. The development
+cross-validation, the sampling comparison and the frozen test predictions are
+keyed on their configuration but not on a data fingerprint, and the survival
+cache fingerprints the time and event columns only. Those caches therefore
+detect a configuration change but would not detect a silent change to the
+underlying data; delete `cache/` and `models/` if the inputs are edited.
+Loading a cache never triggers a fit, and a cache whose signature no longer
+matches is ignored rather than reused.
 
 To run the tests:
 
@@ -110,7 +124,10 @@ PROFILE = "smoke"
 | `primary` | 5000 | 7 and 10 | primary contrast | the paper's search budget on the primary contrast alone; see the cost note below before using it |
 | `full` | 1000 | 7 and 10 | all five | the executed analysis: the complete primary contrast plus the secondary feature sets, 11.1 hours |
 
-`full` is a superset of `primary`, so there is no reason to run both.
+The `full` profile covers every analysis of the primary contrast together with
+the secondary feature sets, at the computational budget specified for that
+profile. It is not a computational superset of `primary`, which uses a larger
+search budget on fewer feature sets.
 
 Nothing else needs to change. Notebooks read horizons, feature sets, model
 lists, sampler lists, search budget, bootstrap repetitions and threshold
@@ -123,11 +140,14 @@ a 12-core machine, all five notebooks exiting 0. The breakdown was 5.4 hours for
 the 80 search jobs, 0.3 hours for the rest of notebook 3, 0.1 hours for
 notebooks 1, 2 and 4 together, and 5.3 hours for the survival extension.
 
-The search budget is 1000 draws rather than the paper's 5000. That is a measured
-decision, not a shortcut: at 5000 draws these search spaces cost 8.45 hours per
-cell, so ten cells would take 84 hours. The paper reports that 10000 draws gave
-results very similar to 5000, which places the search inside its plateau well
-below 5000. The deviation is recorded in `config.py` next to the profile.
+The search budget is 1000 draws rather than the paper's 5000: at 5000 draws
+these search spaces cost 8.45 hours per cell, so ten cells would have taken 84
+hours. This is a documented computational compromise, and it is recorded in
+`config.py` next to the profile. The paper observes that 10000 draws gave
+results very similar to 5000, which shows a plateau between those two budgets;
+it does not by itself establish that the plateau already extends down to 1000.
+Running `primary`, which keeps the paper's 5000 draws on the primary contrast,
+is the way to check that directly.
 
 Two search spaces were also bounded after measurement. `SVC` originally ran
 without an iteration cap, and a single 5000-draw job took 10.8 hours; it now uses
@@ -243,8 +263,10 @@ reproduces the published result: Harrell's C of 0.822 for the baseline on the
 frozen test partition against 0.82 in the paper, and Kaplan-Meier separation of
 89.6 percent against 35.5 percent seven-year survival at the paper's 0.6 cut
 against 88.8 and 29.1 percent. Adding the thyroid biomarkers changes the paired
-C-index by +0.0043 (-0.0016, 0.0105) and moves four patients out of 878 between
-risk strata.
+C-index by +0.0043 (-0.0016, 0.0105). The high-predicted-survival stratum goes
+from 737 to 741 patients, but that net figure hides movement in both
+directions: patient by patient, 13 move up and 9 move down, so 22 of 878 are
+reclassified (`results/indicator_reclassification.csv`).
 
 **Conclusion: no convincing evidence that TSH, fT3 and fT4 add incremental value
 for classification or for paper-aligned risk stratification.**
@@ -252,13 +274,24 @@ for classification or for paper-aligned risk stratification.**
 ### Secondary and extension results
 
 Secondary feature sets carry Benjamini-Hochberg q-values within each comparison
-type and metric. None reaches significance for classification.
+type and metric. No secondary thyroid representation showed a statistically
+supported improvement in classification. One comparison is significant in the
+opposite direction: under the locked pipeline at 7 years, `CV17_THY_STATES` has
+a delta-AUPRC of -0.0106 (-0.0182, -0.0030) with q = 0.030, that is the
+thyroid-state representation performs worse than the baseline. This strengthens
+rather than weakens the null conclusion.
 
-The survival extension on the full time-to-event cohort is the one place where a
-signal appears. With identical outer folds for both arms, the cause-specific
-Random Survival Forest gives a paired delta-C-index of +0.0085 (0.0031, 0.0140) for
-the primary contrast, the only primary interval in the study that excludes zero.
-Four reasons to treat it as a hypothesis rather than a finding:
+The survival extension on the full time-to-event cohort is where the positive
+signals concentrate. With identical outer folds for both arms, the
+cause-specific Random Survival Forest gives a paired delta-C-index of +0.0085
+(0.0031, 0.0140) for the primary contrast: the only interval of the *primary*
+contrast anywhere in the study that excludes zero. Three secondary comparisons
+also survive correction, all small: Cox with thyroid states q = 0.018, Random
+Survival Forest with thyroid states q = 0.036, and Random Survival Forest with
+continuous plus states q = 0.036. They carry the same caveats as the primary one
+and none exceeds +0.007 in absolute terms.
+
+Four reasons to treat all of this as a hypothesis rather than a finding:
 
 - the Cox reference on the same folds sees nothing, +0.0012 (-0.0014, 0.0036);
 - the time-dependent AUROC moves the other way for the thyroid arm, 0.8300 to
@@ -292,11 +325,15 @@ meaningful only on the calibrated scale.
 - Hyperparameters are searched on the training partition only.
 - The sampler, the ensemble and the calibration method are selected on
   validation or on training cross-validation, never on test.
-- The calibrator is fitted on training out-of-fold probabilities, so validation
-  outcomes are spent only on the decision threshold.
-- The test partition is evaluated once, by a single routine that writes patient
-  identifiers, uncalibrated and calibrated probabilities, predictions, the
-  threshold and a manifest to `predictions/`.
+- The calibrator is fitted on training out-of-fold probabilities, so
+  calibration never consumes validation outcomes. Validation is spent on the
+  development decisions the protocol prescribes: the sampler, the adapted
+  ensemble and the decision threshold.
+- Test outcomes are used for none of those decisions. A single routine writes
+  patient identifiers, uncalibrated and calibrated probabilities, predictions,
+  the threshold and a manifest to `predictions/`; test probabilities are
+  computed earlier alongside the validation ones, but no test outcome enters
+  model development or configuration selection.
 - Notebooks 4 and 5 read those frozen artifacts. They do not refit the
   classifier, refit calibration, move a threshold or select a configuration.
   Ablation, permutation importance, SHAP and the ML indicator are post-

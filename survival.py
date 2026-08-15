@@ -14,7 +14,7 @@ import numpy as np
 import pandas as pd
 from lifelines import AalenJohansenFitter, CoxPHFitter, KaplanMeierFitter
 from lifelines.statistics import logrank_test
-from scipy.stats import randint, uniform
+from scipy.stats import randint
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
@@ -53,10 +53,14 @@ def make_surv_y(frame: pd.DataFrame) -> np.ndarray:
 
 
 def _time_bounds(y_train, y_test) -> tuple:
-    """Range in which scikit-survival can estimate inverse-probability weights.
+    """Common estimable support of the training and held-out folds.
 
-    The upper bound is the largest training event time, not the horizon, so the
-    censoring distribution stays estimable on the held-out fold.
+    The upper bound is the largest training event time rather than the horizon,
+    so the censoring distribution stays estimable, and the held-out range is
+    intersected so that every requested time is observable in both. The bounds
+    therefore depend on the follow-up support of both folds; the censoring
+    distribution used by the inverse-probability weights is estimated from the
+    training fold alone.
     """
     lo = max(y_train["time"].min(), y_test["time"].min())
     train_events = y_train["time"][y_train["event"]]
