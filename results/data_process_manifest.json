@@ -1,5 +1,5 @@
 {
-  "written_at": "2026-08-06T11:23:45+00:00",
+  "written_at": "2026-08-22T17:05:18+00:00",
   "profile": "full",
   "protocol_version": "v1",
   "seed": 42,
@@ -8,6 +8,7 @@
     "numpy": "2.2.6",
     "pandas": "2.3.3",
     "sklearn": "1.7.2",
+    "scipy": "1.15.3",
     "imblearn": "0.14.2",
     "xgboost": "3.2.0",
     "lifelines": "0.30.0",

@@ -1,18 +1,24 @@
 """Survival analyses.
 
-Analysis A reproduces the paper on the strict fixed-horizon cohort: the ML
+Analysis A adapts the paper's indicator-based survival analysis to the
+strict fixed-horizon cohort: the ML
 indicator comes from out-of-sample classification probabilities and is then used
 in Cox and Kaplan-Meier models.
 
 Analysis B is the model extension on the full time-to-event cohort: a Cox
 reference and a cause-specific Random Survival Forest. Non-cardiac death is
-treated as censoring, so nothing here is a competing-risk cumulative incidence;
-Aalen-Johansen is provided separately for that.
+treated as censoring, so nothing in analysis B is a competing-risk cumulative
+incidence.
+
+Analysis C targets that estimand directly: cause-specific Cox models for
+cardiac and non-cardiac death are combined through their Breslow baselines
+into each patient's cardiac cumulative incidence, with Aalen-Johansen as the
+non-parametric reference for the absolute scale.
 """
 
 import numpy as np
 import pandas as pd
-from lifelines import AalenJohansenFitter, CoxPHFitter, KaplanMeierFitter
+from lifelines import CoxPHFitter, KaplanMeierFitter
 from lifelines.statistics import logrank_test
 from scipy.stats import randint
 from sklearn.impute import SimpleImputer
@@ -24,6 +30,7 @@ from sksurv.metrics import (
     concordance_index_censored, concordance_index_ipcw, cumulative_dynamic_auc,
     integrated_brier_score,
 )
+from sksurv.nonparametric import cumulative_incidence_competing_risks
 from sksurv.util import Surv
 
 import config
@@ -376,6 +383,158 @@ def permutation_importance_surv(estimator, X, y_struct, n_repeats: int = 5,
 
 
 # ---------------------------------------------------------------------------
+# Analysis C: cause-specific absolute risk under competing events
+# ---------------------------------------------------------------------------
+
+def competing_frame(df: pd.DataFrame) -> pd.DataFrame:
+    """Full-follow-up frame with a single cause code per patient.
+
+    0 = censored alive, 1 = cardiac death, 2 = non-cardiac death. The code
+    also serves as the stratification label of the outer folds, so every
+    fold carries its share of both event types.
+    """
+    out = df.copy()
+    out["cause_code"] = np.where(out["event_cardiac"] == 1, 1,
+                                 np.where(out["event_noncardiac"] == 1, 2, 0))
+    out["surv_time"] = out["survival_time_years"].astype(float)
+    out["surv_event"] = (out["cause_code"] == 1).astype(int)
+    return out
+
+
+def fit_cause_specific(X, frame: pd.DataFrame, seed: int = config.SEED) -> dict:
+    """One Cox pipeline per cause on shared covariates.
+
+    Each fit treats the competing cause as censoring, which is the
+    definition of the cause-specific hazard; the competing-risk correction
+    happens where the two fitted hazards are combined, in
+    predict_cardiac_cif.
+    """
+    models = {}
+    for code in (1, 2):
+        y = Surv.from_arrays(event=frame["cause_code"].to_numpy() == code,
+                             time=frame["surv_time"].to_numpy(dtype=float))
+        pipe = survival_pipeline("Cox", seed)
+        pipe.fit(X, y)
+        models[code] = pipe
+    return models
+
+
+def predict_cardiac_cif(models: dict, X, times) -> np.ndarray:
+    """Cardiac cumulative incidence F1 at the requested times.
+
+    F1(t | x) accumulates, over the cardiac event times u <= t, the product
+    of all-cause survival just before u and the cardiac hazard increment
+    dH1(u | x), with S = exp(-(H1 + H2)) built from both Breslow
+    baselines: the plug-in form of F1(t) = int S(u-) dH1(u). Left limits
+    matter: each increment must be weighted by survival before the jump,
+    or F1 would exceed the all-cause risk. The running total is truncated
+    at one, which the discrete sum can exceed only when an extreme
+    covariate value drives the linear predictor far outside the fitted
+    range.
+    """
+    times = np.atleast_1d(np.asarray(times, dtype=float))
+    base1 = models[1].steps[-1][1].cum_baseline_hazard_
+    base2 = models[2].steps[-1][1].cum_baseline_hazard_
+
+    # H1 jumps only at cardiac event times, so that grid carries the sum.
+    grid = np.asarray(base1.x, dtype=float)
+    inc1 = np.diff(np.concatenate([[0.0], np.asarray(base1.y, dtype=float)]))
+    left1 = np.concatenate([[0.0], np.asarray(base1.y, dtype=float)[:-1]])
+    idx2 = np.searchsorted(np.asarray(base2.x, dtype=float), grid,
+                           side="left") - 1
+    left2 = np.where(idx2 >= 0,
+                     np.asarray(base2.y, dtype=float)[np.clip(idx2, 0, None)],
+                     0.0)
+
+    hazard1 = np.exp(models[1].predict(X))
+    hazard2 = np.exp(models[2].predict(X))
+    columns = np.searchsorted(grid, times, side="right") - 1
+    out = np.empty((len(hazard1), len(times)))
+    for start in range(0, len(hazard1), 2000):
+        e1 = hazard1[start:start + 2000, None]
+        e2 = hazard2[start:start + 2000, None]
+        survival_left = np.exp(-(e1 * left1[None, :] + e2 * left2[None, :]))
+        jump = e1 * inc1[None, :]
+        cif = np.minimum(np.cumsum(survival_left * jump, axis=1), 1.0)
+        out[start:start + 2000] = np.where(
+            columns[None, :] >= 0, cif[:, np.clip(columns, 0, None)], 0.0)
+    return out
+
+
+def evaluate_cif_cv(X, frame: pd.DataFrame, folds, horizons=None,
+                    seed: int = config.SEED) -> dict:
+    """Out-of-fold predicted cardiac incidence with per-fold refits.
+
+    Both feature sets must be passed the same fold list so the comparison
+    stays paired. Ranking metrics remain cause-specific, as in analysis B,
+    so the thyroid contrast is comparable across analyses; the absolute
+    scale of the predictions is assessed separately in cif_calibration.
+    """
+    horizons = config.HORIZONS if horizons is None else horizons
+    horizons = [float(h) for h in horizons]
+
+    y_all = make_surv_y(frame)
+    rows = []
+    oof = {h: np.full(len(frame), np.nan) for h in horizons}
+    for fold, (tr, te) in enumerate(folds):
+        models = fit_cause_specific(X.iloc[tr], frame.iloc[tr], seed)
+        cif = predict_cardiac_cif(models, X.iloc[te], horizons)
+        y_tr, y_te = y_all[tr], y_all[te]
+        for j, horizon in enumerate(horizons):
+            risk = cif[:, j]
+            oof[horizon][te] = risk
+            tau = float(safe_times(y_tr, y_te, [horizon])[-1])
+            # The score targets this horizon, so Harrell's concordance is
+            # administratively censored at it; Uno is truncated via tau.
+            event_h = y_te["event"] & (y_te["time"] <= horizon)
+            time_h = np.minimum(y_te["time"], horizon)
+            harrell = concordance_index_censored(event_h, time_h, risk)[0]
+            try:
+                uno = float(concordance_index_ipcw(y_tr, y_te, risk,
+                                                   tau=tau)[0])
+            except Exception:
+                uno = np.nan
+            rows.append({"fold": fold, "horizon": horizon,
+                         "n_test": len(te),
+                         "events_cardiac_test": int(y_te["event"].sum()),
+                         "tau": tau, "c_harrell": float(harrell),
+                         "c_uno": uno,
+                         "mean_predicted_cif": float(np.mean(risk))})
+    return {"folds": pd.DataFrame(rows), "oof_cif": oof}
+
+
+def cif_calibration(frame: pd.DataFrame, cif, horizon: float,
+                    n_groups: int = 5, seed: int = config.SEED) -> pd.DataFrame:
+    """Mean predicted incidence against Aalen-Johansen in risk groups.
+
+    Groups are quantiles of the out-of-fold predicted incidence. This is
+    the calibration check that matches the competing-risk estimand: within
+    each group the observed quantity is itself a cumulative incidence, so
+    a 1 - Kaplan-Meier reference would overstate every observed value.
+    """
+    cif = np.asarray(cif, dtype=float)
+    edges = np.quantile(cif, np.linspace(0.0, 1.0, n_groups + 1))
+    group = np.clip(np.searchsorted(edges[1:-1], cif, side="right"),
+                    0, n_groups - 1)
+    rows = []
+    for g in range(n_groups):
+        mask = group == g
+        aj = aalen_johansen_cif(frame.loc[mask], horizon, seed)
+        rows.append({"group": str(g + 1), "n": int(mask.sum()),
+                     "mean_predicted_cif": float(cif[mask].mean()),
+                     "observed_cif_aalen_johansen": aj["cif_aalen_johansen"],
+                     "events_cardiac": aj["events_cardiac"],
+                     "events_noncardiac": aj["events_noncardiac"]})
+    overall = aalen_johansen_cif(frame, horizon, seed)
+    rows.append({"group": "overall", "n": int(len(frame)),
+                 "mean_predicted_cif": float(cif.mean()),
+                 "observed_cif_aalen_johansen": overall["cif_aalen_johansen"],
+                 "events_cardiac": overall["events_cardiac"],
+                 "events_noncardiac": overall["events_noncardiac"]})
+    return pd.DataFrame(rows)
+
+
+# ---------------------------------------------------------------------------
 # Competing risks
 # ---------------------------------------------------------------------------
 
@@ -383,17 +542,18 @@ def aalen_johansen_cif(df: pd.DataFrame, horizon: float, seed: int = config.SEED
     """Cardiac cumulative incidence with non-cardiac death as a competing event.
 
     This is the estimator to quote for absolute cardiac risk; 1 - Kaplan-Meier
-    censors the competing deaths and overstates it.
+    censors the competing deaths and overstates it. The scikit-survival
+    estimator handles tied event times exactly, where the lifelines fitter
+    would break ties with a random jitter; the seed argument is kept for
+    signature stability and is unused.
     """
     time = df["survival_time_years"].to_numpy(dtype=float)
     code = np.where(df["event_cardiac"] == 1, 1,
                     np.where(df["event_noncardiac"] == 1, 2, 0))
 
-    ajf = AalenJohansenFitter(seed=seed)
-    ajf.fit(time, code, event_of_interest=1)
-    cif = ajf.cumulative_density_
-    at_horizon = cif.index[cif.index <= horizon]
-    aj_risk = float(cif.loc[at_horizon[-1]].iloc[0]) if len(at_horizon) else np.nan
+    grid, incidence = cumulative_incidence_competing_risks(code, time)
+    at_horizon = grid <= horizon
+    aj_risk = float(incidence[1][at_horizon][-1]) if at_horizon.any() else np.nan
 
     kmf = KaplanMeierFitter().fit(time, (code == 1).astype(int))
     km_risk = float(1.0 - kmf.predict(horizon))

@@ -1,10 +1,10 @@
-# ML4CAD: thyroid variables and cardiac-death risk in ischemic heart disease
+# ML4CAD: thyroid variables and cardiac-death risk in a hospitalised cardiac population
 
 ## Objective
 
 Does adding thyroid function to a cardiovascular predictor set improve the
 classification of cardiac death within a fixed horizon, and the stratification of
-long-term risk, in patients with ischemic heart disease?
+long-term risk, in a hospitalised cardiac population?
 
 The prespecified primary comparison is `CV17` against `CV17_THY_CONT`, that is
 the cardiovascular baseline with and without the continuous thyroid biomarkers
@@ -25,12 +25,13 @@ compact notebook-driven layout this repository follows.
 
 | Paper | Here | Why |
 |---|---|---|
-| 18 cardiovascular predictors including creatinine | 17; creatinine excluded | creatinine is missing for 7.4 percent of this cohort and was left out of the prespecified baseline. The pipeline does impute, so the exclusion is a protocol choice rather than a technical necessity, and the baseline is therefore a 17-variable model that is never described as the paper's 18-variable model. |
+| 3987 patients meeting an ischemic-heart-disease definition, non-cardiac deaths excluded by design | a distinct cohort of 8065 patients hospitalised with or without established cardiac disease at the same clinical centre, non-cardiac deaths retained | both cohorts were collected at the same clinical centre, but they share neither the patient sample nor the diagnostic composition: about 53 percent of this cohort is flagged by a recorded-field proxy of the paper's IHD definition (`results/cohort_diagnosis_composition.csv`). Retaining non-cardiac deaths is what makes the time-to-event and competing-risks analyses possible. |
+| 18 cardiovascular predictors including creatinine | 17; creatinine excluded | creatinine is missing for 7.4 percent of this cohort and was left out of the prespecified baseline. The pipeline does impute, so the exclusion is a protocol choice rather than a technical necessity, the baseline is therefore a 17-variable model that differs from the paper's predictor set by the omission of creatinine. |
 | Target `survive7Y`, positive class is survival | `y_event`, positive class is cardiac death within the horizon | the clinical question is who dies. `p_survive = 1 - p_event` is derived where paper terminology needs it. |
 | Sampler chosen inside the hyperparameter search | hyperparameters searched first, sampler chosen afterwards on validation | keeps the search affordable and keeps sampler selection out of the training folds. Reported as a deviation. |
 | Ensemble members fixed at logistic regression, random forest and AdaBoost | that ensemble is kept and always reported, plus an adapted ensemble chosen on validation from a closed candidate set | the paper selected its three members empirically; both the prespecified and the adapted choice are shown. |
-| No calibration model | sigmoid calibration fitted on training out-of-fold probabilities, isotonic as a sensitivity | the uncalibrated ensemble over-predicts risk by roughly a factor of two, which makes any absolute-risk or decision-analytic reading meaningless. |
-| Survival analysis only through the classifier output | that analysis is kept, plus a cause-specific Random Survival Forest on the full time-to-event cohort | a survival model can use right-censored patients that the fixed-horizon cohort has to drop. |
+| No calibration model | sigmoid calibration fitted on training out-of-fold probabilities, isotonic as a sensitivity | the uncalibrated ensemble over-predicts risk by roughly a factor of two, which makes any absolute-risk or decision-analytic reading unreliable. |
+| Survival analysis only through the classifier output | that analysis is kept, plus a cause-specific Random Survival Forest on the time-to-event cohort | a survival model can use right-censored patients that the fixed-horizon cohort has to drop. |
 | Single 7-year horizon | 7 and 10 years under the primary profile | the paper reports the 10-year variant as a robustness check. |
 
 ### Endpoint
@@ -38,8 +39,8 @@ compact notebook-driven layout this repository follows.
 The event is the source field `CVD Death`, mapped once during preprocessing to
 `death_cardiac` and referred to throughout as cardiac death. The rename
 operationalises the endpoint and does not assert that cardiovascular death and
-cardiac death are interchangeable; the thesis should state the clinical
-definition the source field encodes.
+cardiac death are interchangeable. The clinical definition the source field
+encodes is stated in the thesis.
 
 ## Repository structure
 
@@ -48,13 +49,14 @@ config.py     every experimental option, including the active profile
 utils.py      paths, splits, metrics, paired bootstrap, caching
 train.py      models, sampling, tuning, calibration, thresholds, frozen test predictions
 ensemble.py   the paper ensemble and adapted-ensemble selection
-survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Johansen
+survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Johansen, cause-specific CIF
 
 1_data_process.ipynb                  cohorts, features, splits
 2_classifiers.ipynb                   development-stage model comparison
 3_sampling_ensemble_calibration.ipynb  tuning, ensembles, calibration, the single test evaluation
 4_feature_cluster_explainability.ipynb clustering, ablation, permutation importance, SHAP
 5_survival_analysis.ipynb             paper-aligned indicator and the survival extension
+6_competing_risks.ipynb               cause-specific absolute risk under competing events
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
 
@@ -71,6 +73,8 @@ cache             resumable intermediate results, not tracked
 the cached search results, and the fitted estimators alone weigh 177 MB.
 
 ## Setup
+
+The reported analyses were executed under Python 3.11.
 
 ```bash
 python -m venv .venv
@@ -126,7 +130,7 @@ PROFILE = "smoke"
 
 The `full` profile covers every analysis of the primary contrast together with
 the secondary feature sets, at the computational budget specified for that
-profile. It is not a computational superset of `primary`, which uses a larger
+profile. The two profiles are not computationally nested: `primary` uses a larger
 search budget on fewer feature sets.
 
 Nothing else needs to change. Notebooks read horizons, feature sets, model
@@ -136,7 +140,9 @@ strategy from `config.py`.
 ### Measured cost
 
 The `full` profile was executed end to end on 6-7 August 2026: **11.1 hours** on
-a 12-core machine, all five notebooks exiting 0. The breakdown was 5.4 hours for
+a 12-core machine, the five notebooks then present exiting 0; the
+competing-risks notebook added subsequently runs in roughly an additional
+hour and a half. The breakdown was 5.4 hours for
 the 80 search jobs, 0.3 hours for the rest of notebook 3, 0.1 hours for
 notebooks 1, 2 and 4 together, and 5.3 hours for the survival extension.
 
@@ -205,17 +211,19 @@ every extra set costs multiplicity, computation and interpretation clarity.
 
 ### Survival
 
-Two analyses with different estimands, kept visibly separate.
+Three analyses with different estimands, kept visibly separate.
 
 *Analysis A, strict cohort.* The paper-aligned part. Out-of-sample fixed-horizon
 probabilities become an ML indicator, used in a single-covariate Cox model and
-in Kaplan-Meier stratification at the paper cut of `p_survive = 0.6`. That cut
-is kept for comparability and is not a clinically validated threshold. The
+in Kaplan-Meier stratification at the paper cut of `p_survive = 0.6`, applied
+on the uncalibrated probability scale on which the published threshold was
+defined. That cut is kept for comparability and is not a clinically validated
+threshold. The
 median sensitivity uses the median of the validation population, applied as a
 fixed value to the test patients. A significant log-rank test shows separation
 between strata; it is not a test of incremental thyroid value.
 
-*Analysis B, full time-to-event cohort.* A Cox reference and a cause-specific
+*Analysis B, time-to-event cohort.* A Cox reference and a cause-specific
 Random Survival Forest, with identical outer folds for both feature sets.
 Cardiac death is the event of interest and non-cardiac death is treated as
 censoring, so these are cause-specific results and not competing-risk cumulative
@@ -224,6 +232,15 @@ AUROC and the integrated Brier score is estimated from the outer training fold
 alone. Aalen-Johansen is reported separately for cardiac cumulative incidence in
 the presence of non-cardiac death, alongside the `1 - Kaplan-Meier` value so the
 size of that bias is visible.
+
+*Analysis C, competing-risks absolute risk.* The estimand analyses A and B do
+not touch: each patient's cardiac cumulative incidence in the presence of
+non-cardiac death, on the time-to-event cohort. Two cause-specific Cox models per
+feature set are combined through their Breslow baselines into a per-patient
+`F1(t)`; the outer folds are stratified on the three-level cause code and
+shared by every feature set, so the thyroid contrast stays paired. Ranking is
+scored cause-specifically for comparability with analysis B; the absolute
+scale is checked against Aalen-Johansen within quintiles of predicted risk.
 
 ## Results
 
@@ -235,9 +252,11 @@ before this run and no smoke number is reported anywhere.
 
 The prespecified contrast is `CV17` versus `CV17_THY_CONT` at 7 and 10 years,
 paired on identical test patients and reported **without** multiplicity
-correction. The locked-pipeline comparison is the one that isolates the feature
-effect: model family, hyperparameters, sampler, calibration method and threshold
-rule are held at the baseline configuration and only the feature set changes.
+correction. The locked comparison estimates the feature-set difference under common
+baseline-derived development choices: model family, hyperparameters, sampler,
+calibration method and threshold rule are held at the baseline configuration
+and only the feature set changes. The calibration mapping is refitted per arm,
+as it must be.
 Lower is better for the Brier score, so a negative difference favours the
 thyroid arm there and a positive difference favours it everywhere else.
 
@@ -253,22 +272,28 @@ sampler, calibrator and threshold, gives two nominally significant results out
 of eight: delta-F1-macro +0.0212 (0.0005, 0.0431) at 7 years and delta-AUPRC +0.0088
 (0.0009, 0.0175) at 10 years. These do not survive scrutiny. At 7 years
 delta-F1-macro changes sign between the two comparisons, -0.0141 locked against
-+0.0212 unlocked, on the same patients: when each arm may choose a different
-model family, sampler and threshold, a positive difference can come from a
-luckier configuration rather than from thyroid information. Two nominal hits in
-sixteen uncorrected primary tests is what chance produces.
++0.0212 unlocked, on the same patients: when each arm may choose its own
+hyperparameters, sampler, calibrator and threshold, a positive difference may
+reflect the selected configuration rather than thyroid information. The
+reference ensemble members (logistic regression, random forest and AdaBoost)
+are the same in both arms. These are two nominally
+significant results among sixteen uncorrected comparisons, so they should be
+read with caution.
 
-For the paper-aligned survival analysis on the strict cohort, the ML indicator
-reproduces the published result: Harrell's C of 0.822 for the baseline on the
-frozen test partition against 0.82 in the paper, and Kaplan-Meier separation of
-89.6 percent against 35.5 percent seven-year survival at the paper's 0.6 cut
-against 88.8 and 29.1 percent. Adding the thyroid biomarkers changes the paired
-C-index by +0.0043 (-0.0016, 0.0105). The high-predicted-survival stratum goes
-from 737 to 741 patients, but that net figure hides movement in both
-directions: patient by patient, 13 move up and 9 move down, so 22 of 878 are
-reclassified (`results/indicator_reclassification.csv`).
+For the survival analysis following the reference study on the strict cohort, the ML indicator
+attains concordance comparable with the published value: Harrell's C of 0.822
+for the baseline on the frozen test partition against 0.82 in the paper. Kaplan-Meier stratification
+at the paper's 0.6 cut on the uncalibrated scale separates the strata at 95.1
+against 63.2 percent seven-year survival (published: 88.8 against 29.1 percent,
+in a distinct cohort; the uncalibrated ensemble here over-predicts risk, so the
+same nominal cut assigns more patients to the low-survival stratum, which may
+partly contribute to the less extreme separation). Adding the thyroid biomarkers changes the paired C-index by +0.0043
+(-0.0016, 0.0105). The high-predicted-survival stratum goes from 487 to 516
+patients, and that net figure hides movement in both directions: patient by
+patient, 41 move up and 12 move down, so 53 of 878 are reclassified
+(`results/indicator_reclassification.csv`).
 
-**Conclusion: no convincing evidence that TSH, fT3 and fT4 add incremental value
+**Conclusion: no robust evidence of improved incremental predictive value from TSH, fT3 and fT4
 for classification or for paper-aligned risk stratification.**
 
 ### Secondary and extension results
@@ -278,14 +303,14 @@ type and metric. No secondary thyroid representation showed a statistically
 supported improvement in classification. One comparison is significant in the
 opposite direction: under the locked pipeline at 7 years, `CV17_THY_STATES` has
 a delta-AUPRC of -0.0106 (-0.0182, -0.0030) with q = 0.030, that is the
-thyroid-state representation performs worse than the baseline. This strengthens
-rather than weakens the null conclusion.
+thyroid-state representation performs worse than the baseline. This does not
+support incremental improvement.
 
-The survival extension on the full time-to-event cohort is where the positive
+The survival extension on the time-to-event cohort is where the positive
 signals concentrate. With identical outer folds for both arms, the
 cause-specific Random Survival Forest gives a paired delta-C-index of +0.0085
-(0.0031, 0.0140) for the primary contrast: the only interval of the *primary*
-contrast anywhere in the study that excludes zero. Three secondary comparisons
+(0.0031, 0.0140) for the primary contrast: among the survival-model
+comparisons, this interval excludes zero. Three secondary comparisons
 also survive correction, all small: Cox with thyroid states q = 0.018, Random
 Survival Forest with thyroid states q = 0.036, and Random Survival Forest with
 continuous plus states q = 0.036. They carry the same caveats as the primary one
@@ -296,37 +321,52 @@ Four reasons to treat all of this as a hypothesis rather than a finding:
 - the Cox reference on the same folds sees nothing, +0.0012 (-0.0014, 0.0036);
 - the time-dependent AUROC moves the other way for the thyroid arm, 0.8300 to
   0.8265, and the integrated Brier score is unchanged;
-- the effect is 1.1 percent relative on a C-index of 0.785;
+- the absolute difference is +0.0085 in concordance;
 - the paired bootstrap treats out-of-fold predictions as independent although
-  they share training folds, so this interval is anti-conservative. The
+  they share training folds, so this interval is not accounting for shared-training-fold dependence. The
   frozen-test intervals in the primary result are not affected.
 
 A non-linear thyroid effect is biologically plausible, low-T3 syndrome being the
-obvious candidate, but this evidence is far too thin to support it.
+plausible candidate, but this evidence is far too thin to support it.
 
 Competing risks matter for absolute numbers: Aalen-Johansen puts seven-year
-cardiac cumulative incidence at 11.73 percent against 12.56 percent for
+cardiac cumulative incidence at 11.72 percent against 12.56 percent for
 `1 - Kaplan-Meier`, and 14.87 against 16.48 percent at ten years, with 1399
 non-cardiac deaths in the cohort.
+
+Analysis C models that estimand directly and is consistent with the primary
+conclusion. The
+cause-specific framework closely reproduces the population incidence
+(mean predicted 11.84 percent at seven years against 11.72 observed,
+observed-to-predicted 0.99 for both arms, quintile ratios within 0.88-1.12)
+and the paired thyroid contrast on the predicted incidence, with Harrell's
+concordance administratively censored at the evaluated horizon, is +0.0014
+(-0.0011, 0.0034) at seven years and +0.0007 (-0.0017, 0.0026) at ten. The
+clinical-states set repeats the small Cox-side signal (about +0.004,
+q = 0.027 and 0.036); the combined continuous-plus-states set shows a similar
+increment without surviving correction. The out-of-fold intervals carry the
+same shared-training-folds caveat as analysis B.
 
 Calibration was the largest practical gain. Uncalibrated, the paper ensemble has
 an observed-to-expected ratio of 0.48 at seven years and 0.78 at ten, that is it
 over-predicts absolute risk by roughly a factor of two at the shorter horizon,
 with a calibration slope near 1.9 and an expected calibration error above 0.13.
 After sigmoid calibration fitted on training out-of-fold probabilities the ratio
-is 0.99 at seven years and 0.94 at ten, the slope sits between 0.90 and 1.00 and
-the error drops to 0.02 to 0.05. Absolute-risk and decision-curve readings are
-meaningful only on the calibrated scale.
+is 0.99 at seven years and 0.94 at ten, the slope sits between 0.91 and 1.01 and
+the error drops to 0.02 to 0.05. Probability-scale and decision-curve
+interpretations should rely on the calibrated predictions.
 
 ## How the test set is protected
 
 - The split is created once in notebook 1 and stored as patient identifiers in
   `data/processed/splits.json`. Every later step loads it.
 - Hyperparameters are searched on the training partition only.
-- The sampler, the ensemble and the calibration method are selected on
-  validation or on training cross-validation, never on test.
+- The sampler and the adapted ensemble are selected during model development
+  on validation or on training cross-validation, never on test. The
+  calibration method is prespecified (sigmoid, with isotonic as a
+  sensitivity); only the calibrator parameters are estimated.
 - The calibrator is fitted on training out-of-fold probabilities, so
-  calibration never consumes validation outcomes. Validation is spent on the
+  calibration does not use validation outcomes. Validation is used for the
   development decisions the protocol prescribes: the sampler, the adapted
   ensemble and the decision threshold.
 - Test outcomes are used for none of those decisions. A single routine writes
@@ -346,8 +386,16 @@ meaningful only on the calibrated scale.
 - One seed, `config.SEED`, drives splits, folds, estimators and every bootstrap.
   Paired comparisons share bootstrap draws, so differences are computed on the
   same resamples.
-- Warnings are not suppressed. Convergence warnings, failed candidates and NaN
-  search scores are counted and written to `results/hyperparameter_search.csv`.
+- XGBoost tunes `scale_pos_weight` while the development stage may also apply
+  `RandomOverSampler`, so some XGBoost configurations combine two imbalance
+  corrections. This is an implementation peculiarity of the XGBoost branch: it
+  does not affect the reference ensemble (logistic regression, random forest,
+  AdaBoost) on which the formal incremental comparisons are computed. A future
+  revision should select one imbalance mechanism at a time.
+- Warnings are not suppressed. Failed candidates and NaN search scores are
+  counted and written to `results/hyperparameter_search.csv`, together with the
+  convergence warnings raised by the final refit of each winning configuration;
+  warnings raised inside the parallel search workers are not aggregated.
 - Superseded artifacts from the previous implementation were moved out of the
   tracked tree into `legacy_cache/`, which is ignored by git.
   `results/legacy_cache_manifest.json` records what they were, their fingerprint

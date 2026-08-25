@@ -49,7 +49,7 @@ def dependency_versions() -> dict:
         "pandas": pd.__version__,
         "sklearn": sklearn.__version__,
     }
-    for name in ["imblearn", "xgboost", "lifelines", "sksurv"]:
+    for name in ["scipy", "imblearn", "xgboost", "lifelines", "sksurv"]:
         try:
             versions[name] = __import__(name).__version__
         except Exception:

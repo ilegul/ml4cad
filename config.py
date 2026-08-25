@@ -7,8 +7,10 @@ import numpy as np
 # ---------------------------------------------------------------------------
 # Active profile. CHANGE THIS LINE ONLY.
 #   smoke   - tiny budget, end-to-end validation of every code path
-#   primary - the definitive thesis analysis (expensive, see README)
-#   full    - primary plus secondary feature sets and sampling comparison
+#   primary - the paper's 5000-draw budget on the primary contrast only
+#             (expensive, see README)
+#   full    - the executed thesis analysis: primary contrast at 1000 draws
+#             plus the secondary feature sets and the sampling comparison
 # ---------------------------------------------------------------------------
 PROFILE = "full"
 
@@ -96,8 +98,9 @@ DATA_CORRECTIONS = [
         "patient_id": 6850,
         "issue": "Conflicting thyroid flags: SCH and Hyperthyroid both set",
         "updates": {"SCH": 1, "Hyperthyroid": 0},
-        "rationale": "TSH 4.76 is elevated and consistent with subclinical "
-                     "hypothyroidism rather than hyperthyroidism.",
+        "rationale": "Clinical review confirmed the subclinical "
+                     "hypothyroidism classification and the removal of the "
+                     "conflicting hyperthyroidism flag.",
     },
     {
         "patient_id": 7286,

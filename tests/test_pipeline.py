@@ -20,6 +20,7 @@ if str(ROOT) not in sys.path:
 
 import config
 import ensemble as ens
+import survival
 import train
 import utils
 
@@ -293,6 +294,57 @@ def test_legacy_cache_is_outside_the_active_tree():
     payload = json.loads(manifest.read_text(encoding="utf-8"))
     assert payload["status"].startswith("retained for traceability")
     assert not (ROOT / payload["original_path"]).exists()
+
+
+# ---------------------------------------------------------------------------
+# Competing-risks predictions
+# ---------------------------------------------------------------------------
+
+def test_cardiac_cif_is_bounded_and_monotone():
+    rng = np.random.default_rng(5)
+    n = 400
+    X = pd.DataFrame({"a": rng.normal(size=n), "b": rng.normal(size=n)})
+    cause = rng.choice([0, 1, 2], size=n, p=[0.5, 0.3, 0.2])
+    frame = survival.competing_frame(pd.DataFrame({
+        "survival_time_years": rng.exponential(6.0, size=n) + 0.05,
+        "event_cardiac": (cause == 1).astype(int),
+        "event_noncardiac": (cause == 2).astype(int),
+    }))
+    models = survival.fit_cause_specific(X, frame)
+    times = np.array([1.0, 3.0, 5.0, 7.0])
+    cif = survival.predict_cardiac_cif(models, X, times)
+    assert cif.shape == (n, len(times))
+    assert np.all((cif >= 0.0) & (cif <= 1.0))
+    # A cumulative incidence can never decrease in time.
+    assert np.all(np.diff(cif, axis=1) >= -1e-12)
+    # An extreme covariate must not push the truncated incidence past 1: the
+    # fT3/fT4 ratio contains outliers orders of magnitude above its median.
+    extreme = X.copy()
+    extreme.loc[extreme.index[:5], "a"] = 500.0
+    cif_extreme = survival.predict_cardiac_cif(models, extreme, times)
+    assert np.all((cif_extreme >= 0.0) & (cif_extreme <= 1.0))
+
+
+def test_cause_specific_fits_censor_the_competing_event():
+    rng = np.random.default_rng(6)
+    n = 300
+    X = pd.DataFrame({"a": rng.normal(size=n)})
+    cause = rng.choice([0, 1, 2], size=n, p=[0.4, 0.3, 0.3])
+    frame = survival.competing_frame(pd.DataFrame({
+        "survival_time_years": rng.exponential(5.0, size=n) + 0.05,
+        "event_cardiac": (cause == 1).astype(int),
+        "event_noncardiac": (cause == 2).astype(int),
+    }))
+    models = survival.fit_cause_specific(X, frame)
+    # The baseline grid carries every observed time, but the hazard may only
+    # jump at the fitted cause's own event times.
+    for code in (1, 2):
+        baseline = models[code].steps[-1][1].cum_baseline_hazard_
+        increments = np.diff(np.concatenate(
+            [[0.0], np.asarray(baseline.y, dtype=float)]))
+        jump_times = np.asarray(baseline.x, dtype=float)[increments > 1e-12]
+        own = frame.loc[frame["cause_code"] == code, "surv_time"].to_numpy()
+        assert np.isin(jump_times, own).all()
 
 
 # ---------------------------------------------------------------------------

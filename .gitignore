@@ -42,3 +42,30 @@ temp/
 # Operating system
 .DS_Store
 Thumbs.db
+
+# ---------------------------------------------------------------------------
+# Tesi: si versionano i sorgenti LaTeX, il PDF compilato e il manuale di
+# studio. Restano fuori gli artefatti di compilazione e il materiale di terzi
+# (l'articolo pubblicato e la tesi di un altro autore non sono ridistribuibili).
+# ---------------------------------------------------------------------------
+Tesi/*.zip
+Tesi/tesi.docx
+Tesi/tesi_docx_unpacked/
+Tesi/1-s2.0-*.pdf
+Tesi/DonaldoBuzi_tesi.pdf
+Tesi/~$*
+Tesi/Gulino_thesis_extracted/build/
+Tesi/Gulino_thesis_extracted/build_log*.txt
+Tesi/**/*.aux
+Tesi/**/*.bbl
+Tesi/**/*.bbl-SAVE-ERROR
+Tesi/**/*.bcf
+Tesi/**/*.bcf-SAVE-ERROR
+Tesi/**/*.blg
+Tesi/**/*.fdb_latexmk
+Tesi/**/*.fls
+Tesi/**/*.log
+Tesi/**/*.out
+Tesi/**/*.toc
+Tesi/**/*.synctex.gz
+Tesi/**/*.run.xml

@@ -1,3 +1,3 @@
 patient_id,issue,status,before,after,rationale
-6850,Conflicting thyroid flags: SCH and Hyperthyroid both set,applied,"{'SCH': 1.0, 'Hyperthyroid': 1.0}","{'SCH': 1.0, 'Hyperthyroid': 0.0}",TSH 4.76 is elevated and consistent with subclinical hypothyroidism rather than hyperthyroidism.
+6850,Conflicting thyroid flags: SCH and Hyperthyroid both set,applied,"{'SCH': 1.0, 'Hyperthyroid': 1.0}","{'SCH': 1.0, 'Hyperthyroid': 0.0}",Clinical review confirmed the subclinical hypothyroidism classification and the removal of the conflicting hyperthyroidism flag.
 7286,Death date present but the all-cause mortality flag is 0,applied,{'death_any': 0.0},{'death_any': 1.0},A populated death date must be consistent with death_any = 1; cardiac death remains 0.

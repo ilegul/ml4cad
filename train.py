@@ -384,7 +384,8 @@ def calibration_report(y_true, y_proba, n_bins: int = None) -> dict:
     if len(np.unique(y_true)) == 2:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", ConvergenceWarning)
-            fit = LogisticRegression(max_iter=1000).fit(z.reshape(-1, 1), y_true)
+            fit = LogisticRegression(penalty=None, max_iter=1000).fit(
+                z.reshape(-1, 1), y_true)
         slope = float(fit.coef_[0][0])
         intercept = _calibration_in_the_large(y_true, z)
 
