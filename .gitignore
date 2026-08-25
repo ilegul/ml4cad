@@ -49,6 +49,9 @@ Thumbs.db
 # (l'articolo pubblicato e la tesi di un altro autore non sono ridistribuibili).
 # ---------------------------------------------------------------------------
 Tesi/*.zip
+# ...tranne l'archivio pronto per Overleaf, che deve restare scaricabile
+# come singolo file da GitHub. Si rigenera con Tesi/make_overleaf_zip.py
+!Tesi/Tesi_Overleaf.zip
 Tesi/tesi.docx
 Tesi/tesi_docx_unpacked/
 Tesi/1-s2.0-*.pdf
