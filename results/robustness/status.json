@@ -1,0 +1,50 @@
+{
+ "D3_k2_check": {
+  "ok": true,
+  "elapsed_s": 0
+ },
+ "A": {
+  "ok": true,
+  "elapsed_s": 0
+ },
+ "B1_cox": {
+  "ok": true,
+  "elapsed_s": 0
+ },
+ "B2_cif": {
+  "ok": true,
+  "elapsed_s": 0
+ },
+ "B3_oob_cox": {
+  "ok": true,
+  "elapsed_s": 0
+ },
+ "B4_oob_cif": {
+  "ok": true,
+  "elapsed_s": 1944
+ },
+ "D1_k3": {
+  "ok": true,
+  "elapsed_s": 5277
+ },
+ "D3_k3": {
+  "ok": true,
+  "elapsed_s": 192
+ },
+ "B5_rsf": {
+  "ok": true,
+  "elapsed_s": 5249
+ },
+ "D1_k5": {
+  "ok": true,
+  "elapsed_s": 8965
+ },
+ "D2_yardstick": {
+  "ok": true,
+  "elapsed_s": 80
+ },
+ "D3_k5": {
+  "ok": true,
+  "elapsed_s": 148
+ }
+}

@@ -57,6 +57,7 @@ survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Joh
 4_feature_cluster_explainability.ipynb clustering, ablation, permutation importance, SHAP
 5_survival_analysis.ipynb             paper-aligned indicator and the survival extension
 6_competing_risks.ipynb               cause-specific absolute risk under competing events
+7_robustness.py                       post hoc robustness analyses of the frozen results
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
 
@@ -64,7 +65,7 @@ data/raw          source workbooks, never modified
 data/processed    cohorts and the stored split assignment
 models            fitted estimators and their manifests
 predictions       frozen validation and test predictions
-results           result tables
+results           result tables; results/robustness holds the outputs of 7_robustness.py
 figures           generated figures
 cache             resumable intermediate results, not tracked
 ```
@@ -113,6 +114,20 @@ To run the tests:
 ```bash
 python -m pytest tests/test_pipeline.py -q
 ```
+
+The robustness analyses are a separate script, run after the notebooks on the
+frozen artifacts they leave behind:
+
+```bash
+python 7_robustness.py
+```
+
+It writes only into `results/robustness` and `figures`, is resumable phase by
+phase, and starts with a reproduction gate that must recover the frozen test
+predictions and intervals exactly before any analysis runs. `--smoke` exercises
+every code path at reduced sizes in a separate directory;
+`--summary --tables --figures` rebuilds the derived outputs from the stored
+CSV files without recomputing anything.
 
 ## Profiles
 
@@ -166,6 +181,13 @@ Because the run is long, launch it once and rely on the cache: each
 (horizon, feature set, model) job is cached independently, and the search-space
 version is tracked per model, so revising one model's space leaves every other
 cached job usable.
+
+The robustness script (`7_robustness.py`) ran on 13 September 2026 in about
+eight hours on the same machine: 25 minutes for the 100 repeated partitions,
+about three hours for the survival analyses (dominated by the forest over ten
+fold assignments and the two refit bootstraps), and about four hours for the
+three- and five-fold hyperparameter searches. It is resumable, so an
+interrupted run continues from the first phase without an output file.
 
 ## Analyses
 
@@ -347,6 +369,54 @@ q = 0.027 and 0.036); the combined continuous-plus-states set shows a similar
 increment without surviving correction. The out-of-fold intervals carry the
 same shared-training-folds caveat as analysis B.
 
+### Robustness analyses
+
+`7_robustness.py` was added after the analysis above was frozen, and none of
+its outputs replaces a reported number or was used for selection. It starts by re-implementing the notebook-3
+flow and reproducing the frozen test predictions and intervals to within
+1e-16, then runs four groups of post hoc analyses on the primary contrast.
+The full tables are in `results/robustness/SUMMARY.md` and in the thesis
+appendix; the headline results are:
+
+- *Repeated partitions.* The 60/20/20 procedure repeated over 50 random
+  partitions per horizon with frozen hyperparameters and samplers. The
+  standard deviation of the paired delta across partitions is of similar
+  magnitude to the bootstrap standard error of the frozen test (ratio
+  0.73-1.27). The locked seven-year delta-AUROC averages +0.0023 and is
+  positive in 88 percent of partitions, but its within-partition interval
+  excludes zero in 10 percent. The two nominally significant independently
+  optimized results of the frozen test sit at the 96th and 92nd percentiles of
+  their partition distributions, and the locked seven-year delta-F1-macro
+  (-0.0141) at the 2nd: the sign change between the two modes is
+  split-sensitive, both modes averaging about +0.003 across partitions.
+- *Survival fold assignments.* With ten different outer-fold assignments, the
+  between-assignment standard deviation of the paired delta-C-index is 0.35 to
+  0.46 of the within-assignment bootstrap standard error for Cox, for the
+  random survival forest at its default configuration and for analysis C. The
+  forest gives +0.0096 on average, positive with an interval excluding zero in
+  all ten assignments (+0.0083 on the reported assignment against +0.0085 for
+  the tuned forest), while the time-dependent AUROC and the integrated Brier
+  score again do not move: a small, internally reproducible and metric-specific
+  concordance signal.
+- *Bootstrap with refitting.* Refitting the Cox model (analysis B) or the
+  cause-specific pair (analysis C) inside each of 2000 resamples and scoring
+  the out-of-bag patients widens the intervals by 39 percent (Cox) and by 66
+  and 84 percent (analysis C at seven and ten years), widening being the ratio
+  of the refit percentile-interval width to the reported interval width (the
+  ratio of the refit standard deviation to the standard error implied by the
+  reported interval is 1.36, 1.65 and 1.84); every interval still includes
+  zero. The no-refit bootstrap used above understates uncertainty by a
+  measurable but moderate amount that changes no conclusion.
+- *Inner folds of the search.* Re-running the search of the three reference
+  members with 3 and 5 inner folds on the same 1000 candidates changes the
+  winner in all 12 cells, yet on a training-only 5x3 repeated cross-validation
+  the ensemble macro-F1 differs from the two-fold winners by -0.0034 to +0.0037,
+  within the fold-to-fold standard deviation. On the frozen test (a second
+  reading, reported in full) the locked comparison stays null for every fold
+  count while the nominally significant independently optimized comparisons
+  change with it: F1 at 7 years and AUPRC at 10 with two folds, AUROC, AUPRC
+  and Brier at 7 years with three, none with five.
+
 Calibration was the largest practical gain. Uncalibrated, the paper ensemble has
 an observed-to-expected ratio of 0.48 at seven years and 0.78 at ten, that is it
 over-predicts absolute risk by roughly a factor of two at the shorter horizon,
@@ -398,6 +468,10 @@ interpretations should rely on the calibrated predictions.
   warnings raised inside the parallel search workers are not aggregated.
 - Superseded artifacts from the previous implementation were moved out of the
   tracked tree into `legacy_cache/`, which is ignored by git.
+- The robustness script reads the frozen artifacts and writes only under
+  `results/robustness` and `figures`; its run log (`run_log.txt`) and phase
+  status are stored with its outputs. The hyperparameters it selects with 3
+  and 5 inner folds are stored for inspection and adopted nowhere.
   `results/legacy_cache_manifest.json` records what they were, their fingerprint
   and why they cannot be reused. They are never counted as results.
 - Results in `results/` and `figures/` are only those the current configuration

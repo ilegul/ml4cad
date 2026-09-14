@@ -1,0 +1,70 @@
+{
+ "h7_CV17_LogisticRegression": {
+  "model__C": 0.004982752357076452,
+  "model__l1_ratio": 0.29214464853521815,
+  "model__penalty": "elasticnet",
+  "model__solver": "saga"
+ },
+ "h7_CV17_RandomForest": {
+  "model__max_depth": 20,
+  "model__max_features": 0.3,
+  "model__min_samples_leaf": 4,
+  "model__min_samples_split": 4,
+  "model__n_estimators": 588
+ },
+ "h7_CV17_AdaBoost": {
+  "model__learning_rate": 0.36672729149665356,
+  "model__n_estimators": 328
+ },
+ "h7_CV17_THY_CONT_LogisticRegression": {
+  "model__C": 0.004982752357076452,
+  "model__l1_ratio": 0.29214464853521815,
+  "model__penalty": "elasticnet",
+  "model__solver": "saga"
+ },
+ "h7_CV17_THY_CONT_RandomForest": {
+  "model__max_depth": 20,
+  "model__max_features": "log2",
+  "model__min_samples_leaf": 2,
+  "model__min_samples_split": 10,
+  "model__n_estimators": 102
+ },
+ "h7_CV17_THY_CONT_AdaBoost": {
+  "model__learning_rate": 0.17700888306825902,
+  "model__n_estimators": 377
+ },
+ "h10_CV17_LogisticRegression": {
+  "model__C": 0.005756046128009331,
+  "model__l1_ratio": 0.06134962711066816,
+  "model__penalty": "elasticnet",
+  "model__solver": "saga"
+ },
+ "h10_CV17_RandomForest": {
+  "model__max_depth": 20,
+  "model__max_features": "log2",
+  "model__min_samples_leaf": 2,
+  "model__min_samples_split": 10,
+  "model__n_estimators": 102
+ },
+ "h10_CV17_AdaBoost": {
+  "model__learning_rate": 1.226395208819354,
+  "model__n_estimators": 350
+ },
+ "h10_CV17_THY_CONT_LogisticRegression": {
+  "model__C": 0.014165465220555132,
+  "model__l1_ratio": 0.20618616451842642,
+  "model__penalty": "elasticnet",
+  "model__solver": "saga"
+ },
+ "h10_CV17_THY_CONT_RandomForest": {
+  "model__max_depth": 8,
+  "model__max_features": "sqrt",
+  "model__min_samples_leaf": 4,
+  "model__min_samples_split": 11,
+  "model__n_estimators": 166
+ },
+ "h10_CV17_THY_CONT_AdaBoost": {
+  "model__learning_rate": 0.5843642821496238,
+  "model__n_estimators": 599
+ }
+}

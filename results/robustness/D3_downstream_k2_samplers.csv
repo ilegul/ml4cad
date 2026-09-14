@@ -1,0 +1,13 @@
+horizon,feature_set,model,sampler
+7,CV17,LogisticRegression,RandomOverSampler
+7,CV17,RandomForest,class_weight
+7,CV17,AdaBoost,SMOTENC
+7,CV17_THY_CONT,LogisticRegression,RandomOverSampler
+7,CV17_THY_CONT,RandomForest,RandomOverSampler
+7,CV17_THY_CONT,AdaBoost,RandomOverSampler
+10,CV17,LogisticRegression,SMOTENC
+10,CV17,RandomForest,class_weight
+10,CV17,AdaBoost,RandomOverSampler
+10,CV17_THY_CONT,LogisticRegression,class_weight
+10,CV17_THY_CONT,RandomForest,class_weight
+10,CV17_THY_CONT,AdaBoost,SMOTENC

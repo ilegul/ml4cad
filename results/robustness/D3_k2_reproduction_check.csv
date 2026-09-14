@@ -1,0 +1,11 @@
+horizon,artifact,n,max_abs_diff,mismatches
+7,h7_CV17_paper,878,1.1102230246251565e-16,0
+7,h7_CV17_THY_CONT_paper,878,1.1102230246251565e-16,0
+7,h7_CV17_THY_CONT_paper_locked,878,1.1102230246251565e-16,0
+10,h10_CV17_paper,523,1.1102230246251565e-16,0
+10,h10_CV17_THY_CONT_paper,523,1.1102230246251565e-16,0
+10,h10_CV17_THY_CONT_paper_locked,523,1.1102230246251565e-16,0
+all,incremental_value.delta,16,9.996344030316351e-17,0
+all,incremental_value.ci_lo,16,9.974659986866641e-17,0
+all,incremental_value.ci_hi,16,0.0,0
+all,sampler_choice,12,0.0,0
