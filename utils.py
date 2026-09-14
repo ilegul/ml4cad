@@ -240,6 +240,8 @@ def classification_metrics(y_true, y_proba, threshold: float = 0.5) -> dict:
         "threshold": float(threshold),
         "f1_macro": float(f1_score(y_true, y_pred, average="macro")),
         "roc_auc": float(roc_auc_score(y_true, y_proba)),
+        # Average precision (recall-weighted mean of precision), reported as
+        # AP; it is not the trapezoidal area under the precision-recall curve.
         "auprc": float(average_precision_score(y_true, y_proba)),
         "brier": float(brier_score_loss(y_true, y_proba)),
         "precision_event": float(precision_score(y_true, y_pred, zero_division=0)),

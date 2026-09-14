@@ -781,7 +781,9 @@ def _pct(v):
     return f"{100 * v:.0f}"
 
 
-METRIC_LABEL = {"roc_auc": "AUROC", "auprc": "AUPRC", "f1_macro": "F1-macro", "brier": "Brier"}
+# The precision-recall summary is average precision (scikit-learn's
+# average_precision_score), hence the label AP rather than an area.
+METRIC_LABEL = {"roc_auc": "AUROC", "auprc": "AP", "f1_macro": "F1-macro", "brier": "Brier"}
 METRIC_ORDER = ["roc_auc", "auprc", "f1_macro", "brier"]
 MODE_LABEL = {"locked pipeline": "Locked pipeline",
               "independently optimized": "Independently optimised"}
@@ -864,90 +866,144 @@ def write_tables():
     log(f"LaTeX table bodies written to {path}")
 
 
+FIG_FONT = 10  # base font size; figures are sized so that this is about 9 pt in the thesis
+
+
+def figure_style(plt):
+    """Common style of the thesis figures: sans-serif, recessive axes and grid."""
+    plt.rcParams.update({
+        "font.family": "DejaVu Sans", "font.size": FIG_FONT,
+        "axes.titlesize": FIG_FONT + 1, "axes.labelsize": FIG_FONT,
+        "xtick.labelsize": FIG_FONT - 1, "ytick.labelsize": FIG_FONT - 1,
+        "legend.fontsize": FIG_FONT - 1, "legend.frameon": False,
+        "axes.spines.top": False, "axes.spines.right": False,
+        "axes.grid": True, "axes.grid.axis": "y", "grid.color": "0.9",
+        "grid.linewidth": 0.7, "axes.axisbelow": True,
+        "axes.edgecolor": "0.3", "xtick.color": "0.3", "ytick.color": "0.3",
+        "savefig.dpi": 200, "figure.dpi": 100,
+    })
+
+
+def save_png(fig, name, dpi=200):
+    path = config.FIGURES_DIR / f"{name}.png"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(path, dpi=dpi, bbox_inches="tight")
+    return path
+
+
+COLOURS = {"locked pipeline": "tab:blue", "independently optimized": "tab:orange"}
+
+
+def _partition_figure(plt, d, inc, h, rng):
+    fig, axes = plt.subplots(2, 2, figsize=(6.6, 6.2))
+    for ax, m in zip(axes.ravel(), METRIC_ORDER):
+        for x, mode in enumerate(COLOURS):
+            v = d[(d.horizon == h) & (d.metric == m) & (d.comparison == mode)]["delta"].to_numpy()
+            ax.scatter(x - 0.14 + rng.uniform(-0.07, 0.07, len(v)), v, s=16, alpha=0.5,
+                       color=COLOURS[mode], linewidths=0, label=MODE_LABEL[mode])
+            ax.hlines(v.mean(), x - 0.30, x + 0.02, color=COLOURS[mode], linewidth=2.0,
+                      label="mean across partitions" if x == 0 else None)
+            r = inc[(inc.horizon == h) & (inc.metric == m) & (inc.comparison == mode)].iloc[0]
+            ax.errorbar(x + 0.22, r.delta, yerr=[[r.delta - r.ci_lo], [r.ci_hi - r.delta]],
+                        fmt="o", color="black", markersize=4.5, capsize=3, linewidth=1.2,
+                        label="frozen test, 95% CI" if x == 0 else None)
+        ax.axhline(0, color="0.45", linewidth=0.9, linestyle=":")
+        ax.set_xticks([0, 1])
+        ax.set_xticklabels(["locked", "independent"])
+        ax.set_xlim(-0.6, 1.6)
+        ax.set_title(METRIC_LABEL[m])
+        ax.set_ylabel("difference, thyroid minus baseline")
+    handles, labels = axes[0][0].get_legend_handles_labels()
+    keep = {}
+    for hd, lb in zip(handles, labels):
+        keep.setdefault(lb, hd)
+    fig.legend(list(keep.values()), list(keep.keys()), loc="lower center", ncol=4,
+               bbox_to_anchor=(0.5, -0.015))
+    fig.suptitle(f"{h}-year horizon: 50 alternative partitions", y=0.995)
+    fig.tight_layout(rect=(0, 0.04, 1, 0.98))
+    return fig
+
+
+def _seed_panel(ax, g, ref, title):
+    x = np.arange(len(g))
+    ax.errorbar(x, g["delta_c_index"], yerr=[g["delta_c_index"] - g["ci_lo"],
+                                             g["ci_hi"] - g["delta_c_index"]],
+                fmt="o", color="tab:blue", markersize=4.5, capsize=3, linewidth=1.2,
+                label="fold assignment, 95% paired bootstrap interval")
+    ax.axhline(ref.delta_c_index, color="black", linewidth=1.2, linestyle="--",
+               label="reported estimate")
+    ax.axhline(0, color="0.45", linewidth=0.9, linestyle=":")
+    ax.set_xticks(x)
+    ax.set_xticklabels([str(s) for s in g["seed"]])
+    ax.set_xlabel("fold-assignment seed")
+    ax.set_title(title)
+
+
+def _survival_figure(plt, panels, name):
+    fig, axes = plt.subplots(1, 2, figsize=(6.6, 3.6))
+    for ax, (title, g, ref) in zip(axes, panels):
+        _seed_panel(ax, g, ref, title)
+    axes[0].set_ylabel("$\Delta$C, thyroid minus baseline")
+    handles, labels = axes[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(0.5, -0.02))
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    save_png(fig, name)
+    plt.close(fig)
+
+
+def _refit_figure(plt, s):
+    fig, ax = plt.subplots(figsize=(6.6, 2.9))
+    ys = np.arange(len(s))[::-1]
+    for i, (_, r) in enumerate(s.iterrows()):
+        y = ys[i]
+        ax.errorbar(r.reported, y + 0.16, xerr=[[r.reported - r.reported_lo], [r.reported_hi - r.reported]],
+                    fmt="o", color="0.35", markersize=4.5, capsize=3, linewidth=1.2,
+                    label="reported, no refit" if i == 0 else None)
+        ax.errorbar(r["mean"], y - 0.16, xerr=[[r["mean"] - r.p2_5], [r.p97_5 - r["mean"]]],
+                    fmt="s", color="tab:blue", markersize=4.5, capsize=3, linewidth=1.2,
+                    label="refit, out-of-bag" if i == 0 else None)
+    ax.axvline(0, color="0.45", linewidth=0.9, linestyle=":")
+    ax.set_yticks(ys)
+    ax.set_yticklabels(s["analysis"])
+    ax.set_xlabel("$\Delta$C, thyroid minus baseline, with 95% interval")
+    ax.grid(axis="x")
+    ax.grid(False, axis="y")
+    handles, labels = ax.get_legend_handles_labels()
+    fig.legend(handles, labels, loc="lower center", ncol=2, bbox_to_anchor=(0.5, -0.03))
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    return fig
+
+
 def write_figures():
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+    figure_style(plt)
 
-    colours = {"locked pipeline": "tab:blue", "independently optimized": "tab:orange"}
-    d = _maybe("A_partitions_deltas.csv")
     inc, sv, cif = _reference()
+    d = _maybe("A_partitions_deltas.csv")
     if d is not None:
-        rng = np.random.default_rng(SEED)
-        fig, axes = plt.subplots(len(S["horizons"]), len(METRIC_ORDER),
-                                 figsize=(3.1 * len(METRIC_ORDER), 3.0 * len(S["horizons"])),
-                                 squeeze=False)
-        for i, h in enumerate(S["horizons"]):
-            for j, m in enumerate(METRIC_ORDER):
-                ax = axes[i][j]
-                for x, mode in enumerate(colours):
-                    v = d[(d.horizon == h) & (d.metric == m) & (d.comparison == mode)]["delta"].to_numpy()
-                    ax.scatter(x - 0.12 + rng.uniform(-0.06, 0.06, len(v)), v, s=9, alpha=0.45,
-                               color=colours[mode], linewidths=0,
-                               label=MODE_LABEL[mode] if (i == 0 and j == 0) else None)
-                    ax.hlines(v.mean(), x - 0.24, x, color=colours[mode], linewidth=1.5)
-                    r = inc[(inc.horizon == h) & (inc.metric == m) & (inc.comparison == mode)].iloc[0]
-                    ax.errorbar(x + 0.16, r.delta, yerr=[[r.delta - r.ci_lo], [r.ci_hi - r.delta]],
-                                fmt="o", color="black", markersize=3.5, capsize=2, linewidth=1,
-                                label="frozen test, 95% CI" if (i == 0 and j == 0 and x == 0) else None)
-                ax.axhline(0, color="grey", linewidth=0.8, linestyle=":")
-                ax.set_xticks([0, 1])
-                ax.set_xticklabels(["locked", "independent"], fontsize=8)
-                ax.set_xlim(-0.55, 1.55)
-                ax.tick_params(axis="y", labelsize=8)
-                ax.grid(axis="y", color="0.92", linewidth=0.6)
-                ax.set_axisbelow(True)
-                for side in ("top", "right"):
-                    ax.spines[side].set_visible(False)
-                if i == 0:
-                    ax.set_title(METRIC_LABEL[m], fontsize=10)
-                if j == 0:
-                    ax.set_ylabel(f"{h} years: thyroid minus baseline", fontsize=9)
-        handles, labels = axes[0][0].get_legend_handles_labels()
-        fig.legend(handles, labels, loc="lower center", ncol=3, fontsize=8, frameon=False,
-                   bbox_to_anchor=(0.5, -0.01))
-        fig.tight_layout(rect=(0, 0.04, 1, 1))
-        utils.save_fig(fig, "robustness_partitions")
-        plt.close(fig)
+        for h in S["horizons"]:
+            fig = _partition_figure(plt, d, inc, h, np.random.default_rng(SEED))
+            save_png(fig, f"robustness_partitions_h{h}")
+            plt.close(fig)
 
-    panels = []
-    t = _maybe("B1_cox_partitions.csv")
-    if t is not None:
-        panels.append(("Analysis B, Cox", t, sv[sv.model == "Cox"].iloc[0]))
-    t = _maybe("B5_rsf_default_partitions.csv")
-    if t is not None:
-        panels.append(("Analysis B, RSF (default)", t, sv[sv.model == "RSF"].iloc[0]))
+    cox, rsf = _maybe("B1_cox_partitions.csv"), _maybe("B5_rsf_default_partitions.csv")
+    if cox is not None and rsf is not None:
+        _survival_figure(plt, [("Cox reference", cox, sv[sv.model == "Cox"].iloc[0]),
+                               ("Random survival forest (default configuration)", rsf,
+                                sv[sv.model == "RSF"].iloc[0])],
+                         "robustness_survival_analysis_b")
     t = _maybe("B2_cif_partitions.csv")
     if t is not None:
-        for h, g in t.groupby("horizon"):
-            panels.append((f"Analysis C, {h:g} years", g.reset_index(drop=True),
-                           cif[cif.horizon == h].iloc[0]))
-    if panels:
-        fig, axes = plt.subplots(1, len(panels), figsize=(3.2 * len(panels), 3.2), squeeze=False)
-        for ax, (title, g, ref) in zip(axes[0], panels):
-            x = np.arange(len(g))
-            ax.errorbar(x, g["delta_c_index"], yerr=[g["delta_c_index"] - g["ci_lo"],
-                                                     g["ci_hi"] - g["delta_c_index"]],
-                        fmt="o", color="tab:blue", markersize=3.5, capsize=2, linewidth=1,
-                        label="fold partition, 95% CI")
-            ax.axhline(ref.delta_c_index, color="black", linewidth=1, linestyle="--",
-                       label="reported estimate")
-            ax.axhline(0, color="grey", linewidth=0.8, linestyle=":")
-            ax.set_xticks(x)
-            ax.set_xticklabels([str(s) for s in g["seed"]], fontsize=7)
-            ax.set_xlabel("fold-partition seed", fontsize=8)
-            ax.tick_params(axis="y", labelsize=8)
-            ax.set_title(title, fontsize=9)
-            ax.grid(axis="y", color="0.92", linewidth=0.6)
-            ax.set_axisbelow(True)
-            for side in ("top", "right"):
-                ax.spines[side].set_visible(False)
-        axes[0][0].set_ylabel("$\\Delta$C, thyroid minus baseline", fontsize=9)
-        handles, labels = axes[0][0].get_legend_handles_labels()
-        fig.legend(handles, labels, loc="lower center", ncol=2, fontsize=8, frameon=False,
-                   bbox_to_anchor=(0.5, -0.02))
-        fig.tight_layout(rect=(0, 0.06, 1, 1))
-        utils.save_fig(fig, "robustness_survival_partitions")
+        panels = [(f"{h:g}-year horizon", g.reset_index(drop=True), cif[cif.horizon == h].iloc[0])
+                  for h, g in t.groupby("horizon")]
+        _survival_figure(plt, panels, "robustness_survival_analysis_c")
+
+    s = refit_summary()
+    if s is not None:
+        fig = _refit_figure(plt, s)
+        save_png(fig, "robustness_refit_intervals")
         plt.close(fig)
     log("figures written")
 

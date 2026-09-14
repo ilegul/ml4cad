@@ -1,0 +1,19 @@
+cohort,n,state,count,percent
+Full cohort,8065,Euthyroid,5688,70.52696838189709
+Full cohort,8065,Low_T3,1375,17.048977061376316
+Full cohort,8065,SCH,483,5.988840669559826
+Full cohort,8065,SCT,241,2.9882207067575943
+Full cohort,8065,Hypothyroid,128,1.5871047737135773
+Full cohort,8065,Hyperthyroid,150,1.8598884066955983
+"Strict cohort, 7 years",4390,Euthyroid,2902,66.10478359908883
+"Strict cohort, 7 years",4390,Low_T3,910,20.72892938496583
+"Strict cohort, 7 years",4390,SCH,261,5.945330296127563
+"Strict cohort, 7 years",4390,SCT,155,3.530751708428246
+"Strict cohort, 7 years",4390,Hypothyroid,75,1.7084282460136675
+"Strict cohort, 7 years",4390,Hyperthyroid,87,1.9817767653758542
+"Strict cohort, 10 years",2614,Euthyroid,1631,62.394797245600614
+"Strict cohort, 10 years",2614,Low_T3,605,23.144605967865342
+"Strict cohort, 10 years",2614,SCH,153,5.8530986993114
+"Strict cohort, 10 years",2614,SCT,108,4.131599081866871
+"Strict cohort, 10 years",2614,Hypothyroid,47,1.7980107115531752
+"Strict cohort, 10 years",2614,Hyperthyroid,70,2.677888293802601

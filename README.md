@@ -204,7 +204,9 @@ identical test patients:
   baseline validation threshold to both arms; letting each arm pick its own
   threshold is reported separately as partially adapted.
 
-Differences in macro-F1, AUROC, AUPRC and Brier score carry paired bootstrap
+Differences in macro-F1, AUROC, AP (average precision, the recall-weighted
+mean of precision computed by scikit-learn's `average_precision_score`; the
+result tables keep the column name `auprc`) and Brier score carry paired bootstrap
 intervals. The primary contrast is reported uncorrected; secondary feature sets
 carry Benjamini-Hochberg q-values.
 
@@ -282,7 +284,7 @@ as it must be.
 Lower is better for the Brier score, so a negative difference favours the
 thyroid arm there and a positive difference favours it everywhere else.
 
-| Horizon | delta-AUROC | delta-AUPRC | delta-Brier | delta-F1-macro |
+| Horizon | delta-AUROC | delta-AP | delta-Brier | delta-F1-macro |
 |---|---|---|---|---|
 | 7 | +0.0026 (-0.0026, 0.0081) | +0.0041 (-0.0096, 0.0173) | -0.0003 (-0.0022, 0.0015) | -0.0141 (-0.0308, 0.0012) |
 | 10 | +0.0010 (-0.0046, 0.0061) | +0.0048 (-0.0033, 0.0132) | -0.0010 (-0.0040, 0.0020) | -0.0057 (-0.0204, 0.0082) |
@@ -291,7 +293,7 @@ All eight intervals include zero.
 
 The independently optimized comparison, in which each arm keeps its own tuning,
 sampler, calibrator and threshold, gives two nominally significant results out
-of eight: delta-F1-macro +0.0212 (0.0005, 0.0431) at 7 years and delta-AUPRC +0.0088
+of eight: delta-F1-macro +0.0212 (0.0005, 0.0431) at 7 years and delta-AP +0.0088
 (0.0009, 0.0175) at 10 years. These do not survive scrutiny. At 7 years
 delta-F1-macro changes sign between the two comparisons, -0.0141 locked against
 +0.0212 unlocked, on the same patients: when each arm may choose its own
@@ -324,7 +326,7 @@ Secondary feature sets carry Benjamini-Hochberg q-values within each comparison
 type and metric. No secondary thyroid representation showed a statistically
 supported improvement in classification. One comparison is significant in the
 opposite direction: under the locked pipeline at 7 years, `CV17_THY_STATES` has
-a delta-AUPRC of -0.0106 (-0.0182, -0.0030) with q = 0.030, that is the
+a delta-AP of -0.0106 (-0.0182, -0.0030) with q = 0.030, that is the
 thyroid-state representation performs worse than the baseline. This does not
 support incremental improvement.
 
@@ -414,7 +416,7 @@ appendix; the headline results are:
   within the fold-to-fold standard deviation. On the frozen test (a second
   reading, reported in full) the locked comparison stays null for every fold
   count while the nominally significant independently optimized comparisons
-  change with it: F1 at 7 years and AUPRC at 10 with two folds, AUROC, AUPRC
+  change with it: F1 at 7 years and AP at 10 with two folds, AUROC, AP
   and Brier at 7 years with three, none with five.
 
 Calibration was the largest practical gain. Uncalibrated, the paper ensemble has
@@ -432,7 +434,9 @@ interpretations should rely on the calibrated predictions.
   `data/processed/splits.json`. Every later step loads it.
 - Hyperparameters are searched on the training partition only.
 - The sampler and the adapted ensemble are selected during model development
-  on validation or on training cross-validation, never on test. The
+  on validation or on training cross-validation, never on test; both
+  selections score validation macro-F1 at the fixed 0.5 threshold, and the
+  decision threshold is optimised only after they are made. The
   calibration method is prespecified (sigmoid, with isotonic as a
   sensitivity); only the calibrator parameters are estimated.
 - The calibrator is fitted on training out-of-fold probabilities, so
