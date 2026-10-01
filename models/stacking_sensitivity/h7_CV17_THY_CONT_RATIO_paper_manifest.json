@@ -1,0 +1,33 @@
+{
+  "written_at": "2026-10-01T22:11:51+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "h7_CV17_THY_CONT_RATIO_paper",
+  "signature": "7c3bc006cec9a05a2fe3",
+  "members": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "C": 0.01,
+  "policy": "paper",
+  "calibration": "nested training OOF",
+  "thresholds": {
+    "raw_fixed": 0.5,
+    "raw_threshold": 0.33999999999999997,
+    "sigmoid": 0.35999999999999993,
+    "isotonic": 0.35999999999999993
+  }
+}

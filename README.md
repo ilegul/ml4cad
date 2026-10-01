@@ -49,6 +49,8 @@ config.py     every experimental option, including the active profile
 utils.py      paths, splits, metrics, paired bootstrap, caching
 train.py      models, sampling, tuning, calibration, thresholds, frozen test predictions
 ensemble.py   the paper ensemble and adapted-ensemble selection
+predictive.py development partitions, selection rules and shared model caches
+stacking.py   meta-models, nested training OOF predictions and paired inference
 survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Johansen, cause-specific CIF
 
 1_data_process.ipynb                  cohorts, features, splits
@@ -60,9 +62,11 @@ survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Joh
 7_robustness.py                       post hoc robustness analyses of the frozen results
 8_thesis_figures.py                   figures derived from stored results
 9_predictive_sensitivity.py           supplementary selection among singles and ensembles
+10_stacking_sensitivity.py            supplementary stacking and calibrated test sensitivities
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
 tests/test_predictive_sensitivity.py  supplementary selection and cache guards
+tests/test_stacking.py                nested stacking and bootstrap equivalence
 
 data/raw          source workbooks, never modified
 data/processed    cohorts and the stored split assignment
@@ -191,7 +195,74 @@ versions. Test predictions additionally fingerprint the evaluated patients,
 features and outcomes. `--force` recomputes only supplementary artifacts;
 `--jobs` controls OOF workers and defaults to one.
 
-To run both acceptance suites:
+Stacking is a further predictive sensitivity, run after step 9:
+
+```bash
+python 10_stacking_sensitivity.py --jobs 2
+```
+
+It compares every subset of two to eight base classifiers: 247 subsets, with
+five logistic meta-model regularization values (`C = 0.01, 0.1, 1, 10, 100`),
+on each of the five feature sets and both horizons. The full profile therefore
+contains 12,350 validation candidates. Base hyperparameters and samplers come
+from the existing development analyses. Standardization and the meta-model
+are fitted on training OOF probabilities; validation uses the fitted base
+classifiers' predictions. Selection uses raw validation macro-F1 at 0.5,
+then AUROC and configuration name, as in step 9.
+
+The selected stacks receive sigmoid calibration and an isotonic sensitivity.
+Calibration inputs are **nested training OOF predictions of the entire stack**:
+each outer held-out patient is excluded from all inner base-model fits and
+from the corresponding meta-model fit. Reusing a single OOF matrix to
+cross-validate only the meta-model would not provide this exclusion. The
+base parameters, sampler choices and selected membership remain frozen;
+the nested predictions are conditional on these development decisions.
+
+Three policies are evaluated: independent stacking selection; CV17 membership
+and meta-model regularization with separately optimized base parameters; and
+CV17 membership, regularization, base parameters, samplers and thresholds
+held fixed. Meta-model coefficients and calibrators are refitted on the
+training partition of each feature set. A stack with the paper's LR/RF/AdaBoost
+membership is always reported, with its meta-model regularization selected
+on validation, and compared against the original averaged paper ensemble.
+All calibrators and thresholds are
+recorded in `frozen_selection.json` before any selected stack is evaluated on
+test. The raw results at 0.5 and with validation-selected thresholds remain
+separate from the sigmoid and isotonic results.
+
+Outputs include the full validation ranking, selected configurations, frozen
+models and test predictions, classification and calibration metrics, decision
+curves, clinical impact, paired thyroid differences and comparisons against
+the previously selected single/ensemble configurations. Bootstrap draws are
+identical to `utils.paired_delta`; a weighted implementation handles duplicated
+patients and tied probabilities exactly. Holm adjustment covers the independent
+and same-baseline macro-F1 comparisons across horizons and thyroid sets,
+separately for each probability/threshold mode; other intervals are unadjusted.
+These are post hoc comparisons and do not account for selection uncertainty
+or repeated inspection of the test set.
+
+Artifacts live in the `stacking_sensitivity` subdirectory of `results`,
+`models`, `predictions`, `cache` and `figures`. The original artifacts are
+checked for changes during the run. Models and caches are tracked for recovery.
+`--smoke`, `--summary` and `--force` follow the same convention as step 9;
+`--jobs` controls training OOF workers and parallel base-model fits inside the
+nested outer folds. This step does not feed explainability,
+survival or competing-risk analyses.
+
+Each saved stack is a bundle containing the fitted base pipelines, meta-model,
+calibrators and frozen thresholds. For prediction on a feature DataFrame `X`,
+with the same named columns as the selected feature set:
+
+```python
+from joblib import load
+import train
+
+bundle = load("models/stacking_sensitivity/h7_CV17_THY_CONT_own.joblib")
+p = train.apply_calibrator(bundle["calibrators"]["sigmoid"], bundle["model"].raw_proba(X))
+prediction = (p >= bundle["thresholds"]["sigmoid"]).astype(int)
+```
+
+To run the acceptance suites:
 
 ```bash
 python -m pytest tests -q

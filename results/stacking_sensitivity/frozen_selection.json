@@ -1,0 +1,882 @@
+{
+  "written_at": "2026-10-01T22:30:53+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "version": "v1",
+  "analysis": "post hoc stacking sensitivity",
+  "candidate_count": 12350,
+  "regularization": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "base_models": [
+    "LogisticRegression",
+    "SVC",
+    "KNeighbors",
+    "RandomForest",
+    "AdaBoost",
+    "MLP",
+    "GradientBoosting",
+    "XGBoost"
+  ],
+  "subset_sizes": [
+    2,
+    8
+  ],
+  "selection_rule": "raw validation f1_macro, roc_auc, name",
+  "calibration": "nested training OOF",
+  "inner_cv": 5,
+  "outer_cv": 5,
+  "threshold_grid": [
+    0.05,
+    0.06,
+    0.07,
+    0.08,
+    0.09,
+    0.09999999999999999,
+    0.10999999999999999,
+    0.12,
+    0.13,
+    0.13999999999999999,
+    0.14999999999999997,
+    0.15999999999999998,
+    0.16999999999999998,
+    0.18,
+    0.19,
+    0.19999999999999996,
+    0.20999999999999996,
+    0.21999999999999997,
+    0.22999999999999998,
+    0.24,
+    0.24999999999999994,
+    0.25999999999999995,
+    0.26999999999999996,
+    0.27999999999999997,
+    0.29,
+    0.3,
+    0.30999999999999994,
+    0.31999999999999995,
+    0.32999999999999996,
+    0.33999999999999997,
+    0.3499999999999999,
+    0.35999999999999993,
+    0.36999999999999994,
+    0.37999999999999995,
+    0.38999999999999996,
+    0.3999999999999999,
+    0.4099999999999999,
+    0.41999999999999993,
+    0.42999999999999994,
+    0.43999999999999995,
+    0.4499999999999999,
+    0.4599999999999999,
+    0.4699999999999999,
+    0.4799999999999999,
+    0.48999999999999994,
+    0.49999999999999994,
+    0.5099999999999999,
+    0.5199999999999999,
+    0.5299999999999999,
+    0.5399999999999999,
+    0.5499999999999999,
+    0.5599999999999999,
+    0.57,
+    0.58,
+    0.59,
+    0.6,
+    0.61,
+    0.62,
+    0.63,
+    0.6399999999999999,
+    0.6499999999999999,
+    0.6599999999999999,
+    0.6699999999999999,
+    0.6799999999999999,
+    0.69,
+    0.7,
+    0.71,
+    0.72,
+    0.73,
+    0.74,
+    0.7499999999999999,
+    0.7599999999999999,
+    0.7699999999999999,
+    0.7799999999999999,
+    0.7899999999999999,
+    0.7999999999999999,
+    0.8099999999999999,
+    0.82,
+    0.83,
+    0.84,
+    0.8499999999999999,
+    0.8599999999999999,
+    0.8699999999999999,
+    0.8799999999999999,
+    0.8899999999999999,
+    0.8999999999999999,
+    0.9099999999999999,
+    0.9199999999999999,
+    0.9299999999999999,
+    0.94,
+    0.95
+  ],
+  "threshold_strategy": "f1_macro",
+  "n_boot": 2000,
+  "arms": {
+    "h7_CV17_own": {
+      "horizon": 7,
+      "feature_set": "CV17",
+      "policy": "own",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "499f9fd3f74ed27ebb37",
+      "nested_signature": "1d33daccbdb98d6a25ee",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h7_CV17_paper": {
+      "horizon": 7,
+      "feature_set": "CV17",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=10",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 10.0,
+      "signature": "f55a726ca84e246e1360",
+      "nested_signature": "1d33daccbdb98d6a25ee",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4799999999999999,
+        "sigmoid": 0.4699999999999999,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h7_CV17_THY_CONT_own": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "own",
+      "configuration": "LogisticRegression+KNeighbors+AdaBoost;C=1",
+      "members": [
+        "LogisticRegression",
+        "KNeighbors",
+        "AdaBoost"
+      ],
+      "C": 1.0,
+      "signature": "d233bb7732eba1a8ec3a",
+      "nested_signature": "b732a1372f8f9078cf75",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.33999999999999997,
+        "sigmoid": 0.32999999999999996,
+        "isotonic": 0.33999999999999997
+      }
+    },
+    "h7_CV17_THY_CONT_paper": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=100",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 100.0,
+      "signature": "def2eaf108bbda9f657b",
+      "nested_signature": "b732a1372f8f9078cf75",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.3999999999999999,
+        "sigmoid": 0.38999999999999996,
+        "isotonic": 0.3499999999999999
+      }
+    },
+    "h7_CV17_THY_CONT_same_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "9fae20d081bc44077564",
+      "nested_signature": "b732a1372f8f9078cf75",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.38999999999999996,
+        "sigmoid": 0.3999999999999999,
+        "isotonic": 0.32999999999999996
+      }
+    },
+    "h7_CV17_THY_CONT_locked_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "f9e28a5462cf789c1452",
+      "nested_signature": "b732a1372f8f9078cf75",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h7_CV17_THY_STATES_own": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "own",
+      "configuration": "KNeighbors+RandomForest+MLP+GradientBoosting;C=0.1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.1,
+      "signature": "6668c5d2c8f682e6faf1",
+      "nested_signature": "e1a0be6e963464023501",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.5099999999999999,
+        "sigmoid": 0.5099999999999999,
+        "isotonic": 0.3999999999999999
+      }
+    },
+    "h7_CV17_THY_STATES_paper": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=1",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 1.0,
+      "signature": "bd7cebc40906d5417dc8",
+      "nested_signature": "e1a0be6e963464023501",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.3499999999999999,
+        "sigmoid": 0.3999999999999999,
+        "isotonic": 0.33999999999999997
+      }
+    },
+    "h7_CV17_THY_STATES_same_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "009818536e09908fe58c",
+      "nested_signature": "e1a0be6e963464023501",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4099999999999999,
+        "sigmoid": 0.4499999999999999,
+        "isotonic": 0.35999999999999993
+      }
+    },
+    "h7_CV17_THY_STATES_locked_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "760eb31d99c92b32d2bd",
+      "nested_signature": "e1a0be6e963464023501",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h7_CV17_THY_CONT_STATES_own": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "own",
+      "configuration": "MLP+GradientBoosting+XGBoost;C=0.1",
+      "members": [
+        "MLP",
+        "GradientBoosting",
+        "XGBoost"
+      ],
+      "C": 0.1,
+      "signature": "b2e2115d526fa504bb36",
+      "nested_signature": "d7f7ac62f3762c7a1247",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4499999999999999,
+        "sigmoid": 0.4499999999999999,
+        "isotonic": 0.37999999999999995
+      }
+    },
+    "h7_CV17_THY_CONT_STATES_paper": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=1",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 1.0,
+      "signature": "819642f13bc784b07004",
+      "nested_signature": "d7f7ac62f3762c7a1247",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.36999999999999994,
+        "sigmoid": 0.35999999999999993,
+        "isotonic": 0.3999999999999999
+      }
+    },
+    "h7_CV17_THY_CONT_STATES_same_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "480636d4d9840af73ad4",
+      "nested_signature": "d7f7ac62f3762c7a1247",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.35999999999999993,
+        "sigmoid": 0.3499999999999999,
+        "isotonic": 0.33999999999999997
+      }
+    },
+    "h7_CV17_THY_CONT_STATES_locked_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "39163399ee37517eab31",
+      "nested_signature": "d7f7ac62f3762c7a1247",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h7_CV17_THY_CONT_RATIO_own": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "own",
+      "configuration": "AdaBoost+MLP;C=100",
+      "members": [
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 100.0,
+      "signature": "380788957aa4bdbf1362",
+      "nested_signature": "3325e8ada21fc6d97b85",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.37999999999999995,
+        "sigmoid": 0.37999999999999995,
+        "isotonic": 0.36999999999999994
+      }
+    },
+    "h7_CV17_THY_CONT_RATIO_paper": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=0.01",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 0.01,
+      "signature": "7c3bc006cec9a05a2fe3",
+      "nested_signature": "3325e8ada21fc6d97b85",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.33999999999999997,
+        "sigmoid": 0.35999999999999993,
+        "isotonic": 0.35999999999999993
+      }
+    },
+    "h7_CV17_THY_CONT_RATIO_same_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "51b3ad20d002ea09a946",
+      "nested_signature": "3325e8ada21fc6d97b85",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.36999999999999994,
+        "sigmoid": 0.36999999999999994,
+        "isotonic": 0.35999999999999993
+      }
+    },
+    "h7_CV17_THY_CONT_RATIO_locked_baseline": {
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+RandomForest+AdaBoost+MLP;C=1",
+      "members": [
+        "KNeighbors",
+        "RandomForest",
+        "AdaBoost",
+        "MLP"
+      ],
+      "C": 1.0,
+      "signature": "8c42fb489c8fd0053b6f",
+      "nested_signature": "3325e8ada21fc6d97b85",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.42999999999999994
+      }
+    },
+    "h10_CV17_own": {
+      "horizon": 10,
+      "feature_set": "CV17",
+      "policy": "own",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "431664d516ddd91f37ea",
+      "nested_signature": "4e8e60662c36a2c34851",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.38999999999999996
+      }
+    },
+    "h10_CV17_paper": {
+      "horizon": 10,
+      "feature_set": "CV17",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=10",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 10.0,
+      "signature": "330318cfb5ffb5899738",
+      "nested_signature": "4e8e60662c36a2c34851",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.36999999999999994,
+        "sigmoid": 0.36999999999999994,
+        "isotonic": 0.5099999999999999
+      }
+    },
+    "h10_CV17_THY_CONT_own": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "own",
+      "configuration": "LogisticRegression+SVC+KNeighbors+GradientBoosting+XGBoost;C=10",
+      "members": [
+        "LogisticRegression",
+        "SVC",
+        "KNeighbors",
+        "GradientBoosting",
+        "XGBoost"
+      ],
+      "C": 10.0,
+      "signature": "c547fca792d93fc576e0",
+      "nested_signature": "418ac04b88614524780d",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.48999999999999994,
+        "isotonic": 0.5099999999999999
+      }
+    },
+    "h10_CV17_THY_CONT_paper": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=0.01",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 0.01,
+      "signature": "0879c8e95edcdb49d24a",
+      "nested_signature": "418ac04b88614524780d",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.37999999999999995,
+        "sigmoid": 0.37999999999999995,
+        "isotonic": 0.33999999999999997
+      }
+    },
+    "h10_CV17_THY_CONT_same_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "4920485f81b53ec07ff5",
+      "nested_signature": "418ac04b88614524780d",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4599999999999999,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.5199999999999999
+      }
+    },
+    "h10_CV17_THY_CONT_locked_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "ff4a11547666f091f1c4",
+      "nested_signature": "418ac04b88614524780d",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.38999999999999996
+      }
+    },
+    "h10_CV17_THY_STATES_own": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "own",
+      "configuration": "GradientBoosting+XGBoost;C=0.01",
+      "members": [
+        "GradientBoosting",
+        "XGBoost"
+      ],
+      "C": 0.01,
+      "signature": "1cafefbc811deb7c51c2",
+      "nested_signature": "8c75900d8db68a3035d2",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4599999999999999,
+        "sigmoid": 0.4799999999999999,
+        "isotonic": 0.48999999999999994
+      }
+    },
+    "h10_CV17_THY_STATES_paper": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=100",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 100.0,
+      "signature": "e83fcafd42fcdd9e8d6d",
+      "nested_signature": "8c75900d8db68a3035d2",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4099999999999999,
+        "sigmoid": 0.43999999999999995,
+        "isotonic": 0.33999999999999997
+      }
+    },
+    "h10_CV17_THY_STATES_same_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "7c9dd0f6bf31c085a100",
+      "nested_signature": "8c75900d8db68a3035d2",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.48999999999999994,
+        "sigmoid": 0.49999999999999994,
+        "isotonic": 0.4499999999999999
+      }
+    },
+    "h10_CV17_THY_STATES_locked_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "1f903e4325e876c03709",
+      "nested_signature": "8c75900d8db68a3035d2",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.38999999999999996
+      }
+    },
+    "h10_CV17_THY_CONT_STATES_own": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "own",
+      "configuration": "RandomForest+AdaBoost+MLP+GradientBoosting;C=10",
+      "members": [
+        "RandomForest",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 10.0,
+      "signature": "c57a33bb046ed1705d6b",
+      "nested_signature": "25b7e306d4f1fd55c9bf",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.43999999999999995,
+        "sigmoid": 0.4499999999999999,
+        "isotonic": 0.41999999999999993
+      }
+    },
+    "h10_CV17_THY_CONT_STATES_paper": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=100",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 100.0,
+      "signature": "9d812e25131cdbc51d19",
+      "nested_signature": "25b7e306d4f1fd55c9bf",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.43999999999999995,
+        "sigmoid": 0.41999999999999993,
+        "isotonic": 0.30999999999999994
+      }
+    },
+    "h10_CV17_THY_CONT_STATES_same_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "a44144f4e441bd4759de",
+      "nested_signature": "25b7e306d4f1fd55c9bf",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4499999999999999,
+        "sigmoid": 0.4499999999999999,
+        "isotonic": 0.4599999999999999
+      }
+    },
+    "h10_CV17_THY_CONT_STATES_locked_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "03546013e19799ccc63f",
+      "nested_signature": "25b7e306d4f1fd55c9bf",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.38999999999999996
+      }
+    },
+    "h10_CV17_THY_CONT_RATIO_own": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "own",
+      "configuration": "LogisticRegression+SVC+AdaBoost;C=1",
+      "members": [
+        "LogisticRegression",
+        "SVC",
+        "AdaBoost"
+      ],
+      "C": 1.0,
+      "signature": "f899b8634c47e4578bf8",
+      "nested_signature": "6ba022ff1d517071954a",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.4599999999999999,
+        "sigmoid": 0.4599999999999999,
+        "isotonic": 0.4099999999999999
+      }
+    },
+    "h10_CV17_THY_CONT_RATIO_paper": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "paper",
+      "configuration": "LogisticRegression+RandomForest+AdaBoost;C=10",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "C": 10.0,
+      "signature": "af9ffbc67a5c546fea9f",
+      "nested_signature": "6ba022ff1d517071954a",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.43999999999999995,
+        "sigmoid": 0.43999999999999995,
+        "isotonic": 0.31999999999999995
+      }
+    },
+    "h10_CV17_THY_CONT_RATIO_same_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "same_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "23d481404917072c0647",
+      "nested_signature": "6ba022ff1d517071954a",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.3999999999999999,
+        "sigmoid": 0.37999999999999995,
+        "isotonic": 0.24999999999999994
+      }
+    },
+    "h10_CV17_THY_CONT_RATIO_locked_baseline": {
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "policy": "locked_baseline",
+      "configuration": "KNeighbors+AdaBoost+MLP+GradientBoosting;C=0.01",
+      "members": [
+        "KNeighbors",
+        "AdaBoost",
+        "MLP",
+        "GradientBoosting"
+      ],
+      "C": 0.01,
+      "signature": "cb76726f7099bc3fdc2d",
+      "nested_signature": "6ba022ff1d517071954a",
+      "thresholds": {
+        "raw_fixed": 0.5,
+        "raw_threshold": 0.49999999999999994,
+        "sigmoid": 0.5199999999999999,
+        "isotonic": 0.38999999999999996
+      }
+    }
+  }
+}

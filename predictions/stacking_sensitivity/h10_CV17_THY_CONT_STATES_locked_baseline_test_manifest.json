@@ -1,0 +1,26 @@
+{
+  "written_at": "2026-10-01T22:31:11+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "h10_CV17_THY_CONT_STATES_locked_baseline",
+  "signature": "889e1e8ac05f15f5cefb",
+  "thresholds": {
+    "raw_fixed": 0.5,
+    "raw_threshold": 0.49999999999999994,
+    "sigmoid": 0.5199999999999999,
+    "isotonic": 0.38999999999999996
+  },
+  "selection_source": "validation only"
+}

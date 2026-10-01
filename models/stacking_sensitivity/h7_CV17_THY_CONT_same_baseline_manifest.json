@@ -1,0 +1,34 @@
+{
+  "written_at": "2026-10-01T21:59:04+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "h7_CV17_THY_CONT_same_baseline",
+  "signature": "9fae20d081bc44077564",
+  "members": [
+    "KNeighbors",
+    "RandomForest",
+    "AdaBoost",
+    "MLP"
+  ],
+  "C": 1.0,
+  "policy": "same_baseline",
+  "calibration": "nested training OOF",
+  "thresholds": {
+    "raw_fixed": 0.5,
+    "raw_threshold": 0.38999999999999996,
+    "sigmoid": 0.3999999999999999,
+    "isotonic": 0.32999999999999996
+  }
+}
