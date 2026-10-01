@@ -1,0 +1,3 @@
+# Preserve stored artifacts byte for byte across operating systems.
+models/** -text
+cache/** -text
