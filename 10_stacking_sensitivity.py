@@ -248,6 +248,28 @@ def evaluate_arm(arm, data, paths, force=False):
 # Paired comparisons, calibration and clinical utility
 # ---------------------------------------------------------------------------
 
+def check_raw_reproduction(metrics, paths):
+    """Audit the stored exploratory raw results after frozen test evaluation."""
+    path = config.RESULTS_DIR / "stacking_raw_reference.csv"
+    if not path.exists():
+        return
+    reference = utils.read_frame(path)
+    keys = ["horizon", "feature_set", "policy", "mode"]
+    groups = metrics[["horizon", "feature_set"]].drop_duplicates()
+    reference = reference.merge(groups, on=["horizon", "feature_set"], validate="many_to_one")
+    joined = reference.merge(metrics, on=keys, suffixes=("_reference", "_current"), validate="one_to_one")
+    if len(joined) != len(reference):
+        raise ValueError("Incomplete reproduction of exploratory raw results")
+    columns = ["threshold", "f1_macro", "roc_auc", "auprc", "brier"]
+    differences = np.column_stack([
+        np.abs(joined[f"{column}_reference"] - joined[f"{column}_current"]) for column in columns])
+    if not np.isfinite(differences).all() or np.any(differences > 1e-10):
+        raise ValueError("Cannot reproduce the exploratory raw stacking results")
+    table = joined[keys].copy()
+    table["max_difference"] = differences.max(axis=1)
+    utils.write_frame(table, paths["results"] / "reproduction_check.csv")
+
+
 def evaluate_comparisons(ready, evaluated, paths, n_boot):
     comparisons, existing = [], []
     counts, resampled = {}, {}
@@ -319,6 +341,7 @@ def write_summary(paths):
     if not manifest.get("complete"):
         raise ValueError("Complete the stacking run before rebuilding its summary")
     metrics = utils.read_frame(paths["results"] / "test_metrics.csv")
+    check_raw_reproduction(metrics, paths)
     deltas = utils.read_frame(paths["results"] / "paired_deltas.csv")
     choices = utils.read_frame(paths["results"] / "selected_configurations.csv")
     frozen = pred.read_json(paths["results"] / "frozen_selection.json")
@@ -491,6 +514,7 @@ def run(args):
             impact.append(train.clinical_impact(frame.y_true, p).assign(**metadata, mode=mode))
     for name, rows in [("test_metrics", metrics), ("test_calibration", calibration)]:
         utils.write_frame(pd.DataFrame(rows), paths["results"] / f"{name}.csv")
+    check_raw_reproduction(pd.DataFrame(metrics), paths)
     for name, rows in [("decision_curves", curves), ("clinical_impact", impact)]:
         utils.write_frame(pd.concat(rows, ignore_index=True), paths["results"] / f"{name}.csv")
     evaluate_comparisons(ready, evaluated, paths, n_boot)

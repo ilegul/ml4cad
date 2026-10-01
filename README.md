@@ -241,6 +241,11 @@ separately for each probability/threshold mode; other intervals are unadjusted.
 These are post hoc comparisons and do not account for selection uncertainty
 or repeated inspection of the test set.
 
+The original exploratory raw metrics are retained in
+`results/stacking_raw_reference.csv`. Their reproduction is checked after
+frozen test evaluation and recorded in `reproduction_check.csv`; the reference
+is never used to select configurations, calibrators or thresholds.
+
 Artifacts live in the `stacking_sensitivity` subdirectory of `results`,
 `models`, `predictions`, `cache` and `figures`. The original artifacts are
 checked for changes during the run. Models and caches are tracked for recovery.

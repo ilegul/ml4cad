@@ -174,6 +174,7 @@ def test_every_arm_and_threshold_is_frozen_before_test_evaluation(tmp_path, monk
     monkeypatch.setattr(sensitivity, "prepare_group", prepare)
     monkeypatch.setattr(sensitivity, "evaluate_arm", evaluate)
     monkeypatch.setattr(sensitivity, "evaluate_comparisons", lambda *args: None)
+    monkeypatch.setattr(sensitivity, "check_raw_reproduction", lambda *args: None)
     monkeypatch.setattr(sensitivity, "write_summary", lambda *args: None)
     sensitivity.main(["--smoke"])
     assert [kind for kind, _ in events] == ["prepare"] * 6 + ["test"] * 6
@@ -194,7 +195,7 @@ def test_test_prediction_cache_rejects_changed_patient_order(tmp_path, monkeypat
         sensitivity.evaluate_arm({"name": "arm", "signature": "arm"}, {}, paths)
 
 
-def test_summary_and_figures_rebuild_from_frozen_outputs(tmp_path):
+def test_summary_and_figures_rebuild_from_frozen_outputs(tmp_path, monkeypatch):
     paths = {key: tmp_path / key for key in ("results", "predictions", "figures")}
     for path in paths.values():
         path.mkdir()
@@ -224,8 +225,23 @@ def test_summary_and_figures_rebuild_from_frozen_outputs(tmp_path):
                        ("selected_configurations", choices)]:
         utils.write_frame(pd.DataFrame(rows), paths["results"] / f"{name}.csv")
     utils.write_frame(pd.concat(curves), paths["results"] / "decision_curves.csv")
+    monkeypatch.setattr(sensitivity, "check_raw_reproduction", lambda *args: None)
     sensitivity.write_summary(paths)
     assert (paths["results"] / "validation_metrics.csv").exists()
     assert (paths["results"] / "test_reliability.csv").exists()
     assert (paths["figures"] / "h7_stacking_calibration.png").exists()
     assert (paths["figures"] / "h7_stacking_deltas.png").exists()
+
+
+def test_raw_reproduction_detects_drift_and_supports_partial_profiles(tmp_path, monkeypatch):
+    monkeypatch.setattr(sensitivity.config, "RESULTS_DIR", tmp_path)
+    record = {"horizon": 7, "feature_set": "CV17", "policy": "own", "mode": "raw_fixed",
+              "threshold": 0.5, "f1_macro": 0.7, "roc_auc": 0.8, "auprc": 0.6, "brier": 0.1}
+    reference = pd.DataFrame([record, {**record, "horizon": 10}])
+    utils.write_frame(reference, tmp_path / "stacking_raw_reference.csv")
+    actual = pd.DataFrame([record])
+    sensitivity.check_raw_reproduction(actual, {"results": tmp_path})
+    assert len(pd.read_csv(tmp_path / "reproduction_check.csv")) == 1
+    actual.loc[0, "f1_macro"] += 0.01
+    with pytest.raises(ValueError, match="exploratory raw"):
+        sensitivity.check_raw_reproduction(actual, {"results": tmp_path})
