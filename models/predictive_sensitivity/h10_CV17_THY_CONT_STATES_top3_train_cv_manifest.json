@@ -1,0 +1,72 @@
+{
+  "written_at": "2026-10-01T18:02:14+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h10_CV17_THY_CONT_STATES_top3_train_cv",
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT_STATES",
+  "configuration": "top3_train_cv",
+  "kind": "ensemble",
+  "members": [
+    "RandomForest",
+    "LogisticRegression",
+    "SVC"
+  ],
+  "params_source": "CV17_THY_CONT_STATES",
+  "threshold_from": null,
+  "signature": "1443a98bd6d3c11ce6b0",
+  "members_spec": {
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__max_depth": 12,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 3,
+        "model__min_samples_split": 11,
+        "model__n_estimators": 419
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "5b3c892c4aa0ba1ea045"
+    },
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__C": 0.0010615105476491013,
+        "model__penalty": "l2",
+        "model__solver": "lbfgs"
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "ba6998290ec5fd26b394"
+    },
+    "SVC": {
+      "model": "SVC",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.15351199834018547,
+        "model__gamma": 0.0025050299289362957,
+        "model__kernel": "rbf"
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "f4097f75a1b328f3629f"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.37999999999999995,
+  "threshold_source": "own validation"
+}

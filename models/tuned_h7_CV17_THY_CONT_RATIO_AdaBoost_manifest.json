@@ -1,0 +1,33 @@
+{
+  "written_at": "2026-08-06T14:36:28+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "tuned_h7_CV17_THY_CONT_RATIO_AdaBoost",
+  "signature": "25a8bc21d41a6088333e",
+  "horizon": 7,
+  "model": "AdaBoost",
+  "sampler": "RandomOverSampler",
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "best_params": {
+    "model__learning_rate": 0.31248184262764805,
+    "model__n_estimators": 184
+  },
+  "best_cv_f1_macro": 0.7053951496341682,
+  "n_candidates": 1000,
+  "n_failed_candidates": 0,
+  "final_fit_convergence_warnings": 0,
+  "final_fit_other_warnings": 0,
+  "elapsed_seconds": 509.77,
+  "positive_weight_ratio": 4.205533596837944
+}

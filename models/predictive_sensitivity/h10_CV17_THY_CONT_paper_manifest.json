@@ -1,0 +1,72 @@
+{
+  "written_at": "2026-10-01T18:01:46+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h10_CV17_THY_CONT_paper",
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT",
+  "configuration": "paper",
+  "kind": "ensemble",
+  "members": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "params_source": "CV17_THY_CONT",
+  "threshold_from": null,
+  "signature": "b79e5f0dfa6a49272773",
+  "members_spec": {
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.005756046128009331,
+        "model__l1_ratio": 0.06134962711066816,
+        "model__penalty": "elasticnet",
+        "model__solver": "saga"
+      },
+      "params_source": "CV17_THY_CONT",
+      "tuning_signature": "148a7939650123ab7136"
+    },
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "class_weight",
+      "params": {
+        "model__max_depth": 12,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 3,
+        "model__min_samples_split": 11,
+        "model__n_estimators": 419
+      },
+      "params_source": "CV17_THY_CONT",
+      "tuning_signature": "ebfb72748bc54b2b3c08"
+    },
+    "AdaBoost": {
+      "model": "AdaBoost",
+      "sampler": "SMOTENC",
+      "params": {
+        "model__learning_rate": 0.2718359536006563,
+        "model__n_estimators": 499
+      },
+      "params_source": "CV17_THY_CONT",
+      "tuning_signature": "09d96480a8dfe1818f35"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.37999999999999995,
+  "threshold_source": "own validation"
+}

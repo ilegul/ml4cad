@@ -1,0 +1,36 @@
+{
+  "written_at": "2026-08-06T16:23:49+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "tuned_h10_CV17_THY_CONT_STATES_GradientBoosting",
+  "signature": "783f6399364a5d1e58bb",
+  "horizon": 10,
+  "model": "GradientBoosting",
+  "sampler": "RandomOverSampler",
+  "feature_set": "CV17_THY_CONT_STATES",
+  "best_params": {
+    "model__learning_rate": 0.04717580071459971,
+    "model__max_depth": 5,
+    "model__min_samples_leaf": 28,
+    "model__n_estimators": 213,
+    "model__subsample": 0.7854793619759929
+  },
+  "best_cv_f1_macro": 0.7785155733074581,
+  "n_candidates": 1000,
+  "n_failed_candidates": 0,
+  "final_fit_convergence_warnings": 0,
+  "final_fit_other_warnings": 0,
+  "elapsed_seconds": 340.5,
+  "positive_weight_ratio": 1.7175043327556325
+}

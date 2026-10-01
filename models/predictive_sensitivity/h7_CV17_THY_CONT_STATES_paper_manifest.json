@@ -1,0 +1,72 @@
+{
+  "written_at": "2026-10-01T18:00:55+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h7_CV17_THY_CONT_STATES_paper",
+  "horizon": 7,
+  "feature_set": "CV17_THY_CONT_STATES",
+  "configuration": "paper",
+  "kind": "ensemble",
+  "members": [
+    "LogisticRegression",
+    "RandomForest",
+    "AdaBoost"
+  ],
+  "params_source": "CV17_THY_CONT_STATES",
+  "threshold_from": null,
+  "signature": "a2c47df4a0310790a33d",
+  "members_spec": {
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "SMOTENC",
+      "params": {
+        "model__C": 0.0027698899227562817,
+        "model__l1_ratio": 0.1959828624191452,
+        "model__penalty": "elasticnet",
+        "model__solver": "saga"
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "acecc5bb06d9f90aa8bf"
+    },
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__max_depth": 12,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 3,
+        "model__min_samples_split": 11,
+        "model__n_estimators": 419
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "fc1199938b22f77164d5"
+    },
+    "AdaBoost": {
+      "model": "AdaBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__learning_rate": 0.24847215786017884,
+        "model__n_estimators": 159
+      },
+      "params_source": "CV17_THY_CONT_STATES",
+      "tuning_signature": "ff026fee24c82bc05d71"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.3999999999999999,
+  "threshold_source": "own validation"
+}

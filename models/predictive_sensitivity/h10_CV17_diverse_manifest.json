@@ -1,0 +1,78 @@
+{
+  "written_at": "2026-10-01T18:01:34+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h10_CV17_diverse",
+  "horizon": 10,
+  "feature_set": "CV17",
+  "configuration": "diverse",
+  "kind": "ensemble",
+  "members": [
+    "LogisticRegression",
+    "XGBoost",
+    "MLP"
+  ],
+  "params_source": "CV17",
+  "threshold_from": null,
+  "signature": "e959ee58698b8c6df61b",
+  "members_spec": {
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "SMOTENC",
+      "params": {
+        "model__C": 0.0014340571602734114,
+        "model__penalty": "l2",
+        "model__solver": "lbfgs"
+      },
+      "params_source": "CV17",
+      "tuning_signature": "c68c91546bb6d78fcae0"
+    },
+    "XGBoost": {
+      "model": "XGBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__booster": "gblinear",
+        "model__learning_rate": 0.06355383234145552,
+        "model__n_estimators": 568,
+        "model__reg_alpha": 0.010763698922553654,
+        "model__reg_lambda": 0.041682168561304085,
+        "model__scale_pos_weight": 0.8587521663778163,
+        "model__updater": "coord_descent"
+      },
+      "params_source": "CV17",
+      "tuning_signature": "8bd0f88e233d5b7f48df"
+    },
+    "MLP": {
+      "model": "MLP",
+      "sampler": "SMOTENC",
+      "params": {
+        "model__activation": "relu",
+        "model__alpha": 0.05643697980335553,
+        "model__hidden_layer_sizes": [
+          128,
+          64
+        ],
+        "model__learning_rate_init": 0.0003576257317188648
+      },
+      "params_source": "CV17",
+      "tuning_signature": "733dd24d155846ce722c"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.41999999999999993,
+  "threshold_source": "own validation"
+}

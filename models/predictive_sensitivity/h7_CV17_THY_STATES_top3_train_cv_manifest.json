@@ -1,0 +1,71 @@
+{
+  "written_at": "2026-10-01T18:00:27+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h7_CV17_THY_STATES_top3_train_cv",
+  "horizon": 7,
+  "feature_set": "CV17_THY_STATES",
+  "configuration": "top3_train_cv",
+  "kind": "ensemble",
+  "members": [
+    "GradientBoosting",
+    "LogisticRegression",
+    "AdaBoost"
+  ],
+  "params_source": "CV17_THY_STATES",
+  "threshold_from": null,
+  "signature": "6786cd6b9eb6c343a877",
+  "members_spec": {
+    "GradientBoosting": {
+      "model": "GradientBoosting",
+      "sampler": "none",
+      "params": {
+        "model__learning_rate": 0.0620330676686721,
+        "model__max_depth": 2,
+        "model__min_samples_leaf": 2,
+        "model__n_estimators": 379,
+        "model__subsample": 0.7849182244002428
+      },
+      "params_source": "CV17_THY_STATES",
+      "tuning_signature": "228f480a1d5f2023e751"
+    },
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.0010847546640130735,
+        "model__penalty": "l2",
+        "model__solver": "lbfgs"
+      },
+      "params_source": "CV17_THY_STATES",
+      "tuning_signature": "bf6122d8a67bdf8b0e91"
+    },
+    "AdaBoost": {
+      "model": "AdaBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__learning_rate": 0.31767890252845343,
+        "model__n_estimators": 313
+      },
+      "params_source": "CV17_THY_STATES",
+      "tuning_signature": "b0ca5d7ed0cb9ed4089e"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.3999999999999999,
+  "threshold_source": "own validation"
+}

@@ -1,0 +1,48 @@
+{
+  "written_at": "2026-10-01T18:01:18+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h7_CV17_THY_CONT_RATIO_RandomForest",
+  "horizon": 7,
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "configuration": "RandomForest",
+  "kind": "single",
+  "members": [
+    "RandomForest"
+  ],
+  "params_source": "CV17_THY_CONT_RATIO",
+  "threshold_from": null,
+  "signature": "c71256e34cc01dd0a7ad",
+  "members_spec": {
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "class_weight",
+      "params": {
+        "model__max_depth": 12,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 3,
+        "model__min_samples_split": 11,
+        "model__n_estimators": 419
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "95d212e48cb170eeca92"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.3499999999999999,
+  "threshold_source": "own validation"
+}

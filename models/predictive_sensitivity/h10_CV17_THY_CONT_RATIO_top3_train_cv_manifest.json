@@ -1,0 +1,73 @@
+{
+  "written_at": "2026-10-01T18:02:41+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h10_CV17_THY_CONT_RATIO_top3_train_cv",
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "configuration": "top3_train_cv",
+  "kind": "ensemble",
+  "members": [
+    "RandomForest",
+    "LogisticRegression",
+    "SVC"
+  ],
+  "params_source": "CV17_THY_CONT_RATIO",
+  "threshold_from": null,
+  "signature": "3906e3029045250784c7",
+  "members_spec": {
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "class_weight",
+      "params": {
+        "model__max_depth": 8,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 4,
+        "model__min_samples_split": 15,
+        "model__n_estimators": 716
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "eb57db98a28e496946cf"
+    },
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.014165465220555132,
+        "model__l1_ratio": 0.20618616451842642,
+        "model__penalty": "elasticnet",
+        "model__solver": "saga"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "bf5a11d56318e9412b8b"
+    },
+    "SVC": {
+      "model": "SVC",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.055186836396682384,
+        "model__gamma": 0.007053248140892922,
+        "model__kernel": "rbf"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "89804ca3a00ca7eadb16"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.4099999999999999,
+  "threshold_source": "own validation"
+}

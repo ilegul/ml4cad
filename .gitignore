@@ -22,17 +22,13 @@ __pycache__/
 # predictions) are tracked, so the analysis can be reproduced and audited
 # from the repository alone.
 
-# Fitted estimators are not tracked: 177 MB of binaries that the pipeline
-# regenerates from the data and the cached search results.
-models/*
-!models/.gitkeep
+# Fitted models and resumable intermediates are tracked for recovery.
+# Ignore serialized objects elsewhere in the workspace.
 *.joblib
 *.pkl
 *.pickle
-
-# Resumable intermediates, regenerated on demand.
-cache/*
-!cache/.gitkeep
+!models/**
+!cache/**
 
 # Reduced-size predictive checks, separate from reported sensitivity outputs.
 results/predictive_sensitivity_smoke/

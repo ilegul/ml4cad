@@ -1,0 +1,21 @@
+{
+  "written_at": "2026-08-20T17:16:43+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "final_h7_CV17_THY_CONT_paper_locked",
+  "signature": "945279dd29fac12a9eb7",
+  "horizon": 7,
+  "feature_set": "CV17_THY_CONT",
+  "candidate": "paper"
+}

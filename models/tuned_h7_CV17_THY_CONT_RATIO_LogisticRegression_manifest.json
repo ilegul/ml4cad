@@ -1,0 +1,35 @@
+{
+  "written_at": "2026-08-06T14:10:19+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "tuned_h7_CV17_THY_CONT_RATIO_LogisticRegression",
+  "signature": "5761d212e58b75a240f3",
+  "horizon": 7,
+  "model": "LogisticRegression",
+  "sampler": "RandomOverSampler",
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "best_params": {
+    "model__C": 0.0034110937106195086,
+    "model__l1_ratio": 0.140018538660449,
+    "model__penalty": "elasticnet",
+    "model__solver": "saga"
+  },
+  "best_cv_f1_macro": 0.7007145884790442,
+  "n_candidates": 1000,
+  "n_failed_candidates": 0,
+  "final_fit_convergence_warnings": 0,
+  "final_fit_other_warnings": 0,
+  "elapsed_seconds": 35.99,
+  "positive_weight_ratio": 4.205533596837944
+}

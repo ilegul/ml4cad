@@ -1,0 +1,36 @@
+{
+  "written_at": "2026-08-06T11:45:58+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "artifact": "tuned_h7_CV17_RandomForest",
+  "signature": "f34149985668e276af51",
+  "horizon": 7,
+  "model": "RandomForest",
+  "sampler": "RandomOverSampler",
+  "feature_set": "CV17",
+  "best_params": {
+    "model__max_depth": 8,
+    "model__max_features": "sqrt",
+    "model__min_samples_leaf": 3,
+    "model__min_samples_split": 7,
+    "model__n_estimators": 555
+  },
+  "best_cv_f1_macro": 0.7170840805927962,
+  "n_candidates": 1000,
+  "n_failed_candidates": 0,
+  "final_fit_convergence_warnings": 0,
+  "final_fit_other_warnings": 0,
+  "elapsed_seconds": 688.85,
+  "positive_weight_ratio": 4.205533596837944
+}

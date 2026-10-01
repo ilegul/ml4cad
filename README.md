@@ -70,11 +70,24 @@ models            fitted estimators and their manifests
 predictions       frozen validation and test predictions
 results           result tables; results/robustness holds the outputs of 7_robustness.py
 figures           generated figures
-cache             resumable intermediate results, not tracked
+cache             stored resumable intermediate results
 ```
 
-`models` and `cache` are not versioned: they are regenerated from the data and
-the cached search results, and the fitted estimators alone weigh 177 MB.
+`models` and `cache` are versioned alongside the data and analysis outputs.
+Cloning the repository recovers the fitted estimators and stored intermediates,
+including the supplementary predictive analyses. File sizes and SHA-256
+checksums are recorded in `results/model_cache_inventory.csv`.
+
+To recover the project on another computer:
+
+```bash
+git clone https://github.com/ilegul/ml4cad.git
+cd ml4cad
+```
+
+Then follow the setup below. Stored models do not need to be trained again;
+loading them requires compatible dependencies, whose versions are recorded in
+the artifact manifests. The virtual environment itself is recreated locally.
 
 ## Setup
 
@@ -108,7 +121,8 @@ cross-validation, the sampling comparison and the frozen test predictions are
 keyed on their configuration but not on a data fingerprint, and the survival
 cache fingerprints the time and event columns only. Those caches therefore
 detect a configuration change but would not detect a silent change to the
-underlying data; delete `cache/` and `models/` if the inputs are edited.
+underlying data; invalidate affected caches and rebuild the corresponding
+models if the inputs are edited.
 Loading a cache never triggers a fit, and a cache whose signature no longer
 matches is ignored rather than reused.
 

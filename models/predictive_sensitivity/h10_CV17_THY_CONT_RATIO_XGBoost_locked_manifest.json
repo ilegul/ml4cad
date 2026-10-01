@@ -1,0 +1,50 @@
+{
+  "written_at": "2026-10-01T18:02:44+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "name": "h10_CV17_THY_CONT_RATIO_XGBoost_locked",
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "configuration": "XGBoost",
+  "kind": "single",
+  "members": [
+    "XGBoost"
+  ],
+  "params_source": "CV17",
+  "threshold_from": "h10_CV17_XGBoost",
+  "signature": "8fdc8a690abbc1bf7991",
+  "members_spec": {
+    "XGBoost": {
+      "model": "XGBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__booster": "gblinear",
+        "model__learning_rate": 0.06355383234145552,
+        "model__n_estimators": 568,
+        "model__reg_alpha": 0.010763698922553654,
+        "model__reg_lambda": 0.041682168561304085,
+        "model__scale_pos_weight": 0.8587521663778163,
+        "model__updater": "coord_descent"
+      },
+      "params_source": "CV17",
+      "tuning_signature": "8bd0f88e233d5b7f48df"
+    }
+  },
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold": 0.4599999999999999,
+  "threshold_source": "h10_CV17_XGBoost"
+}
