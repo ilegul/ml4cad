@@ -58,8 +58,11 @@ survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Joh
 5_survival_analysis.ipynb             paper-aligned indicator and the survival extension
 6_competing_risks.ipynb               cause-specific absolute risk under competing events
 7_robustness.py                       post hoc robustness analyses of the frozen results
+8_thesis_figures.py                   figures derived from stored results
+9_predictive_sensitivity.py           supplementary selection among singles and ensembles
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
+tests/test_predictive_sensitivity.py  supplementary selection and cache guards
 
 data/raw          source workbooks, never modified
 data/processed    cohorts and the stored split assignment
@@ -128,6 +131,57 @@ predictions and intervals exactly before any analysis runs. `--smoke` exercises
 every code path at reduced sizes in a separate directory;
 `--summary --tables --figures` rebuilds the derived outputs from the stored
 CSV files without recomputing anything.
+
+The supplementary predictive sensitivities are run separately after notebook 3:
+
+```bash
+python 9_predictive_sensitivity.py
+```
+
+For each horizon and feature set, this compares the eight tuned classifiers
+and the three existing ensembles on raw validation macro-F1 at threshold 0.5,
+with AUROC and name as deterministic tie breaks. The sampler comparison uses
+the same frozen tuning parameters and non-replication samplers as notebook 3;
+missing comparisons, including KNeighbors, are completed. Original single-model
+and ensemble validation scores must be reproduced before proceeding. The
+existing frozen ensemble test predictions and thresholds are also checked
+against their originals during evaluation, in `reproduction_check.csv`. The
+top-three ensemble retains its CV17-derived membership, so this is selection
+among the existing candidates rather than an exhaustive ensemble search.
+
+The script reports independent ensemble selection, independent selection among
+singles and ensembles, the baseline configuration with separately optimized
+parameters, and a baseline configuration with hyperparameters, sampler and
+threshold held fixed. Selected thyroid ensembles are also compared with the
+paper ensemble on the same features. All selected configurations receive the
+same training-OOF calibration and validation-threshold procedure; every arm is
+prepared and recorded before any new test evaluation. Raw probabilities at the
+fixed threshold 0.5 are reported separately from the calibrated evaluation.
+
+Outputs live in `results/predictive_sensitivity`,
+`predictions/predictive_sensitivity`, `models/predictive_sensitivity`,
+`cache/predictive_sensitivity` and `figures/predictive_sensitivity`. They never
+replace the primary results or feed the explainability, survival or
+competing-risk notebooks. These are post hoc sensitivities: their paired
+bootstrap intervals condition on the selected models and stored partition,
+and do not account for model-selection uncertainty or repeated inspection of
+the test set. The supplementary tables retain all comparisons and report
+unadjusted bootstrap tail probabilities.
+
+`--smoke` uses the primary contrast at seven years with 20 bootstrap draws,
+retaining the model specifications and writing to separate directories.
+`--summary` rebuilds tables and figures without fitting. Runs resume from
+signatures covering the development data, partition assignment, feature lists,
+tuned model specifications, calibration and threshold settings, and dependency
+versions. Test predictions additionally fingerprint the evaluated patients,
+features and outcomes. `--force` recomputes only supplementary artifacts;
+`--jobs` controls OOF workers and defaults to one.
+
+To run both acceptance suites:
+
+```bash
+python -m pytest tests -q
+```
 
 ## Profiles
 

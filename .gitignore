@@ -34,6 +34,11 @@ models/*
 cache/*
 !cache/.gitkeep
 
+# Reduced-size predictive checks, separate from reported sensitivity outputs.
+results/predictive_sensitivity_smoke/
+predictions/predictive_sensitivity_smoke/
+figures/predictive_sensitivity_smoke/
+
 # Logs and temporary files
 *.log
 tmp/

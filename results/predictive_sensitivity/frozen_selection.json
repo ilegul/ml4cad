@@ -1,0 +1,897 @@
+{
+  "written_at": "2026-10-01T18:11:49+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "analysis": "post hoc predictive sensitivity",
+  "version": "v1",
+  "horizons": [
+    7,
+    10
+  ],
+  "feature_sets": [
+    "CV17",
+    "CV17_THY_CONT",
+    "CV17_THY_STATES",
+    "CV17_THY_CONT_STATES",
+    "CV17_THY_CONT_RATIO"
+  ],
+  "selection_rule": "raw validation f1_macro, roc_auc, name",
+  "calibration": "sigmoid",
+  "calibration_cv": 5,
+  "threshold_strategy": "f1_macro",
+  "threshold_grid": [
+    0.05,
+    0.06,
+    0.07,
+    0.08,
+    0.09,
+    0.09999999999999999,
+    0.10999999999999999,
+    0.12,
+    0.13,
+    0.13999999999999999,
+    0.14999999999999997,
+    0.15999999999999998,
+    0.16999999999999998,
+    0.18,
+    0.19,
+    0.19999999999999996,
+    0.20999999999999996,
+    0.21999999999999997,
+    0.22999999999999998,
+    0.24,
+    0.24999999999999994,
+    0.25999999999999995,
+    0.26999999999999996,
+    0.27999999999999997,
+    0.29,
+    0.3,
+    0.30999999999999994,
+    0.31999999999999995,
+    0.32999999999999996,
+    0.33999999999999997,
+    0.3499999999999999,
+    0.35999999999999993,
+    0.36999999999999994,
+    0.37999999999999995,
+    0.38999999999999996,
+    0.3999999999999999,
+    0.4099999999999999,
+    0.41999999999999993,
+    0.42999999999999994,
+    0.43999999999999995,
+    0.4499999999999999,
+    0.4599999999999999,
+    0.4699999999999999,
+    0.4799999999999999,
+    0.48999999999999994,
+    0.49999999999999994,
+    0.5099999999999999,
+    0.5199999999999999,
+    0.5299999999999999,
+    0.5399999999999999,
+    0.5499999999999999,
+    0.5599999999999999,
+    0.57,
+    0.58,
+    0.59,
+    0.6,
+    0.61,
+    0.62,
+    0.63,
+    0.6399999999999999,
+    0.6499999999999999,
+    0.6599999999999999,
+    0.6699999999999999,
+    0.6799999999999999,
+    0.69,
+    0.7,
+    0.71,
+    0.72,
+    0.73,
+    0.74,
+    0.7499999999999999,
+    0.7599999999999999,
+    0.7699999999999999,
+    0.7799999999999999,
+    0.7899999999999999,
+    0.7999999999999999,
+    0.8099999999999999,
+    0.82,
+    0.83,
+    0.84,
+    0.8499999999999999,
+    0.8599999999999999,
+    0.8699999999999999,
+    0.8799999999999999,
+    0.8899999999999999,
+    0.8999999999999999,
+    0.9099999999999999,
+    0.9199999999999999,
+    0.9299999999999999,
+    0.94,
+    0.95
+  ],
+  "n_boot": 2000,
+  "arms": {
+    "h7_CV17_RandomForest": {
+      "name": "h7_CV17_RandomForest",
+      "horizon": 7,
+      "feature_set": "CV17",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17",
+      "threshold_from": null,
+      "signature": "9d9da18fcacd1f3ba037",
+      "threshold": 0.33999999999999997
+    },
+    "h7_CV17_paper": {
+      "name": "h7_CV17_paper",
+      "horizon": 7,
+      "feature_set": "CV17",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": null,
+      "signature": "54f0cb1c8c9855aa3244",
+      "threshold": 0.43999999999999995
+    },
+    "h7_CV17_THY_CONT_RandomForest": {
+      "name": "h7_CV17_THY_CONT_RandomForest",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17_THY_CONT",
+      "threshold_from": null,
+      "signature": "b0cdf397b7f0467e510e",
+      "threshold": 0.37999999999999995
+    },
+    "h7_CV17_THY_CONT_paper": {
+      "name": "h7_CV17_THY_CONT_paper",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT",
+      "threshold_from": null,
+      "signature": "e5a30944da6e0f283ed2",
+      "threshold": 0.38999999999999996
+    },
+    "h7_CV17_THY_CONT_RandomForest_locked": {
+      "name": "h7_CV17_THY_CONT_RandomForest_locked",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h7_CV17_RandomForest",
+      "signature": "e7e3f54814163ac11096",
+      "threshold": 0.33999999999999997
+    },
+    "h7_CV17_THY_STATES_top3_train_cv": {
+      "name": "h7_CV17_THY_STATES_top3_train_cv",
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "top3_train_cv",
+      "kind": "ensemble",
+      "members": [
+        "GradientBoosting",
+        "LogisticRegression",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "6786cd6b9eb6c343a877",
+      "threshold": 0.3999999999999999
+    },
+    "h7_CV17_THY_STATES_RandomForest": {
+      "name": "h7_CV17_THY_STATES_RandomForest",
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "c6e89936cfb9066be2af",
+      "threshold": 0.3999999999999999
+    },
+    "h7_CV17_THY_STATES_RandomForest_locked": {
+      "name": "h7_CV17_THY_STATES_RandomForest_locked",
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h7_CV17_RandomForest",
+      "signature": "8c44bc4ccbeb09be99b0",
+      "threshold": 0.33999999999999997
+    },
+    "h7_CV17_THY_STATES_paper": {
+      "name": "h7_CV17_THY_STATES_paper",
+      "horizon": 7,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "83036fb432879ca8ba2d",
+      "threshold": 0.4099999999999999
+    },
+    "h7_CV17_THY_CONT_STATES_paper": {
+      "name": "h7_CV17_THY_CONT_STATES_paper",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT_STATES",
+      "threshold_from": null,
+      "signature": "a2c47df4a0310790a33d",
+      "threshold": 0.3999999999999999
+    },
+    "h7_CV17_THY_CONT_STATES_RandomForest": {
+      "name": "h7_CV17_THY_CONT_STATES_RandomForest",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17_THY_CONT_STATES",
+      "threshold_from": null,
+      "signature": "02116558b36b5cdfc377",
+      "threshold": 0.4599999999999999
+    },
+    "h7_CV17_THY_CONT_STATES_RandomForest_locked": {
+      "name": "h7_CV17_THY_CONT_STATES_RandomForest_locked",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h7_CV17_RandomForest",
+      "signature": "9500ac9e98bc6bd2ea2f",
+      "threshold": 0.33999999999999997
+    },
+    "h7_CV17_THY_CONT_RATIO_top3_train_cv": {
+      "name": "h7_CV17_THY_CONT_RATIO_top3_train_cv",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "top3_train_cv",
+      "kind": "ensemble",
+      "members": [
+        "GradientBoosting",
+        "LogisticRegression",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "d92a320fe3e05f971f63",
+      "threshold": 0.38999999999999996
+    },
+    "h7_CV17_THY_CONT_RATIO_RandomForest": {
+      "name": "h7_CV17_THY_CONT_RATIO_RandomForest",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "c71256e34cc01dd0a7ad",
+      "threshold": 0.3499999999999999
+    },
+    "h7_CV17_THY_CONT_RATIO_RandomForest_locked": {
+      "name": "h7_CV17_THY_CONT_RATIO_RandomForest_locked",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "RandomForest",
+      "kind": "single",
+      "members": [
+        "RandomForest"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h7_CV17_RandomForest",
+      "signature": "c314b4117337d68cae0a",
+      "threshold": 0.33999999999999997
+    },
+    "h7_CV17_THY_CONT_RATIO_paper": {
+      "name": "h7_CV17_THY_CONT_RATIO_paper",
+      "horizon": 7,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "919b55a4c66c8deb6688",
+      "threshold": 0.3499999999999999
+    },
+    "h10_CV17_XGBoost": {
+      "name": "h10_CV17_XGBoost",
+      "horizon": 10,
+      "feature_set": "CV17",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": null,
+      "signature": "c4ff134a30559638eef8",
+      "threshold": 0.4599999999999999
+    },
+    "h10_CV17_diverse": {
+      "name": "h10_CV17_diverse",
+      "horizon": 10,
+      "feature_set": "CV17",
+      "configuration": "diverse",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "XGBoost",
+        "MLP"
+      ],
+      "params_source": "CV17",
+      "threshold_from": null,
+      "signature": "e959ee58698b8c6df61b",
+      "threshold": 0.41999999999999993
+    },
+    "h10_CV17_THY_CONT_paper": {
+      "name": "h10_CV17_THY_CONT_paper",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT",
+      "threshold_from": null,
+      "signature": "b79e5f0dfa6a49272773",
+      "threshold": 0.37999999999999995
+    },
+    "h10_CV17_THY_CONT_XGBoost": {
+      "name": "h10_CV17_THY_CONT_XGBoost",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17_THY_CONT",
+      "threshold_from": null,
+      "signature": "19b3e592a0c7af536d08",
+      "threshold": 0.4499999999999999
+    },
+    "h10_CV17_THY_CONT_XGBoost_locked": {
+      "name": "h10_CV17_THY_CONT_XGBoost_locked",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h10_CV17_XGBoost",
+      "signature": "29f6ff8d6897c1e9484e",
+      "threshold": 0.4599999999999999
+    },
+    "h10_CV17_THY_STATES_LogisticRegression": {
+      "name": "h10_CV17_THY_STATES_LogisticRegression",
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "LogisticRegression",
+      "kind": "single",
+      "members": [
+        "LogisticRegression"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "7e5170f08ccfedaccdc3",
+      "threshold": 0.4099999999999999
+    },
+    "h10_CV17_THY_STATES_top3_train_cv": {
+      "name": "h10_CV17_THY_STATES_top3_train_cv",
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "top3_train_cv",
+      "kind": "ensemble",
+      "members": [
+        "RandomForest",
+        "LogisticRegression",
+        "SVC"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "e23dceff75f8ef0c2643",
+      "threshold": 0.41999999999999993
+    },
+    "h10_CV17_THY_STATES_XGBoost": {
+      "name": "h10_CV17_THY_STATES_XGBoost",
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "ade602daa555e4e20931",
+      "threshold": 0.4699999999999999
+    },
+    "h10_CV17_THY_STATES_XGBoost_locked": {
+      "name": "h10_CV17_THY_STATES_XGBoost_locked",
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h10_CV17_XGBoost",
+      "signature": "dcd3476f77bd36660a14",
+      "threshold": 0.4599999999999999
+    },
+    "h10_CV17_THY_STATES_paper": {
+      "name": "h10_CV17_THY_STATES_paper",
+      "horizon": 10,
+      "feature_set": "CV17_THY_STATES",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_STATES",
+      "threshold_from": null,
+      "signature": "16ded8820090bbf6642b",
+      "threshold": 0.3499999999999999
+    },
+    "h10_CV17_THY_CONT_STATES_top3_train_cv": {
+      "name": "h10_CV17_THY_CONT_STATES_top3_train_cv",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "top3_train_cv",
+      "kind": "ensemble",
+      "members": [
+        "RandomForest",
+        "LogisticRegression",
+        "SVC"
+      ],
+      "params_source": "CV17_THY_CONT_STATES",
+      "threshold_from": null,
+      "signature": "1443a98bd6d3c11ce6b0",
+      "threshold": 0.37999999999999995
+    },
+    "h10_CV17_THY_CONT_STATES_XGBoost": {
+      "name": "h10_CV17_THY_CONT_STATES_XGBoost",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17_THY_CONT_STATES",
+      "threshold_from": null,
+      "signature": "e1b2e0f277ceae6080a2",
+      "threshold": 0.43999999999999995
+    },
+    "h10_CV17_THY_CONT_STATES_XGBoost_locked": {
+      "name": "h10_CV17_THY_CONT_STATES_XGBoost_locked",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h10_CV17_XGBoost",
+      "signature": "9d4014a3bb41241b49b6",
+      "threshold": 0.4599999999999999
+    },
+    "h10_CV17_THY_CONT_STATES_paper": {
+      "name": "h10_CV17_THY_CONT_STATES_paper",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_STATES",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT_STATES",
+      "threshold_from": null,
+      "signature": "3c59c3a45a3fecb534f7",
+      "threshold": 0.41999999999999993
+    },
+    "h10_CV17_THY_CONT_RATIO_top3_train_cv": {
+      "name": "h10_CV17_THY_CONT_RATIO_top3_train_cv",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "top3_train_cv",
+      "kind": "ensemble",
+      "members": [
+        "RandomForest",
+        "LogisticRegression",
+        "SVC"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "3906e3029045250784c7",
+      "threshold": 0.4099999999999999
+    },
+    "h10_CV17_THY_CONT_RATIO_XGBoost": {
+      "name": "h10_CV17_THY_CONT_RATIO_XGBoost",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "99ec85d55dff0188c82e",
+      "threshold": 0.4499999999999999
+    },
+    "h10_CV17_THY_CONT_RATIO_XGBoost_locked": {
+      "name": "h10_CV17_THY_CONT_RATIO_XGBoost_locked",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "XGBoost",
+      "kind": "single",
+      "members": [
+        "XGBoost"
+      ],
+      "params_source": "CV17",
+      "threshold_from": "h10_CV17_XGBoost",
+      "signature": "8fdc8a690abbc1bf7991",
+      "threshold": 0.4599999999999999
+    },
+    "h10_CV17_THY_CONT_RATIO_paper": {
+      "name": "h10_CV17_THY_CONT_RATIO_paper",
+      "horizon": 10,
+      "feature_set": "CV17_THY_CONT_RATIO",
+      "configuration": "paper",
+      "kind": "ensemble",
+      "members": [
+        "LogisticRegression",
+        "RandomForest",
+        "AdaBoost"
+      ],
+      "params_source": "CV17_THY_CONT_RATIO",
+      "threshold_from": null,
+      "signature": "1f7584716f9fd54b11a6",
+      "threshold": 0.36999999999999994
+    }
+  },
+  "comparisons": [
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "independent ensemble selection",
+      "base_arm": "h7_CV17_paper",
+      "other_arm": "h7_CV17_THY_CONT_paper"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "independent configuration selection",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RandomForest"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "same baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RandomForest"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "locked baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RandomForest_locked"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "independent ensemble selection",
+      "base_arm": "h7_CV17_paper",
+      "other_arm": "h7_CV17_THY_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "independent configuration selection",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "same baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_STATES_RandomForest"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "locked baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_STATES_RandomForest_locked"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "selected ensemble versus paper",
+      "base_arm": "h7_CV17_THY_STATES_paper",
+      "other_arm": "h7_CV17_THY_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "independent ensemble selection",
+      "base_arm": "h7_CV17_paper",
+      "other_arm": "h7_CV17_THY_CONT_STATES_paper"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "independent configuration selection",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_STATES_paper"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "same baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_STATES_RandomForest"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "locked baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_STATES_RandomForest_locked"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "independent ensemble selection",
+      "base_arm": "h7_CV17_paper",
+      "other_arm": "h7_CV17_THY_CONT_RATIO_top3_train_cv"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "independent configuration selection",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RATIO_top3_train_cv"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "same baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RATIO_RandomForest"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "locked baseline configuration",
+      "base_arm": "h7_CV17_RandomForest",
+      "other_arm": "h7_CV17_THY_CONT_RATIO_RandomForest_locked"
+    },
+    {
+      "horizon": 7,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "selected ensemble versus paper",
+      "base_arm": "h7_CV17_THY_CONT_RATIO_paper",
+      "other_arm": "h7_CV17_THY_CONT_RATIO_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "independent ensemble selection",
+      "base_arm": "h10_CV17_diverse",
+      "other_arm": "h10_CV17_THY_CONT_paper"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "independent configuration selection",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_paper"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "same baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_XGBoost"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT",
+      "policy": "locked baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_XGBoost_locked"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "independent ensemble selection",
+      "base_arm": "h10_CV17_diverse",
+      "other_arm": "h10_CV17_THY_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "independent configuration selection",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_STATES_LogisticRegression"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "same baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_STATES_XGBoost"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "locked baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_STATES_XGBoost_locked"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_STATES",
+      "policy": "selected ensemble versus paper",
+      "base_arm": "h10_CV17_THY_STATES_paper",
+      "other_arm": "h10_CV17_THY_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "independent ensemble selection",
+      "base_arm": "h10_CV17_diverse",
+      "other_arm": "h10_CV17_THY_CONT_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "independent configuration selection",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "same baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_STATES_XGBoost"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "locked baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_STATES_XGBoost_locked"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_STATES",
+      "policy": "selected ensemble versus paper",
+      "base_arm": "h10_CV17_THY_CONT_STATES_paper",
+      "other_arm": "h10_CV17_THY_CONT_STATES_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "independent ensemble selection",
+      "base_arm": "h10_CV17_diverse",
+      "other_arm": "h10_CV17_THY_CONT_RATIO_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "independent configuration selection",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_RATIO_top3_train_cv"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "same baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_RATIO_XGBoost"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "locked baseline configuration",
+      "base_arm": "h10_CV17_XGBoost",
+      "other_arm": "h10_CV17_THY_CONT_RATIO_XGBoost_locked"
+    },
+    {
+      "horizon": 10,
+      "thyroid_set": "CV17_THY_CONT_RATIO",
+      "policy": "selected ensemble versus paper",
+      "base_arm": "h10_CV17_THY_CONT_RATIO_paper",
+      "other_arm": "h10_CV17_THY_CONT_RATIO_top3_train_cv"
+    }
+  ]
+}

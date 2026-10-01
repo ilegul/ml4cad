@@ -313,16 +313,17 @@ def _jsonable(value):
 # ---------------------------------------------------------------------------
 
 def training_oof_proba(estimator, X_train, y_train, cv: int = None,
-                       seed: int = config.SEED) -> np.ndarray:
+                       seed: int = config.SEED, n_jobs: int = None) -> np.ndarray:
     """Out-of-fold probabilities inside the training partition.
 
     The calibrator is fitted on these, so the validation outcomes stay
     available for threshold selection alone.
     """
     cv = config.CALIBRATION_CV if cv is None else cv
+    n_jobs = config.N_JOBS if n_jobs is None else n_jobs
     folds = StratifiedKFold(n_splits=cv, shuffle=True, random_state=seed)
     return cross_val_predict(estimator, X_train, y_train, cv=folds,
-                             method="predict_proba", n_jobs=config.N_JOBS)[:, 1]
+                             method="predict_proba", n_jobs=n_jobs)[:, 1]
 
 
 def _logit(p):

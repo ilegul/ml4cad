@@ -1,0 +1,21 @@
+horizon,feature_set,scope,configuration,members,f1_macro,roc_auc
+7,CV17,all configurations,RandomForest,RandomForest,0.7188856366099254,0.8372822794001051
+7,CV17,ensembles,paper,"LogisticRegression,RandomForest,AdaBoost",0.713485222451993,0.8417305814506639
+7,CV17_THY_CONT,all configurations,RandomForest,RandomForest,0.7313335823525564,0.8233114395640162
+7,CV17_THY_CONT,ensembles,paper,"LogisticRegression,RandomForest,AdaBoost",0.7243901516584093,0.8388345949374484
+7,CV17_THY_STATES,all configurations,top3_train_cv,"GradientBoosting,LogisticRegression,AdaBoost",0.7338166974106716,0.8443678487076556
+7,CV17_THY_STATES,ensembles,top3_train_cv,"GradientBoosting,LogisticRegression,AdaBoost",0.7338166974106716,0.8443678487076556
+7,CV17_THY_CONT_STATES,all configurations,paper,"LogisticRegression,RandomForest,AdaBoost",0.7249755802811002,0.8375743817861643
+7,CV17_THY_CONT_STATES,ensembles,paper,"LogisticRegression,RandomForest,AdaBoost",0.7249755802811002,0.8375743817861643
+7,CV17_THY_CONT_RATIO,all configurations,top3_train_cv,"GradientBoosting,LogisticRegression,AdaBoost",0.7538579404771841,0.8435249246793133
+7,CV17_THY_CONT_RATIO,ensembles,top3_train_cv,"GradientBoosting,LogisticRegression,AdaBoost",0.7538579404771841,0.8435249246793133
+10,CV17,all configurations,XGBoost,XGBoost,0.7484466662461364,0.8073794944261264
+10,CV17,ensembles,diverse,"LogisticRegression,XGBoost,MLP",0.7388753666604256,0.8061077092165173
+10,CV17_THY_CONT,all configurations,paper,"LogisticRegression,RandomForest,AdaBoost",0.7429554390563565,0.8158737635421573
+10,CV17_THY_CONT,ensembles,paper,"LogisticRegression,RandomForest,AdaBoost",0.7429554390563565,0.8158737635421573
+10,CV17_THY_STATES,all configurations,LogisticRegression,LogisticRegression,0.7444863204913457,0.8104883027162819
+10,CV17_THY_STATES,ensembles,top3_train_cv,"RandomForest,LogisticRegression,SVC",0.7384712956300081,0.8142094520332862
+10,CV17_THY_CONT_STATES,all configurations,top3_train_cv,"RandomForest,LogisticRegression,SVC",0.746048243730763,0.8162505887894488
+10,CV17_THY_CONT_STATES,ensembles,top3_train_cv,"RandomForest,LogisticRegression,SVC",0.746048243730763,0.8162505887894488
+10,CV17_THY_CONT_RATIO,all configurations,top3_train_cv,"RandomForest,LogisticRegression,SVC",0.7526597118728267,0.8133615952268802
+10,CV17_THY_CONT_RATIO,ensembles,top3_train_cv,"RandomForest,LogisticRegression,SVC",0.7526597118728267,0.8133615952268802

@@ -1,0 +1,23 @@
+{
+  "written_at": "2026-10-01T18:02:56+00:00",
+  "profile": "full",
+  "protocol_version": "v1",
+  "seed": 42,
+  "dependencies": {
+    "python": "3.11.5",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "sklearn": "1.7.2",
+    "scipy": "1.15.3",
+    "imblearn": "0.14.2",
+    "xgboost": "3.2.0",
+    "lifelines": "0.30.0",
+    "sksurv": "0.25.0"
+  },
+  "signature": "e4356027f996e459676c",
+  "arm": "h10_CV17_THY_STATES_paper",
+  "threshold": 0.3499999999999999,
+  "n_test": 523,
+  "n_events": 192,
+  "selection_source": "validation only"
+}

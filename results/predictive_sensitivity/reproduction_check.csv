@@ -1,0 +1,11 @@
+arm,proba_raw_max_difference,proba_calibrated_max_difference,threshold_difference
+h7_CV17_paper,0.0,0.0,0.0
+h7_CV17_THY_CONT_paper,0.0,0.0,0.0
+h7_CV17_THY_STATES_paper,0.0,0.0,0.0
+h7_CV17_THY_CONT_STATES_paper,0.0,0.0,0.0
+h7_CV17_THY_CONT_RATIO_paper,0.0,0.0,0.0
+h10_CV17_diverse,0.0,2.220446049250313e-16,0.0
+h10_CV17_THY_CONT_paper,0.0,0.0,0.0
+h10_CV17_THY_STATES_paper,0.0,0.0,0.0
+h10_CV17_THY_CONT_STATES_paper,0.0,0.0,0.0
+h10_CV17_THY_CONT_RATIO_paper,0.0,0.0,0.0
