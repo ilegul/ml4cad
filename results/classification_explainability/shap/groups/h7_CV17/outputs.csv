@@ -1,0 +1,25 @@
+arm,kind,members,scale,source
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h7_CV17_paper.joblib
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h7_CV17_paper.joblib
+own,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,models/stacking_sensitivity/h7_CV17_own.joblib
+own,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",sigmoid,models/stacking_sensitivity/h7_CV17_own.joblib
+own,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",isotonic,models/stacking_sensitivity/h7_CV17_own.joblib
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h7_CV17_paper.joblib
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h7_CV17_paper.joblib
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h7_CV17_paper.joblib

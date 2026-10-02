@@ -1,0 +1,284 @@
+{
+  "version": "v1",
+  "development_signature": "cdd3c12e5d8b45dc61df",
+  "partition_signature": "0143685b8b1c53d43419",
+  "sources": [
+    {
+      "path": "cache/classification_explainability/prepared_h10_CV17_THY_CONT_RATIO.joblib",
+      "bytes": 110938,
+      "sha256": "649923eec303b7c81d5462ccee7a615cfbff2c9af5d483ac181d333bb79e7586"
+    },
+    {
+      "path": "cache/stacking_sensitivity/development_cdd3c12e5d8b45dc61df.joblib",
+      "bytes": 10265254,
+      "sha256": "93f737ec774ab84643f069df9c901e5da2991c114892e789c46247b5e3755780"
+    },
+    {
+      "path": "data/processed/cohort_strict_h10.parquet",
+      "bytes": 305118,
+      "sha256": "ae1b65c3d720beda4becbaab5ab963a7f0c6608bad3a6fc9a68e69ad42200ec6"
+    },
+    {
+      "path": "data/processed/splits.json",
+      "bytes": 103902,
+      "sha256": "e6c63fbd80f22811ba91923496941b870affe0e1b34c6855816ee0b793b02036"
+    },
+    {
+      "path": "models/final_h10_CV17_THY_CONT_RATIO_diverse.joblib",
+      "bytes": 301233,
+      "sha256": "05d9cc353c0eef5166f31c3f2cee6849eb1d113a3ac692ff036081c68e533e36"
+    },
+    {
+      "path": "models/final_h10_CV17_THY_CONT_RATIO_diverse_manifest.json",
+      "bytes": 527,
+      "sha256": "506c2e0f889a6ee4153b28c178d252a60cf8c66fa64432ba4fbb04de85177d08"
+    },
+    {
+      "path": "models/final_h10_CV17_THY_CONT_RATIO_paper_locked.joblib",
+      "bytes": 10838068,
+      "sha256": "125aca2fd22db510af4d8dcc87bacf5ab869d3f138d9c1e60681ffda916518d3"
+    },
+    {
+      "path": "models/final_h10_CV17_THY_CONT_RATIO_paper_locked_manifest.json",
+      "bytes": 530,
+      "sha256": "768b918c0261a73d131c2ab60d524a5fa94d30b6a7cb5615c050d4c8dc47bb54"
+    },
+    {
+      "path": "models/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_paper.joblib",
+      "bytes": 7966902,
+      "sha256": "597c70277f78c34267ace68b6c329e8d9990c2dda44b90b408e507e84c270644"
+    },
+    {
+      "path": "models/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_paper_manifest.json",
+      "bytes": 2047,
+      "sha256": "50ba14d37f39c77ff52566d8b5d9bbfb7f791cbec7078aae4c6ed0c50722acb6"
+    },
+    {
+      "path": "models/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_top3_train_cv.joblib",
+      "bytes": 7934054,
+      "sha256": "1316ede50fadc8ca104c99e9574efce1b3179f6f4f89dabec99f910360a1c7ba"
+    },
+    {
+      "path": "models/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_top3_train_cv_manifest.json",
+      "bytes": 2076,
+      "sha256": "a627f9457705fb83bf6b224c2dbaca8da5a1ca9ca96c561eafe2ae970f1e81bd"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_locked_baseline.joblib",
+      "bytes": 1509931,
+      "sha256": "5a754e487e86acb4177b04764529aae1981151d125a7bcac8f54ab4ef0f2f4f1"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_locked_baseline_manifest.json",
+      "bytes": 812,
+      "sha256": "c37952349e9e2b6edb2887272deac93c8f58f6dc129d368eab5b8d1769108ed3"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_own.joblib",
+      "bytes": 614747,
+      "sha256": "b17952cb74b26867a493dde86e382b7cb63d164b9082479897be51aa5d819330"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_own_manifest.json",
+      "bytes": 768,
+      "sha256": "c165533ff84ae8aab63ad8c657ac2e640ec5dca2d16686d32fcfb1b8e5e234f3"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_paper.joblib",
+      "bytes": 8019691,
+      "sha256": "feeb9a92683a03e6dfb37a7b2bfc6beebf3f5acb006d445abd7054a4e328360c"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_paper_manifest.json",
+      "bytes": 785,
+      "sha256": "94e20b27ff598446a3773f661b71def7390074da04521ab9df99774a3f412ad1"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_same_baseline.joblib",
+      "bytes": 2019643,
+      "sha256": "e8f8d547e78bbe69fad96e7f019977db0689436934f7e961c7bd45791e90b1f6"
+    },
+    {
+      "path": "models/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_same_baseline_manifest.json",
+      "bytes": 808,
+      "sha256": "3acb345a992e355f97962c029c8709fb8cdcf21da66d6ef4cb7736b693298f6e"
+    },
+    {
+      "path": "predictions/classification_explainability/h10_CV17_THY_CONT_RATIO_matched_reselected_C_test.csv",
+      "bytes": 43492,
+      "sha256": "4addac8e220b34aead257c3039d3abfec73fae897155ad21d92c486ab3cfbe00"
+    },
+    {
+      "path": "predictions/h10_CV17_THY_CONT_RATIO_diverse_test.csv",
+      "bytes": 35528,
+      "sha256": "4d6ffa7a798c97ad2e2f56a8e395fa77aa68052947c3f67d4746de0e4b897a5c"
+    },
+    {
+      "path": "predictions/h10_CV17_THY_CONT_RATIO_diverse_test_manifest.json",
+      "bytes": 907,
+      "sha256": "6a4d9d8a7e927e54f35b8beb6fbed369205f716ef827f96ba17d4b00fae77ac9"
+    },
+    {
+      "path": "predictions/h10_CV17_THY_CONT_RATIO_paper_locked_test.csv",
+      "bytes": 35392,
+      "sha256": "795c910efa213b3f1e587fbb1821ec4e5c3ae53a91e28319cda094e1cbf5f6f5"
+    },
+    {
+      "path": "predictions/h10_CV17_THY_CONT_RATIO_paper_locked_test_manifest.json",
+      "bytes": 923,
+      "sha256": "66d8371e8c6e7ed3b9bb183b6a0a769d44cb93021a1cd60e04b87cf968151ad7"
+    },
+    {
+      "path": "predictions/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_paper_test.csv",
+      "bytes": 35464,
+      "sha256": "e9eff6b8c7ae31042650cd5ac9b23a0652a200c33c82e8933847b8d54f5b032f"
+    },
+    {
+      "path": "predictions/predictive_sensitivity/h10_CV17_THY_CONT_RATIO_top3_train_cv_test.csv",
+      "bytes": 35489,
+      "sha256": "15c24a512060a597cea74a7fcdf8139524f18490c6035e2c73b86e0b25e4fd8c"
+    },
+    {
+      "path": "predictions/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_locked_baseline_test.csv",
+      "bytes": 48368,
+      "sha256": "0e1bad7d8b8811e132e3480482ef452b2ab46fd073ba115aee4741244e8a1c75"
+    },
+    {
+      "path": "predictions/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_own_test.csv",
+      "bytes": 48631,
+      "sha256": "537160263d285c36d8b17f905e347b555e571312a6927d042ea95a3d8288dba4"
+    },
+    {
+      "path": "predictions/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_paper_test.csv",
+      "bytes": 46884,
+      "sha256": "09eeb96ea71a3112bb98cde5c0765eafa8e5ef484a3471291aee3cf131b07e3d"
+    },
+    {
+      "path": "predictions/stacking_sensitivity/h10_CV17_THY_CONT_RATIO_same_baseline_test.csv",
+      "bytes": 47758,
+      "sha256": "9888df6525b77307508d4ccb63841b8fa79d3216bae01d6cdfd052f5f60f8281"
+    },
+    {
+      "path": "results/classification_explainability/matched_C_validation_selection.csv",
+      "bytes": 2326,
+      "sha256": "ce1ba9c9feec13745e5a2840694865700b45c21b42727ae10e46ad400eba4a03"
+    },
+    {
+      "path": "results/predictive_sensitivity/selected_configurations.csv",
+      "bytes": 2432,
+      "sha256": "874e3c5109dfa527b6d9dad1dc475bb1c221dbf88477de591c27b75420e89906"
+    },
+    {
+      "path": "results/predictive_sensitivity/validation_scores.csv",
+      "bytes": 28638,
+      "sha256": "f1ba5fa53c7078fc921e200695d5e80d6a1f2279c8989cfff8bb1206b912be48"
+    },
+    {
+      "path": "results/stacking_sensitivity/validation_scores.csv",
+      "bytes": 2796449,
+      "sha256": "37207e3145e4d66c81b71e9e00932ca2061cd5351d59a929be69256cc604627d"
+    }
+  ],
+  "members": {
+    "LogisticRegression": {
+      "model": "LogisticRegression",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.014165465220555132,
+        "model__l1_ratio": 0.20618616451842642,
+        "model__penalty": "elasticnet",
+        "model__solver": "saga"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "bf5a11d56318e9412b8b"
+    },
+    "SVC": {
+      "model": "SVC",
+      "sampler": "class_weight",
+      "params": {
+        "model__C": 0.055186836396682384,
+        "model__gamma": 0.007053248140892922,
+        "model__kernel": "rbf"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "89804ca3a00ca7eadb16"
+    },
+    "KNeighbors": {
+      "model": "KNeighbors",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__n_neighbors": 42,
+        "model__p": 1,
+        "model__weights": "distance"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "41d3589f9c6d195cca56"
+    },
+    "RandomForest": {
+      "model": "RandomForest",
+      "sampler": "class_weight",
+      "params": {
+        "model__max_depth": 8,
+        "model__max_features": "log2",
+        "model__min_samples_leaf": 4,
+        "model__min_samples_split": 15,
+        "model__n_estimators": 716
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "eb57db98a28e496946cf"
+    },
+    "AdaBoost": {
+      "model": "AdaBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__learning_rate": 0.307510254111621,
+        "model__n_estimators": 427
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "d48dc43cc9623f343821"
+    },
+    "MLP": {
+      "model": "MLP",
+      "sampler": "none",
+      "params": {
+        "model__activation": "relu",
+        "model__alpha": 6.032309690118705e-05,
+        "model__hidden_layer_sizes": [
+          128,
+          64
+        ],
+        "model__learning_rate_init": 0.0009795924829526929
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "9807647d9ff8beef58c4"
+    },
+    "GradientBoosting": {
+      "model": "GradientBoosting",
+      "sampler": "SMOTENC",
+      "params": {
+        "model__learning_rate": 0.04307638031010405,
+        "model__max_depth": 5,
+        "model__min_samples_leaf": 33,
+        "model__n_estimators": 367,
+        "model__subsample": 0.6335678143285718
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "7568ad04bb7c4dd6cb01"
+    },
+    "XGBoost": {
+      "model": "XGBoost",
+      "sampler": "RandomOverSampler",
+      "params": {
+        "model__booster": "gblinear",
+        "model__learning_rate": 0.09774726946008461,
+        "model__n_estimators": 326,
+        "model__reg_alpha": 0.007576025464197744,
+        "model__reg_lambda": 0.0938385725665522,
+        "model__scale_pos_weight": 0.8587521663778163,
+        "model__updater": "coord_descent"
+      },
+      "params_source": "CV17_THY_CONT_RATIO",
+      "tuning_signature": "764d34c99ce82ea0c984"
+    }
+  }
+}

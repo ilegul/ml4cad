@@ -1,0 +1,16 @@
+{
+  "horizon": 10,
+  "feature_set": "CV17",
+  "patients": 64,
+  "background": 16,
+  "cycles": 2,
+  "outputs": 26,
+  "pipelines": 13,
+  "seconds": 217.77531480789185,
+  "probability_reproduction_max_error": 1.6653345369377348e-16,
+  "additivity_max_error": 5.551115123125783e-16,
+  "background_mean_max_error": 0.0,
+  "explainer": "PermutationExplainer",
+  "link": "identity",
+  "shap_version": "0.49.1"
+}

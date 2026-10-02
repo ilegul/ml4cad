@@ -1,0 +1,51 @@
+arm,kind,members,scale,source,mode,probability_index,threshold,threshold_source,horizon,feature_set
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,0,0.5,fixed 0.5,7,CV17_THY_CONT
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,0,0.6399999999999999,own validation,7,CV17_THY_CONT
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,1,0.38999999999999996,own validation,7,CV17_THY_CONT
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,2,0.5,fixed 0.5,7,CV17_THY_CONT
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,2,0.37999999999999995,own validation,7,CV17_THY_CONT
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,3,0.4099999999999999,own validation,7,CV17_THY_CONT
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,4,0.5,fixed 0.5,7,CV17_THY_CONT
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,4,0.59,own validation,7,CV17_THY_CONT
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,5,0.30999999999999994,own validation,7,CV17_THY_CONT
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,6,0.5,fixed 0.5,7,CV17_THY_CONT
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,6,0.5299999999999999,own validation,7,CV17_THY_CONT
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,7,0.37999999999999995,own validation,7,CV17_THY_CONT
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,8,0.5,fixed 0.5,7,CV17_THY_CONT
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,8,0.58,own validation,7,CV17_THY_CONT
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,9,0.4099999999999999,own validation,7,CV17_THY_CONT
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,10,0.5,fixed 0.5,7,CV17_THY_CONT
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,10,0.6799999999999999,own validation,7,CV17_THY_CONT
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,11,0.31999999999999995,own validation,7,CV17_THY_CONT
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,12,0.5,fixed 0.5,7,CV17_THY_CONT
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,12,0.6599999999999999,own validation,7,CV17_THY_CONT
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,13,0.37999999999999995,own validation,7,CV17_THY_CONT
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_fixed,14,0.5,fixed 0.5,7,CV17_THY_CONT
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,raw_threshold,14,0.6,own validation,7,CV17_THY_CONT
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,sigmoid,15,0.36999999999999994,own validation,7,CV17_THY_CONT
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h7_CV17_THY_CONT_paper.joblib,raw_fixed,16,0.5,fixed 0.5,7,CV17_THY_CONT
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h7_CV17_THY_CONT_paper.joblib,raw_threshold,16,0.38999999999999996,saved voting threshold (also applied to raw),7,CV17_THY_CONT
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h7_CV17_THY_CONT_paper.joblib,sigmoid,17,0.38999999999999996,saved voting threshold (also applied to raw),7,CV17_THY_CONT
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h7_CV17_THY_CONT_paper_locked.joblib,raw_fixed,18,0.5,fixed 0.5,7,CV17_THY_CONT
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h7_CV17_THY_CONT_paper_locked.joblib,raw_threshold,18,0.43999999999999995,saved voting threshold (also applied to raw),7,CV17_THY_CONT
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h7_CV17_THY_CONT_paper_locked.joblib,sigmoid,19,0.43999999999999995,saved voting threshold (also applied to raw),7,CV17_THY_CONT
+own,stacking,"LogisticRegression,KNeighbors,AdaBoost",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_own.joblib,raw_fixed,20,0.5,fixed 0.5,7,CV17_THY_CONT
+own,stacking,"LogisticRegression,KNeighbors,AdaBoost",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_own.joblib,raw_threshold,20,0.33999999999999997,saved stacking threshold,7,CV17_THY_CONT
+own,stacking,"LogisticRegression,KNeighbors,AdaBoost",sigmoid,models/stacking_sensitivity/h7_CV17_THY_CONT_own.joblib,sigmoid,21,0.32999999999999996,saved stacking threshold,7,CV17_THY_CONT
+own,stacking,"LogisticRegression,KNeighbors,AdaBoost",isotonic,models/stacking_sensitivity/h7_CV17_THY_CONT_own.joblib,isotonic,22,0.33999999999999997,saved stacking threshold,7,CV17_THY_CONT
+same_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_same_baseline.joblib,raw_fixed,23,0.5,fixed 0.5,7,CV17_THY_CONT
+same_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_same_baseline.joblib,raw_threshold,23,0.38999999999999996,saved stacking threshold,7,CV17_THY_CONT
+same_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",sigmoid,models/stacking_sensitivity/h7_CV17_THY_CONT_same_baseline.joblib,sigmoid,24,0.3999999999999999,saved stacking threshold,7,CV17_THY_CONT
+same_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",isotonic,models/stacking_sensitivity/h7_CV17_THY_CONT_same_baseline.joblib,isotonic,25,0.32999999999999996,saved stacking threshold,7,CV17_THY_CONT
+locked_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_locked_baseline.joblib,raw_fixed,26,0.5,fixed 0.5,7,CV17_THY_CONT
+locked_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_locked_baseline.joblib,raw_threshold,26,0.48999999999999994,saved stacking threshold,7,CV17_THY_CONT
+locked_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",sigmoid,models/stacking_sensitivity/h7_CV17_THY_CONT_locked_baseline.joblib,sigmoid,27,0.48999999999999994,saved stacking threshold,7,CV17_THY_CONT
+locked_baseline,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",isotonic,models/stacking_sensitivity/h7_CV17_THY_CONT_locked_baseline.joblib,isotonic,28,0.42999999999999994,saved stacking threshold,7,CV17_THY_CONT
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_paper.joblib,raw_fixed,29,0.5,fixed 0.5,7,CV17_THY_CONT
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h7_CV17_THY_CONT_paper.joblib,raw_threshold,29,0.3999999999999999,saved stacking threshold,7,CV17_THY_CONT
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h7_CV17_THY_CONT_paper.joblib,sigmoid,30,0.38999999999999996,saved stacking threshold,7,CV17_THY_CONT
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h7_CV17_THY_CONT_paper.joblib,isotonic,31,0.3499999999999999,saved stacking threshold,7,CV17_THY_CONT
+same_members_reselected_C,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,cache/classification_explainability/prepared_h7_CV17_THY_CONT.joblib,raw_fixed,32,0.5,fixed 0.5,7,CV17_THY_CONT
+same_members_reselected_C,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",raw,cache/classification_explainability/prepared_h7_CV17_THY_CONT.joblib,raw_threshold,32,0.36999999999999994,saved reselected-C validation threshold,7,CV17_THY_CONT
+same_members_reselected_C,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",sigmoid,cache/classification_explainability/prepared_h7_CV17_THY_CONT.joblib,sigmoid,33,0.35999999999999993,saved reselected-C validation threshold,7,CV17_THY_CONT
+same_members_reselected_C,stacking,"KNeighbors,RandomForest,AdaBoost,MLP",isotonic,cache/classification_explainability/prepared_h7_CV17_THY_CONT.joblib,isotonic,34,0.33999999999999997,saved reselected-C validation threshold,7,CV17_THY_CONT

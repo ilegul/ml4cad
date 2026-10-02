@@ -1,0 +1,22 @@
+{
+  "horizon": 7,
+  "feature_set": "CV17_THY_CONT_STATES",
+  "patients": 64,
+  "background": 16,
+  "cycles": 2,
+  "outputs": 35,
+  "pipelines": 21,
+  "seconds": 90.31768107414246,
+  "probability_reproduction_max_error": 1.1102230246251565e-16,
+  "additivity_max_error": 4.440892098500626e-16,
+  "background_mean_max_error": 5.551115123125783e-17,
+  "explainer": "PermutationExplainer",
+  "link": "identity",
+  "shap_version": "0.49.1",
+  "planned_rows": 65086,
+  "unique_masked_rows": 38471,
+  "planning_seconds": 25.75765824317932,
+  "bulk_prediction_seconds": 63.847939252853394,
+  "replay_seconds": 0.17005586624145508,
+  "execution": "Exact mask planning and seeded SHAP replay"
+}

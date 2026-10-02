@@ -1,0 +1,22 @@
+{
+  "horizon": 10,
+  "feature_set": "CV17_THY_STATES",
+  "classifier": "AdaBoost",
+  "thyroid_feature_importance": {
+    "SCH": 0.0,
+    "SCT": 0.0,
+    "Low_T3": 0.0,
+    "Hypothyroid": 0.0,
+    "Hyperthyroid": 0.0
+  },
+  "n_features": 22,
+  "tree_split_features": [
+    1,
+    8,
+    10,
+    12,
+    14,
+    15,
+    16
+  ]
+}

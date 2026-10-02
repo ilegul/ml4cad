@@ -1,0 +1,13 @@
+{
+  "horizon": 10,
+  "feature_set": "CV17_THY_STATES",
+  "n_test": 523,
+  "n_events": 192,
+  "probability_outputs": 39,
+  "evaluation_cases": 56,
+  "targets": 32,
+  "permutation_repeats": 10,
+  "bootstrap": 2000,
+  "probability_reproduction_max_error": 1.1102230246251565e-16,
+  "seconds": 107.51180410385132
+}

@@ -1,0 +1,22 @@
+{
+  "horizon": 10,
+  "feature_set": "CV17_THY_CONT_RATIO",
+  "patients": 64,
+  "background": 16,
+  "cycles": 2,
+  "outputs": 39,
+  "pipelines": 22,
+  "seconds": 61.75115394592285,
+  "probability_reproduction_max_error": 1.1102230246251565e-16,
+  "additivity_max_error": 1.887379141862766e-15,
+  "background_mean_max_error": 0.0,
+  "explainer": "PermutationExplainer",
+  "link": "identity",
+  "shap_version": "0.49.1",
+  "planned_rows": 68613,
+  "unique_masked_rows": 42571,
+  "planning_seconds": 0.3890213966369629,
+  "bulk_prediction_seconds": 59.48306584358215,
+  "replay_seconds": 0.30805277824401855,
+  "execution": "Exact mask planning and seeded SHAP replay"
+}

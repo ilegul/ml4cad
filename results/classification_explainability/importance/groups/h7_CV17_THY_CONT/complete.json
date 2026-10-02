@@ -1,0 +1,13 @@
+{
+  "horizon": 7,
+  "feature_set": "CV17_THY_CONT",
+  "n_test": 878,
+  "n_events": 168,
+  "probability_outputs": 35,
+  "evaluation_cases": 50,
+  "targets": 30,
+  "permutation_repeats": 10,
+  "bootstrap": 2000,
+  "probability_reproduction_max_error": 1.6653345369377348e-16,
+  "seconds": 368.7213623523712
+}

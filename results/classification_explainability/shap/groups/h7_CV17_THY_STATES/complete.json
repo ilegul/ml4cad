@@ -1,0 +1,16 @@
+{
+  "horizon": 7,
+  "feature_set": "CV17_THY_STATES",
+  "patients": 64,
+  "background": 16,
+  "cycles": 2,
+  "outputs": 37,
+  "pipelines": 23,
+  "seconds": 429.2118077278137,
+  "probability_reproduction_max_error": 1.1102230246251565e-16,
+  "additivity_max_error": 5.551115123125783e-16,
+  "background_mean_max_error": 2.7755575615628914e-17,
+  "explainer": "PermutationExplainer",
+  "link": "identity",
+  "shap_version": "0.49.1"
+}

@@ -1,3 +1,5 @@
 # Preserve stored artifacts byte for byte across operating systems.
 models/** -text whitespace=cr-at-eol
 cache/** -text whitespace=cr-at-eol
+results/classification_explainability/** -text whitespace=cr-at-eol
+predictions/classification_explainability/** -text whitespace=cr-at-eol

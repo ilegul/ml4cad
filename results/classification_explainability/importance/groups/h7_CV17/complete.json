@@ -1,0 +1,13 @@
+{
+  "horizon": 7,
+  "feature_set": "CV17",
+  "n_test": 878,
+  "n_events": 168,
+  "probability_outputs": 24,
+  "evaluation_cases": 35,
+  "targets": 25,
+  "permutation_repeats": 10,
+  "bootstrap": 2000,
+  "probability_reproduction_max_error": 1.1102230246251565e-16,
+  "seconds": 130.70709943771362
+}

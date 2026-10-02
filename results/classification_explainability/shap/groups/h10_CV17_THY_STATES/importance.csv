@@ -1,0 +1,859 @@
+arm,kind,members,scale,source,horizon,feature_set,feature,rank,mean_abs_shap,mean_shap,is_thyroid
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.11352330453170204,-0.04654898231164946,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.08414900265977805,0.019274021954503097,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.050115999244392785,0.010854681797900292,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,4,0.030885772887797855,-0.008748849076093452,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.027544474933220518,0.0031711274739968055,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.025715920702209155,-0.0028816405738997164,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,7,0.02191253034576457,-0.008682003100185133,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,8,0.019704792404289722,-0.012542052888093434,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,9,0.017353930668301144,0.0014542103494002714,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,10,0.01693512908169981,0.0047841682077356795,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,11,0.007768823571173119,-0.0036740677960790708,True
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,12,0.005771762391810173,-0.0009658192651500605,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,13,0.005614202527090715,-0.000729270687163046,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,14,0.0052390670815251495,0.00031403136958247117,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,15,0.0051786084712878815,-8.966410669485173e-05,True
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,16,0.004316837905218394,0.004316837905218394,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,17,0.003708509656870977,-0.0017019520161957718,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.00197263007989367,0.00197263007989367,True
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.0006675017862890623,0.00016175628590304764,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,20,0.0,0.0,False
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,21,0.0,0.0,True
+LogisticRegression,individual,LogisticRegression,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,0.0,0.0,True
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.15219864774720784,-0.05952206064245319,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.12154138410580989,0.027904683308518842,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.06924742279120008,0.015296865174010032,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,4,0.04102223968055951,-0.011410488138051266,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.03855066706318698,0.004492732244532918,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.033844438690425645,-0.004280542552976388,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,7,0.03121860132105987,-0.012930772508644602,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,8,0.027693338153596342,-0.017236646361091828,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,9,0.023016275430394577,0.00813203548418296,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.02298534454381517,0.0031693330239532178,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,11,0.01044768395693656,-0.004962712418932776,True
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,12,0.00804601759720548,-0.0015653259692253098,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,13,0.007437268292404289,-0.0009486977514949785,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,14,0.006949090307329748,0.000623695776881148,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,15,0.0068700440478812125,8.127630590018428e-05,True
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,16,0.0060963658368659406,0.0060963658368659406,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,17,0.004883044799717298,-0.002326542241085557,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.0030010132336040496,0.0030010132336040496,True
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.0008876221881308321,0.00014820468862070764,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,20,0.0,0.0,False
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,21,0.0,0.0,True
+LogisticRegression,individual,LogisticRegression,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,0.0,0.0,True
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.11549894978464814,-0.04724925000307957,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.10616444540634437,0.026499983552675983,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.06948679850979904,0.014645889519065597,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,4,0.052289203581830666,-0.01438185485518195,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,5,0.04381172131089149,-0.02764755865961626,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.043777937191463424,-0.00521758998720092,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,7,0.041690389745148784,0.00550871164808909,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,8,0.035191631736354145,-0.014410453661001296,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,9,0.03321601074959112,0.004647462681757429,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,10,0.023669503048973323,0.008728520398958902,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.021964432169258714,-0.004444251070111628,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,12,0.017738064876711028,-0.0022859806410115155,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,13,0.015845080800608532,3.5718006417054834e-05,True
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,14,0.013751434118402944,-0.006326815736883747,True
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,15,0.013721886310034398,-0.006288565678252001,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,16,0.013228280905922164,0.0009874688092850698,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.008166460485564008,0.008166460485564008,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.00585259758753076,0.00585259758753076,True
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,19,0.004645518913459941,0.002264491598524013,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,20,0.0013248626143383684,0.00021495411128077282,False
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0004987272297470282,-0.0004987272297470282,True
+SVC,individual,SVC,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,5.663783211371697e-05,-5.663783211371697e-05,True
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.11130657136183823,-0.04549729594659882,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.10304057352280634,0.025819483408012663,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.06754184840796607,0.01420220249476169,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,4,0.05079853608017205,-0.014114092200345794,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,5,0.0427025579300087,-0.005187439839237172,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,6,0.042691857060783336,-0.026933152653170554,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,7,0.041244483129714044,0.005468774712738005,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,8,0.03414443623648573,-0.013805593547106709,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,9,0.03225910570700673,0.00437105502069359,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,10,0.023036062631568988,0.008400253970652801,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.021319230231555283,-0.004322413344938689,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,12,0.017247241760332477,-0.0023991811211227015,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,13,0.015521320759435695,2.157945207822531e-05,True
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,14,0.013673446550017872,-0.006332916191296475,True
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,15,0.013308239055170262,-0.006107831056146809,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,16,0.01286285731892127,0.0009845838877446315,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.007952778318164887,0.00795277831816489,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.00576551488946231,0.00576551488946231,True
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,19,0.004515556862290783,0.0022096496150756425,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,20,0.0012997761377667176,0.00021971372857810894,False
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0004794626230047699,-0.0004794626230047699,True
+SVC,individual,SVC,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,5.5356703240433446e-05,-5.5356703240433446e-05,True
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.0714525212257558,-0.01425571356600736,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,2,0.05873087637601231,-0.010888404399575738,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,3,0.04803780787286639,0.020470106572092042,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,4,0.03924206955294403,0.012702106555377016,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,5,0.032349602966217236,-0.001966352907495604,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,6,0.031047264905180453,0.006442846471210372,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,7,0.030708315274966556,-0.013963424642311881,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,8,0.02684866411103574,-0.003754530209770838,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,9,0.02517407860652778,-0.01804380242094816,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,10,0.023038801731375323,-0.0006191950117492469,True
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,11,0.021568221528623394,-0.0004558700861047323,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,12,0.020881935109673386,-0.0018136183775010776,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,13,0.020690804533137805,0.006617209905978772,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,14,0.019508173608776772,-0.0002475372490915865,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,15,0.019285504940981354,0.010389389706372914,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,16,0.016273045787657023,-0.006839472329245853,True
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,17,0.01332548922677546,-0.0012647277183872583,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,18,0.006967766022666208,0.006967766022666208,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.006400551167553253,0.0006395304882972645,False
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,20,0.0011676245573652955,0.0011676245573652955,True
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0005027225727930516,-1.1181388949620856e-05,True
+KNeighbors,individual,KNeighbors,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,0.00023110406644318677,0.00023110406644318677,True
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.08872171033456246,-0.021842601311339888,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,2,0.06790985362483394,-0.014968180650678599,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,3,0.0594645448410677,0.02122111006786421,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,4,0.04811588852675036,0.015338659244956962,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,5,0.03890098964081523,-0.003918094868755359,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,6,0.037141770656977914,-0.017488415325416763,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,7,0.03698025443831213,0.008576233981383494,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,8,0.031310248753824654,-0.007530376882657061,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,9,0.030786423833647648,-0.022092261433812148,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,10,0.02736019002178701,-0.0012990817129517928,True
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,11,0.024521727685463287,-0.0021387029810417063,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,12,0.023973029314799083,-0.0024556109380928378,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,13,0.023675286423449175,0.006796434021701247,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,14,0.02319196049529092,8.595599000643748e-05,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,15,0.021361761455017864,0.010884498217685518,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,16,0.017636817593719777,-0.006496187838749254,True
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,17,0.015036230210750108,-0.0010313946307786911,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,18,0.008050211193704526,0.008050211193704526,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.007196439913804586,-0.00022609077615636224,False
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,20,0.0015625022789343044,0.0015625022789343044,True
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0007641808751211381,8.053171905350977e-05,True
+KNeighbors,individual,KNeighbors,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,2.3279049417219467e-05,2.3279049417219467e-05,True
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.13624647884659014,-0.03318844213035743,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.08613424243395147,0.026309657851559733,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.043418036365056666,0.008964924550968702,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,4,0.028464898669875657,-0.0031440252979185123,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.027614029949342825,0.0024500557095550775,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,6,0.026240143446730126,-0.012600322386345324,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,7,0.022494041727270812,-0.007972507169718944,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,8,0.01721820101167474,-0.011099496965291208,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,9,0.013050395576808397,0.005649728511568202,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.01247482764728056,0.001109934792054056,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.010504947260526276,-0.0018032999722150337,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,12,0.006268473796134258,-0.0029142189874463284,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,13,0.005914609676113216,-0.0006523994967582136,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,14,0.005360315976270692,-0.0001765077959651993,True
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,15,0.005181413245489436,-0.00298949391627335,True
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,16,0.0044431567307801935,-0.0005870338662891952,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.0030859225355784853,0.003085922535578485,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,18,0.0023392188869218664,-0.0003219565738189436,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.001037271565909497,0.00023513496088609667,False
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,20,0.0010227847084137102,0.0010227847084137102,True
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.00039593167158269893,-0.00039593167158269893,True
+RandomForest,individual,RandomForest,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,0.00012698099351651315,0.00012698099351651315,True
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.1666434849456259,-0.04128560057154462,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.10382143509980747,0.031057165649626635,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.05073548890269362,0.011229184573990159,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,4,0.03232432437692754,0.002660121075316381,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,5,0.0319189269640263,-0.0038333467215589,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,6,0.031098948053983437,-0.014980732380962586,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,7,0.02518907822073336,-0.00893515020412162,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,8,0.020115957587902866,-0.013003011866646333,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,9,0.014926081037179196,0.006779290572585913,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.013913340251419638,0.0016489630398733386,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.01206742758783056,-0.0019804438228447677,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,12,0.007047318612419613,-0.0030787600326072466,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,13,0.006808648918609041,-0.0006106332307643572,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,14,0.0059573712788663765,-0.00017414748307521935,True
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,15,0.0054657741386456675,-0.0030944268285840507,True
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,16,0.005020209612303258,-0.0004345129003415365,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.0034061831292619624,0.003406183129261963,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,18,0.002764126846111648,-0.00018845168408077997,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,19,0.0012513522481428277,0.0012513522481428277,True
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,20,0.0012004684453166214,0.00020830165582977187,False
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.00046033882983045134,-0.00046033882983045134,True
+RandomForest,individual,RandomForest,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,0.0001396457982988069,0.0001396457982988069,True
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.0915769886186014,-0.025149481668205045,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.06883506863605161,0.01573947665850249,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.027614429165382724,0.0060840044878455275,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,4,0.0077595739330663625,-0.000978045952809544,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.006116909545048298,0.0007248108734739046,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,6,0.0038380750959044613,-0.0011673321931940032,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,7,0.0019050942526457348,-0.0010238961285075473,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,8,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,9,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,10,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,12,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,13,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,14,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,15,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,16,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,17,0.0,0.0,False
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,18,0.0,0.0,True
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,19,0.0,0.0,True
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,20,0.0,0.0,True
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,21,0.0,0.0,True
+AdaBoost,individual,AdaBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,0.0,0.0,True
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.19490791012750838,-0.05338471208841095,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.14361846941341846,0.02741847861020188,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.05449965006086465,0.011483769429583162,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,4,0.0139687945840447,-0.002258671315664404,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.012035914889180512,0.0007502308408655403,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,6,0.00719533517564249,-0.0020897103586449647,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,7,0.0038797071473223614,-0.0021592954058538916,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,8,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,9,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,10,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,11,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,12,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,13,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,14,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,15,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,16,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,17,0.0,0.0,False
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,18,0.0,0.0,True
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,19,0.0,0.0,True
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,20,0.0,0.0,True
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,21,0.0,0.0,True
+AdaBoost,individual,AdaBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,0.0,0.0,True
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.16567621014449135,-0.06263513670814302,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.11209721691132517,0.028552287422994337,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.0721953851367724,0.0168451209971158,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,4,0.06050067413569852,-0.028133659376128817,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,5,0.0592342711395657,-0.014012660925553946,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.04313954288457526,-0.005427936602233164,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,7,0.030865792129631968,-0.022259478195539396,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,8,0.025586442824091712,0.004923555165588349,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,9,0.02474164321884579,0.009128894731367344,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,10,0.02280991528279092,-0.0016154916887738946,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,11,0.022378547491976337,0.006318262378314951,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,12,0.021259299537344692,0.0007759863351277652,True
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,13,0.01606800179411537,-0.006251763760884459,True
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,14,0.015655757306566976,-0.00784837569373141,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,15,0.01565406751757026,-0.009528943552225692,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,16,0.0073562757015704795,0.0016786154428249014,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,17,0.0064382873191991315,0.0005684549938553486,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,18,0.005262812588301946,0.005262812588301946,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.002484636307288424,0.0008751580998075492,False
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,20,0.0005359700542558153,-3.9976421660802355e-06,True
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0004951744865182346,0.00026842649700191585,True
+MLP,individual,MLP,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,0.0002305819217796147,-0.0002305819217796147,True
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.13064068753373145,-0.05132868317933676,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.09492960121899986,0.024134866456975858,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.05944404835710626,0.013541736430171727,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,4,0.052267637473784205,-0.023310344944043188,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,5,0.04877078175453182,-0.013490816049265752,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.03806140433666841,-0.00493535443338574,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,7,0.027024246743082517,-0.019505182742752203,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,8,0.024862554902258967,0.009788963926566264,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,9,0.0222242911865799,0.004520663247666435,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.021558158233899265,0.004890216160785362,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,11,0.01995346718765424,-0.0033771277952449187,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,12,0.019204825190114447,-0.0003254620398395042,True
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,13,0.017616230755017254,-0.008134801628894512,True
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,14,0.014510259523323441,-0.007954472282862193,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,15,0.012200163594547639,-0.006099142935706153,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,16,0.005690977532578647,0.001391827068792873,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.005141252675647023,0.005141252675647022,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,18,0.004770415232671358,0.0007096727152847769,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.0025713365007599014,0.0010810386485471937,False
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,20,0.0007692868201846846,-0.0007692868201846846,True
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,21,0.0006728616780095465,-0.0005983500128926845,True
+MLP,individual,MLP,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,0.00019409157682038412,-0.00019409157682038412,True
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.19604979841122885,-0.05437587072326204,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.12762631233019445,0.020653893641180605,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.04489233510544888,0.01321780684527574,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,4,0.042050930167790636,-0.02358946800480222,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,5,0.022553247315109205,-0.0019272726785198695,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,6,0.020241538152520843,0.007228929662530556,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,7,0.016285953116775363,-0.001980432949136595,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,8,0.014213543353170651,0.00490628661001545,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,9,0.013958876273746815,0.0009351943667711964,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,10,0.009797260654230514,0.005526716055597856,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,11,0.008817061895960373,0.0006915794386572242,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,12,0.00613217275890601,-0.0008332399039167248,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,13,0.004964754983693175,-0.00045870130210314437,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,14,0.004929572620773395,0.00023490218860733566,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,15,0.004474046842170061,-0.002532152164613044,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,16,0.0028609833787277585,0.000546405128235986,True
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,17,0.002241793794816399,-0.002241793794816399,True
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,18,0.002106753159276183,-0.0006615595916595052,True
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.0017604150412236217,0.00026110085708747587,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,20,0.0002852421090900434,0.0002852421090900434,False
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,21,0.0002535623109658639,-0.0002535623109658639,True
+GradientBoosting,individual,GradientBoosting,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,2.7627323002968622e-05,-2.7627323002968622e-05,True
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.17824179748059904,-0.051494076586126564,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.1139553744175073,0.015233518181929334,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,3,0.03997111628236119,-0.023256683111890712,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,4,0.039879316703660184,0.011013020908906535,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,5,0.02049772585445756,0.007406684281892952,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,6,0.01983269196039425,-0.003107938989216947,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,7,0.01678217654709853,-0.001982950329970214,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,8,0.014447601400061327,0.00422600786253119,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,9,0.012122952145582375,0.0007264326666948651,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,10,0.009305151418076711,0.0007829454650151492,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,11,0.008329902002419037,0.004349803544419928,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,12,0.005347781113465205,-0.00027857415311249053,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,13,0.004829521320225833,0.00021040082558536512,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,14,0.0042911556650541485,-0.00045481517911182,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,15,0.004113714214998172,-0.0022926543146551273,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,16,0.002899999807799973,0.000627063156820446,True
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,17,0.0025006442735655545,-0.0007833791288906335,True
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,18,0.002098636527237194,-0.002098636527237194,True
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.001741235306399496,0.000226984340752729,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,20,0.0003345431966583547,0.0003345431966583547,False
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,21,0.00026001638042761526,-0.00026001638042761526,True
+GradientBoosting,individual,GradientBoosting,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,22,2.6190066571956706e-05,-2.6190066571956706e-05,True
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.0756134290350019,-0.031152879339060746,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.061195971684355754,0.015129231454920955,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.0378833798749838,0.007993629558768589,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,4,0.02921380797488382,-0.008380959974601865,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,5,0.029167071901611052,0.0036872528507956304,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.02784330228314502,-0.0030819682142464444,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,7,0.025341279277199646,-0.016222082904278068,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,8,0.019452788113994757,-0.0074549214805301744,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,9,0.018510518781113205,-0.003062770836550044,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.017724437326251063,0.0012529938030638732,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,11,0.015883618008956546,0.004512326118856436,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,12,0.01279765408980893,-0.0018784737912937999,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,13,0.011251147094299085,-0.00019773110398091376,True
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,14,0.010710233684221748,0.0006035498299752362,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,15,0.01047386209029355,-0.004882897363131633,True
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,16,0.00983698921118048,-0.004429551870998694,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.00494534949757508,0.00494534949757508,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.0022072846622904763,0.0022072846622904763,True
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.0007348933431785554,0.00018131171964341775,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,20,0.0003038316463062074,0.00016194471027120017,False
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,21,9.666972982813604e-05,-9.666972982813604e-05,True
+XGBoost,individual,XGBoost,raw,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,5.5073393014026806e-05,-5.5073393014026806e-05,True
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Age,1,0.11826628865302918,-0.04787047151223758,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,LVEF,2,0.10036705896126656,0.0252553349740908,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Diabetes,3,0.05972541750817744,0.01242210250958346,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,PostIsch_DCM,4,0.04507388811917225,0.0056868131962464485,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Dyslipidemia,5,0.04420577103185324,-0.011816494612437781,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,AFib,6,0.0419121370414128,-0.00488368786236827,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_CABG,7,0.0403819301988598,-0.025520990379490016,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Vessels,8,0.031316594797169174,-0.012791275542028583,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_MI,9,0.029662334036619928,-0.005905072279973669,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angiography,10,0.02674193579598735,0.0033880862822981738,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Ischemia,11,0.024485346246621336,0.00884241915073744,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Angina,12,0.019285703291492137,-0.0024093296950054013,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Low_T3,13,0.01701672047113924,-0.00010169040977429402,True
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypertension,14,0.016153350355736024,0.0010979969701157507,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCH,15,0.01532253592395821,-0.006996636455071779,True
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Smoke,16,0.014774989059210717,-0.00673962658268211,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Acute_MI,17,0.008177210882037739,0.008177210882037739,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hypothyroid,18,0.003799516308994517,0.003799516308994517,True
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Previous_PCI,19,0.001095899401464917,0.0001705031923089511,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Gender,20,0.00045420309763387795,0.0002221375929272759,False
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,SCT,21,0.00011539174048572109,-0.00011539174048572109,True
+XGBoost,individual,XGBoost,sigmoid,Cached fitted individual; sigmoid fitted to cached training OOF,10,CV17_THY_STATES,Hyperthyroid,22,9.136490226498031e-05,-9.136490226498031e-05,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Age,1,0.11819367707123149,-0.04677899945295109,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,LVEF,2,0.08581207024614744,0.020985180277472763,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Diabetes,3,0.05339825475204967,0.011897810784594901,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03977795066741579,-0.010380823325416432,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Vessels,5,0.03395533086515261,-0.014756861318948062,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,AFib,6,0.03223292195664314,-0.0037971817967931026,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.027432663219641096,0.003927311830126911,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.025303954603707143,-0.017007871329303648,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Ischemia,9,0.01918679676983404,0.006141796352653148,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Angiography,10,0.018792254272167512,0.0030084888435930224,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Angina,11,0.013740590633230191,-0.0014077453890769397,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Low_T3,12,0.012505933927708412,0.0001628637081506789,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,SCH,13,0.01143689581852736,-0.004936242973365075,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Smoke,14,0.009733752058206127,-0.004659959860308651,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_MI,15,0.009426891119532342,-0.0007833248862917469,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hypertension,16,0.007185309275190337,0.0004953453978043561,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Gender,17,0.005138633400916988,-0.003122332947318166,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Acute_MI,18,0.004841666663698474,0.004841666663698474,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hypothyroid,19,0.001391972366672687,0.001391972366672687,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0009909087009314635,0.0004060753684513263,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.00016652862554428802,7.111770132929335e-05,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",raw,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,SCT,22,0.00010908388386925052,-0.00010908388386925052,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Age,1,0.1441368970864307,-0.055011421034172905,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,LVEF,2,0.11084623141847713,0.028339089352827883,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Diabetes,3,0.06678385386140333,0.015423208843860281,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.04861341988281388,-0.01240529627750689,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Vessels,5,0.04406529427390372,-0.019514165922243254,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,AFib,6,0.03892121949545889,-0.004879010727204232,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.03488525792200215,0.005342169727518021,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.0321698862308803,-0.02144597645574653,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Ischemia,9,0.024561313638054243,0.008851093594884495,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Angiography,10,0.02323641860923195,0.004544358655363727,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Angina,11,0.01688894900828464,-0.0019388871241331213,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Low_T3,12,0.01552539767424717,0.0007081684669027694,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,SCH,13,0.014289558319724156,-0.006172054621675445,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Smoke,14,0.011825075775819007,-0.005713762344084742,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_MI,15,0.011551259462929236,-0.0009936805344746603,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hypertension,16,0.008416895161301771,0.0009569765453767243,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Gender,17,0.007008645597417534,-0.004090127971671539,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Acute_MI,18,0.006151599302849999,0.006151599302849999,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hypothyroid,19,0.001861558249469949,0.001861558249469949,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0012501998850812331,0.00044498081402802146,False
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0003640568320059665,-7.060503292139007e-05,True
+diverse,voting,"LogisticRegression,XGBoost,MLP",sigmoid,models/final_h10_CV17_THY_STATES_diverse.joblib,10,CV17_THY_STATES,SCT,22,9.890434521584281e-05,-9.890434521584281e-05,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Age,1,0.112965870992241,-0.03496230203673732,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,LVEF,2,0.07960275111956144,0.020441052154855092,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Diabetes,3,0.04038282159161074,0.0086345369455715,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,AFib,4,0.020646797768383716,-0.0023345706082092527,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,PostIsch_DCM,5,0.020425138142537207,0.002115331352341922,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Dyslipidemia,6,0.019072629903657705,-0.005962896146335456,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Vessels,7,0.016373037894215764,-0.00743540720501268,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.012285526315757139,-0.007880516617794878,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Ischemia,9,0.00995531508886946,0.0034779655731012995,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angiography,10,0.009722948988944316,0.0008547150471514415,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_MI,11,0.005425569884112145,-0.0009230397457883675,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCH,12,0.004316745605554184,-0.002221187237450804,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angina,13,0.0038128339874246263,-0.0004605567279737413,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Low_T3,14,0.0033949384133433284,-8.872396755334742e-05,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Smoke,15,0.003271763147670146,-0.0015387236678807055,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypertension,16,0.003212017793689525,-9.100083223556599e-05,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Acute_MI,17,0.0024675868135989607,0.0024675868135989607,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.0009984715961024624,0.0009984715961024624,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Gender,19,0.0007797396289739599,-0.00010731885793963483,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0005546538488432092,0.00013229708226304303,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0001319772238608987,-0.0001319772238608987,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCT,22,4.2326997838837356e-05,4.2326997838837356e-05,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Age,1,0.17450109947842946,-0.05395699636972154,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,LVEF,2,0.12332447266160164,0.029460687935850712,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Diabetes,3,0.05923885161140878,0.01325193286735869,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,PostIsch_DCM,4,0.03034476515480933,0.002548658051189103,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,AFib,5,0.028435115152416878,-0.0038020324850775375,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Dyslipidemia,6,0.026862754620439588,-0.008450650857775386,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Vessels,7,0.0248623583536644,-0.011609266039885545,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.018082821064506586,-0.011398937846693666,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Ischemia,9,0.014525829162495582,0.005848287460366862,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angiography,10,0.014039354254190438,0.0018874792092422846,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_MI,11,0.008041984218010561,-0.001383936915980103,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCH,12,0.005838105665348895,-0.002958720689994104,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angina,13,0.005508560808347409,-0.0005675251330012911,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Low_T3,14,0.004714948501769547,3.1299009934674434e-05,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Smoke,15,0.004589234661228507,-0.002166963565719355,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypertension,16,0.0045028945560956525,9.018443794578119e-05,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Acute_MI,17,0.0034825686617845093,0.0034825686617845093,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.001610564932295171,0.001610564932295171,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Gender,19,0.001273342325140316,-0.0001240303166083065,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0007739454670199507,0.00011391640614522486,False
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0002009919884373969,-0.0002009919884373969,True
+paper,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCT,22,5.169592892020173e-05,5.169592892020173e-05,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Age,1,0.12088062751012485,-0.042328891481695496,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,LVEF,2,0.09211800627852769,0.024027887786246253,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Diabetes,3,0.05434027803974951,0.01148849862264485,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03522300606563311,-0.010367737033664776,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,AFib,5,0.032652918854516086,-0.0037477519530063805,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.03228296487590405,0.0037099649438803194,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Vessels,7,0.02755965813715392,-0.011897593049177261,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.026889433419387643,-0.017096369504333644,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Angiography,9,0.02079495257214136,0.00240386927440391,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Ischemia,10,0.01784514943852725,0.006387472372754251,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_MI,11,0.012747047273865062,-0.002404456769158915,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Angina,12,0.009725522279661643,-0.001222550274977589,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,SCH,13,0.008900556978355166,-0.004330125816412064,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Low_T3,14,0.008676632013546171,-7.68179654143353e-05,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Smoke,15,0.007842002143724025,-0.0036349122272980325,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hypertension,16,0.007621444762330259,0.00023815543752611407,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Acute_MI,17,0.005189740308786964,0.005189740308786964,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.0029493374586127136,0.0029493374586127136,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Gender,19,0.0013416907072072266,0.0006475116749016943,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0009890020054394728,0.0002039484526899615,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0002982196337765784,-0.0002982196337765784,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",raw,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,SCT,22,2.3447720467598674e-05,2.3447720467598674e-05,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Age,1,0.14449175478330442,-0.05055281536463447,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,LVEF,2,0.11219390788378107,0.02898439714833782,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Diabetes,3,0.06431632455334382,0.01398981117691242,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.04089906314905623,-0.012039281782948467,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,PostIsch_DCM,5,0.03841556100067173,0.0042500630225173345,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,AFib,6,0.03747234450720179,-0.004601576745341648,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Vessels,7,0.03330933067044602,-0.014684105776077528,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.03224827502333714,-0.020316174962892345,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Angiography,9,0.024130652468025596,0.003560442965963774,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Ischemia,10,0.020996213932476346,0.00836971378346671,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_MI,11,0.015279163243177662,-0.002983768897096104,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Angina,12,0.011356039360811485,-0.0013185800685883886,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,SCH,13,0.01018528745508908,-0.0049636696692137924,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Low_T3,14,0.010088654966778214,0.00010899847210533038,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Smoke,15,0.009126997985190947,-0.004273476894982392,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hypertension,16,0.00884654204369887,0.00045821457944952084,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Acute_MI,17,0.00610986441737803,0.00610986441737803,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.0037025945320327907,0.0037025945320327907,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Gender,19,0.0015273834853791759,0.0007511732848051885,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0011334383915227939,0.00017030233635590195,False
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0003644597115072311,-0.0003644597115072311,True
+top3_train_cv,voting,"RandomForest,LogisticRegression,SVC",sigmoid,models/predictive_sensitivity/h10_CV17_THY_STATES_top3_train_cv.joblib,10,CV17_THY_STATES,SCT,22,2.0871866871732353e-05,2.0871866871732353e-05,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Age,1,0.09370528273107924,-0.02763603898492057,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,LVEF,2,0.065231324402394,0.016544156521844895,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Diabetes,3,0.032620503628429824,0.007120587505603394,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,AFib,4,0.01872644809228375,-0.0018780037936304704,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.01744583863636289,-0.005131803807301041,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.017195732241317662,0.001852850478651768,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Vessels,7,0.014376391579800016,-0.006115522652050084,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.010808741238580962,-0.006810972533857252,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Ischemia,9,0.009675357847078646,0.0031611559840562407,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Angiography,10,0.0078391974731853,0.0006606969956285321,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_MI,11,0.006796374758615177,-0.0009324903086625341,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Smoke,12,0.006636425977271213,-0.0028479894245357555,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hypertension,13,0.006029273047993622,3.0256413499735418e-05,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Angina,14,0.0054085841394908366,-0.0008297097873258382,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,SCH,15,0.002699465965965037,-0.0014357662398762226,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Gender,16,0.0026358871356416107,0.0013773207196231183,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Low_T3,17,0.0023781832289101147,-8.057738796600619e-06,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Acute_MI,18,0.001568276618989377,0.001568276618989377,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hyperthyroid,19,0.0013003998874824754,-0.0013003998874824754,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hypothyroid,20,0.0005679736922359806,0.0005679736922359806,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_PCI,21,0.00029489442007218035,-3.43818958256257e-05,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",raw,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,SCT,22,0.00019419190189170956,-0.00019419190189170956,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Age,1,0.17306080349349282,-0.05148555152381018,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,LVEF,2,0.11990829952176528,0.028330383615738954,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Diabetes,3,0.05642708814651167,0.01296520012497036,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,PostIsch_DCM,4,0.0300995884730608,0.0027188351094589117,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,AFib,5,0.029892423863627452,-0.004007083389637293,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Dyslipidemia,6,0.028490997275390555,-0.008484994030179601,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Vessels,7,0.025817593607364006,-0.01140645405095475,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.01852279744534045,-0.011367930082695822,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Ischemia,9,0.01641695492714919,0.006419523157419383,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Angiography,10,0.01338675587769199,0.0019136115944276208,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_MI,11,0.011905391200887495,-0.0018314078443301685,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Smoke,12,0.01085986037060326,-0.004906009037996963,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hypertension,13,0.009760697007264377,0.0004136555470999275,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Angina,14,0.008817457615180118,-0.001275480729589703,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,SCH,15,0.004191503237075497,-0.0021911153600426727,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Gender,16,0.004078162659087924,0.0020605344268849815,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Low_T3,17,0.003807976675370514,0.00011235258502925499,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0025909949054896664,0.0025909949054896664,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hyperthyroid,19,0.002323350481782183,-0.002323350481782183,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Hypothyroid,20,0.0011001551568137831,0.0011001551568137831,True
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,Previous_PCI,21,0.000499353494599158,-3.7906012492299824e-05,False
+paper_locked,voting,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/final_h10_CV17_THY_STATES_paper_locked.joblib,10,CV17_THY_STATES,SCT,22,0.00024623000850526003,-0.00024623000850526003,True
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Age,1,0.1333967717216588,-0.04377603501414194,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,LVEF,2,0.09742055960135583,0.019675863238052083,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Diabetes,3,0.04537099183008845,0.011343941781056598,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Vessels,4,0.03130284000100072,-0.01563245776723873,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.028904628081078416,-0.006657285924310551,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,AFib,6,0.02521869669674067,-0.0034321078845947184,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.02479963634189096,0.0028314167012065037,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.02050446280985306,-0.01286672151225567,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Ischemia,9,0.01930771328976181,0.007180359918139577,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angiography,10,0.017357559832619367,0.0035507192515791325,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_MI,11,0.014750387488924467,-0.0023711827586599668,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypertension,12,0.01280880702326681,0.0009779652208569034,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angina,13,0.010683153860130908,-0.001423945341383435,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Smoke,14,0.008851227591785258,-0.0034771495109206757,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCH,15,0.008040930907950012,-0.0036091060800666594,True
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Low_T3,16,0.00775073856714662,0.00021670644138783703,True
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Gender,17,0.0038899969817508093,0.002139721957162663,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0037155089374920555,0.0037155089374920555,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypothyroid,19,0.0016771481827392732,0.0016771481827392732,True
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0011708324418486812,0.00012098279979075343,False
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0009413271191599978,-0.0009413271191599978,True
+own,stacking,"GradientBoosting,XGBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCT,22,6.448354638863144e-05,-6.448354638863144e-05,True
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Age,1,0.16397860305075734,-0.05275530376343663,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,LVEF,2,0.1195012663689837,0.02449979954442221,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Diabetes,3,0.054507207193286354,0.01409911250363496,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Vessels,4,0.03816192372591435,-0.019335762270093086,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.034055002035175294,-0.007475330217549538,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,AFib,6,0.028758944585300664,-0.004147720611972319,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.02833085003662591,0.0030277181045733673,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.02428536591548828,-0.015095535955658938,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Ischemia,9,0.022628841162195507,0.008970942884532023,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angiography,10,0.02028953760719733,0.004660634499760006,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_MI,11,0.017414405262597393,-0.002683820576081443,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypertension,12,0.015185907093510493,0.0011792948397145364,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angina,13,0.012391901925243812,-0.0013855662786172516,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Smoke,14,0.010377283795282168,-0.004117970327308025,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCH,15,0.008811951287441017,-0.003914891805055736,True
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Low_T3,16,0.008764887937948902,0.0003820911469025644,True
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Gender,17,0.00476659045220936,0.0026251383497446087,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Acute_MI,18,0.004265949922757458,0.004265949922757458,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypothyroid,19,0.0020565963282127802,0.0020565963282127802,True
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.001369600116612088,8.531625194198116e-05,False
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0011716579645342476,-0.0011716579645342476,True
+own,stacking,"GradientBoosting,XGBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCT,22,6.953296927537288e-05,-6.953296927537288e-05,True
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Age,1,0.16526171961361635,-0.05599918629180342,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,LVEF,2,0.12184494463616316,0.023074393121133182,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Diabetes,3,0.05480924202513249,0.013371155478221219,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Vessels,4,0.04014619960460119,-0.020718105864156868,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.03577420983437801,-0.009785403328083614,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.03208511481076781,0.003663320790483628,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,AFib,7,0.031919585536314535,-0.004371298845098293,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.025617242603204724,-0.01628576269766395,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Ischemia,9,0.02365435730411747,0.008687841967802683,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angiography,10,0.021590557917924483,0.0033878897720442643,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_MI,11,0.01860468841991709,-0.004067199217390996,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypertension,12,0.016138120506162045,0.0011125183892491245,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Angina,13,0.014347224407809568,-0.0025192673841511206,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Smoke,14,0.011252419155606408,-0.004361329838831361,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Low_T3,15,0.00928911438994098,0.0004526996574685464,True
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCH,16,0.009107085430916111,-0.0038892704382691773,True
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Gender,17,0.005473701036773862,0.0025923053622894186,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Acute_MI,18,0.005056838788358272,0.005056838788358272,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hypothyroid,19,0.0023844024571384346,0.0023844024571384346,True
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0010616225392542351,8.18367314628997e-05,False
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0010376146724533032,-0.0010376146724533032,True
+own,stacking,"GradientBoosting,XGBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_own.joblib,10,CV17_THY_STATES,SCT,22,8.65055598974226e-05,-8.65055598974226e-05,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Age,1,0.1544473404900702,-0.04489958906849574,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.10870277195157577,0.02472588269072988,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.05208112898351859,0.014398712696437256,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03575845427613828,-0.007445059634204342,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Vessels,5,0.03265398281880572,-0.0166038358543789,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,AFib,6,0.024970317436166234,-0.003543835865644801,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.02044128160327316,0.003447913757564462,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.014996196276476557,-0.01054747402662169,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Smoke,9,0.012515753162606313,-0.003754020583429765,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angiography,10,0.011605655205551362,0.004341556522032757,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Ischemia,11,0.011014744499298089,0.003342276765180662,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Low_T3,12,0.010827461030877353,0.00023828535782490932,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angina,13,0.010596513239496718,-0.0010349782356201109,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypertension,14,0.009558559554617707,-6.074874656195484e-05,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCH,15,0.008069949113247809,-0.002927361797488234,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_MI,16,0.007450988852717999,0.0007013337043637846,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Gender,17,0.006323776613510029,0.0013684679993757043,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.003025394895471538,0.0030253948954715375,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.002175016472130052,0.0003894616418068189,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.000557167518228712,-0.0004410560090927929,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.0003364778531537102,0.0003364778531537102,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCT,22,3.3990122766015254e-05,-3.3990122766015254e-05,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Age,1,0.17351277881431865,-0.050051411742514006,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.12226807406119823,0.027537909904862233,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.057656509492950425,0.01625700563683083,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.039138641905674676,-0.007943897533623696,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Vessels,5,0.036552934833450915,-0.018473998707982366,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,AFib,6,0.026893677804202553,-0.0040274157364287005,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.022346537003110397,0.003750855278493127,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.016508914531475464,-0.01148200233410454,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Smoke,9,0.013788683857445125,-0.00422879478497883,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angiography,10,0.013118209180472582,0.004997130954763609,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Ischemia,11,0.012390249603584211,0.003889307479118164,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Low_T3,12,0.011679523805566833,0.0004493701247145287,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angina,13,0.011500982404960575,-0.0010902475801637793,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypertension,14,0.01057161925072104,0.00011422063768327592,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCH,15,0.008556476671678364,-0.002910349623405838,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_MI,16,0.008216783890592267,0.000991466102094415,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Gender,17,0.007045685497250729,0.0013854612264451707,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.003231466124661699,0.003231466124661699,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.002512131815291374,0.0004630990173179223,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.0006865332331981779,-0.00047802934765172917,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.00040512757717475235,0.00040512757717475235,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCT,22,3.759229236988205e-05,-3.759229236988205e-05,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Age,1,0.1761772758581622,-0.05446623134853335,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.1232235725598208,0.024541911060582136,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.05899912691808533,0.01594676561949779,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.04163891700445168,-0.009274312999846674,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Vessels,5,0.03785962669916995,-0.022147722754133778,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,AFib,6,0.030449282150368163,-0.004361153605933322,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.022325461295701593,0.0020706140440598384,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.01843165674729918,-0.013128483820427481,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Smoke,9,0.015452847271653065,-0.0059533845042310084,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angina,10,0.013375002060634758,-0.0019708960081745116,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Angiography,11,0.013119932379057949,0.004439058406366928,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Low_T3,12,0.013080776637609771,-0.000720639469441426,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Ischemia,13,0.0124892110782766,0.004125544847577139,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypertension,14,0.01034621312631438,-0.001069514171275154,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCH,15,0.010028446768442365,-0.003611203984610776,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_MI,16,0.00938007234153783,0.0009209489979199234,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Gender,17,0.007428531763733911,0.000715542214087446,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0035418336862505636,0.0035418336862505636,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.0025845693451541298,0.00037515477846426966,False
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.0007016530653613511,-0.000493932504423029,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.0002513498284988007,0.0002513498284988007,True
+same_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_same_baseline.joblib,10,CV17_THY_STATES,SCT,22,0.00015783132386246027,-0.00015783132386246027,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Age,1,0.15802601600515387,-0.049713105504278335,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.11199582821897944,0.02531564904673535,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.05255051903766525,0.013919970903794219,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03265800590664019,-0.006148379701861834,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Vessels,5,0.03177623287130556,-0.015345010056853644,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.022092870933740207,0.004548771718189428,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,AFib,7,0.02009624622679169,-0.0030651974194396132,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.016095569921465384,-0.010635481949179338,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angiography,9,0.013888869240668887,0.003580329298429068,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Smoke,10,0.012991900610856729,-0.004188141893812663,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypertension,11,0.012279222340046376,0.0007930338221410315,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Ischemia,12,0.012084165327886923,0.0025802798737307097,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angina,13,0.007180334155568661,-0.0007080979928951868,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Low_T3,14,0.006394817726358338,-0.0008390740071699211,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCH,15,0.006300481528218895,-0.0023237573881284015,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Gender,16,0.00614919268328136,0.0028274168872588954,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_MI,17,0.005445630718000413,0.0015235324037005155,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0034977075945267213,0.0034977075945267213,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.002411142994319555,-7.967628426290682e-05,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,20,0.001965325484484102,0.001965325484484102,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0010041157231639585,-0.0010041157231639585,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCT,22,0.00018638890664398803,-0.00018638890664398803,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Age,1,0.1787870750828495,-0.05591064634707199,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.12698328791118008,0.028700455639465633,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.05837235424264319,0.015782120470274323,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Vessels,4,0.035871049660522965,-0.017168944557104666,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.03582559647735729,-0.00644446767863165,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.024183441469389423,0.0050190286953336,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,AFib,7,0.02156620050123112,-0.003440612111778613,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.017841608098408526,-0.011598529391700373,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angiography,9,0.015566421124113244,0.00413097915668559,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Smoke,10,0.014402085808989357,-0.004682989451068408,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypertension,11,0.013631772388450895,0.0009523501899176034,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Ischemia,12,0.013422468187011297,0.0031476140362192333,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angina,13,0.007861058231253387,-0.0007608517135151426,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Low_T3,14,0.006854861815366647,-0.000800744593348953,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Gender,15,0.006849585565287419,0.0030114101330690054,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCH,16,0.006646090125759594,-0.0022515752744766545,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_MI,17,0.006007760762094881,0.0019142206381753178,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0036972700813499744,0.0036972700813499744,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.0028288154357600103,-0.00011997313365883996,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,20,0.0023039772962022602,0.0023039772962022602,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0011329099795634174,-0.0011329099795634174,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCT,22,0.00023315509165409902,-0.00023315509165409902,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Age,1,0.17948488079513503,-0.05988287368440809,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,LVEF,2,0.13149907475082842,0.02509833426461717,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Diabetes,3,0.059738629602657356,0.014259113413520473,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Vessels,4,0.0398797304661496,-0.02170768885676265,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.038263028529838185,-0.008880008210971109,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,PostIsch_DCM,6,0.026501017155107602,0.0038011675766203928,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,AFib,7,0.022862475310252414,-0.003041765901959271,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.01847457814611922,-0.012816301743359813,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Smoke,9,0.017051326455129873,-0.007548040081385792,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angiography,10,0.015712569884663626,0.0023953455966333817,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypertension,11,0.015588041028048071,0.0008087968422095858,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Ischemia,12,0.014403637294966128,0.0030487311034867923,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Low_T3,13,0.008554370125778397,0.00012200094836086622,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCH,14,0.008301789101156658,-0.0031637353903143928,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Angina,15,0.007650218363530856,-0.0015808057643691205,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Gender,16,0.007246177449718737,0.002207853771539513,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_MI,17,0.006504137880487042,0.0008243576585741483,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Acute_MI,18,0.00406762438572842,0.004067624385728421,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.0032427673084958622,-0.0006527604298232148,False
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hypothyroid,20,0.0020131520715711924,0.0020131520715711924,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0010455958840910155,-0.0010455958840910155,True
+locked_baseline,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_locked_baseline.joblib,10,CV17_THY_STATES,SCT,22,0.00020874443433895555,-0.00020874443433895555,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Age,1,0.16603310199287358,-0.053832927768958594,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,LVEF,2,0.11563640318582456,0.02989343731870936,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Diabetes,3,0.06020606122194758,0.014005729767375505,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,PostIsch_DCM,4,0.03565766820106541,0.003370657143878483,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.03317733143678518,-0.010262856806109022,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,AFib,6,0.0320058129158955,-0.004186048920622396,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Vessels,7,0.03194251446336667,-0.014692611271529831,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.02415068933299934,-0.015085662861166731,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Ischemia,9,0.01901096779951062,0.00802950414296754,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angiography,10,0.01835370846775519,0.002862847500161119,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_MI,11,0.010317127225252638,-0.001723565766443542,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCH,12,0.007559781037975407,-0.0037847696566780027,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angina,13,0.007163012936287805,-0.0006012913813126164,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Low_T3,14,0.006135878045899408,5.3850182984161875e-05,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypertension,15,0.005900265671869656,0.00019645181556341318,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Smoke,16,0.005875348295109196,-0.002743311603709486,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Acute_MI,17,0.004577332630719056,0.004577332630719056,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.0022404038748611113,0.0022404038748611113,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Gender,19,0.001606154856577821,-0.00011585126578942049,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.000998472467121353,0.0001192618573618229,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.0002507719146637135,-0.0002507719146637135,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",raw,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCT,22,5.870626300428342e-05,5.870626300428342e-05,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Age,1,0.16092605446367714,-0.05229968387006065,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,LVEF,2,0.11235361483985128,0.029011272657651858,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Diabetes,3,0.05863522955548978,0.013520864047627186,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,PostIsch_DCM,4,0.03496190312463967,0.0032966061774151257,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.03239858403011727,-0.010111090084577015,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,AFib,6,0.03142974552659367,-0.0040965673480341455,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Vessels,7,0.03107654363730627,-0.01428477863665744,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.023520831107314445,-0.014734237189567165,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Ischemia,9,0.018654672918305814,0.007803446932578334,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angiography,10,0.018007324826653518,0.00273286781550762,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_MI,11,0.010072126563917276,-0.0017107238587700463,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCH,12,0.007492890072031443,-0.003770818076471227,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angina,13,0.0069935581576974545,-0.0006346141191070506,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Low_T3,14,0.006027131650229163,4.329583636191012e-05,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypertension,15,0.005763127365634331,0.00017614583971723872,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Smoke,16,0.005753191949068665,-0.0027053944400881004,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Acute_MI,17,0.004497221695061127,0.004497221695061128,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.0021723166229845733,0.0021723166229845733,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Gender,19,0.001554916209307834,-0.00013992838807953364,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.0009709058639517552,0.00012121871465494438,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.00024570949714134305,-0.00024570949714134305,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",sigmoid,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCT,22,5.720430200752862e-05,5.720430200752862e-05,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Age,1,0.16121029538534165,-0.05277176115862837,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,LVEF,2,0.11618342963740223,0.030395732908559497,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Diabetes,3,0.05738672081484691,0.013934792532041154,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,PostIsch_DCM,4,0.03485680471919183,0.0018189360172024024,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Dyslipidemia,5,0.03419419492856444,-0.010981270435577836,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Vessels,6,0.034043380970067885,-0.015761958290352512,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,AFib,7,0.031013402787079425,-0.004651022156621041,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.023590674875295058,-0.01457439423535855,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Ischemia,9,0.019491405106256004,0.007595179053095859,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angiography,10,0.01873822007414302,0.0029057024315275602,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_MI,11,0.009490148846503827,-0.0015020537993166109,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCH,12,0.0069569648844516425,-0.0034835174655577696,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Angina,13,0.0065800196022053215,-0.0008221901869133101,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Smoke,14,0.006007394235263565,-0.002366757858502987,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Low_T3,15,0.005735469707328128,0.0006479143588591586,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypertension,16,0.00513534229421605,0.000433137932923662,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Acute_MI,17,0.004475211471183768,0.004475211471183768,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hypothyroid,18,0.00196617931586092,0.00196617931586092,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Gender,19,0.0016892820255294326,0.00012045855520374088,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Previous_PCI,20,0.001016025889528332,0.00021788492223824503,False
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,Hyperthyroid,21,0.00032899154815526363,-0.00032899154815526363,True
+paper,stacking,"LogisticRegression,RandomForest,AdaBoost",isotonic,models/stacking_sensitivity/h10_CV17_THY_STATES_paper.joblib,10,CV17_THY_STATES,SCT,22,3.397997875982054e-05,3.397997875982054e-05,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Age,1,0.1544473404900702,-0.04489958906849574,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,LVEF,2,0.10870277195157577,0.024725882690729863,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Diabetes,3,0.052081128983518576,0.014398712696437246,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03575845427613826,-0.0074450596342043466,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Vessels,5,0.03265398281880572,-0.0166038358543789,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,AFib,6,0.02497031743616624,-0.003543835865644801,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.020441281603273163,0.0034479137575644542,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.014996196276476557,-0.010547474026621692,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Smoke,9,0.012515753162606306,-0.0037540205834297735,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angiography,10,0.011605655205551348,0.00434155652203276,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Ischemia,11,0.011014744499298089,0.0033422767651806657,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Low_T3,12,0.010827461030877342,0.00023828535782491236,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angina,13,0.010596513239496704,-0.0010349782356201048,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypertension,14,0.0095585595546177,-6.074874656196265e-05,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCH,15,0.008069949113247803,-0.0029273617974882385,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_MI,16,0.007450988852717995,0.0007013337043637856,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Gender,17,0.006323776613510025,0.0013684679993757013,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Acute_MI,18,0.003025394895471536,0.003025394895471536,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.0021750164721300582,0.0003894616418068174,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.000557167518228711,-0.0004410560090927941,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.00033647785315370996,0.00033647785315370996,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",raw,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCT,22,3.399012276601547e-05,-3.399012276601547e-05,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Age,1,0.17351277881431865,-0.05005141174251401,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,LVEF,2,0.12226807406119827,0.027537909904862216,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Diabetes,3,0.057656509492950425,0.016257005636830822,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.03913864190567466,-0.007943897533623694,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Vessels,5,0.036552934833450915,-0.018473998707982366,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,AFib,6,0.02689367780420255,-0.004027415736428705,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.022346537003110404,0.003750855278493117,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.01650891453147546,-0.011482002334104536,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Smoke,9,0.01378868385744512,-0.004228794784978826,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angiography,10,0.013118209180472571,0.0049971309547636004,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Ischemia,11,0.012390249603584189,0.0038893074791181495,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Low_T3,12,0.011679523805566831,0.0004493701247145301,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angina,13,0.011500982404960574,-0.0010902475801637785,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypertension,14,0.010571619250721047,0.00011422063768328123,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCH,15,0.008556476671678368,-0.002910349623405842,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_MI,16,0.008216783890592265,0.0009914661020944226,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Gender,17,0.0070456854972507175,0.0013854612264451766,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0032314661246616964,0.0032314661246616964,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.002512131815291376,0.0004630990173179223,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.0006865332331981766,-0.0004780293476517296,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.0004051275771747519,0.0004051275771747519,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",sigmoid,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCT,22,3.759229236988227e-05,-3.759229236988227e-05,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Age,1,0.1761772758581622,-0.05446623134853335,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,LVEF,2,0.12322357255982079,0.024541911060582136,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Diabetes,3,0.05899912691808533,0.015946765619497826,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Dyslipidemia,4,0.04163891700445167,-0.009274312999846698,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Vessels,5,0.03785962669916995,-0.022147722754133764,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,AFib,6,0.03044928215036816,-0.004361153605933325,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,PostIsch_DCM,7,0.022325461295701593,0.002070614044059841,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_CABG,8,0.018431656747299165,-0.01312848382042749,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Smoke,9,0.015452847271653067,-0.005953384504231015,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angina,10,0.013375002060634748,-0.001970896008174502,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Angiography,11,0.01311993237905794,0.004439058406366932,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Low_T3,12,0.01308077663760977,-0.0007206394694414234,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Ischemia,13,0.012489211078276602,0.004125544847577138,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypertension,14,0.010346213126314395,-0.0010695141712751643,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCH,15,0.010028446768442369,-0.0036112039846107847,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_MI,16,0.009380072341537841,0.000920948997919918,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Gender,17,0.007428531763733915,0.0007155422140874593,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Acute_MI,18,0.0035418336862505623,0.0035418336862505623,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Previous_PCI,19,0.0025845693451541367,0.00037515477846426586,False
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hyperthyroid,20,0.000701653065361352,-0.000493932504423029,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,Hypothyroid,21,0.0002513498284988005,0.0002513498284988005,True
+same_members_reselected_C,stacking,"KNeighbors,AdaBoost,MLP,GradientBoosting",isotonic,cache/classification_explainability/prepared_h10_CV17_THY_STATES.joblib,10,CV17_THY_STATES,SCT,22,0.00015783132386246027,-0.00015783132386246027,True

@@ -37,6 +37,7 @@ figures/predictive_sensitivity_smoke/
 results/stacking_sensitivity_smoke/
 predictions/stacking_sensitivity_smoke/
 figures/stacking_sensitivity_smoke/
+results/classification_explainability/shap/pilot_batched/
 
 # Logs and temporary files
 *.log

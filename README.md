@@ -51,6 +51,7 @@ train.py      models, sampling, tuning, calibration, thresholds, frozen test pre
 ensemble.py   the paper ensemble and adapted-ensemble selection
 predictive.py development partitions, selection rules and shared model caches
 stacking.py   meta-models, nested training OOF predictions and paired inference
+interpretation/ frozen classification functions, SHAP, ablation and permutation reports
 survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Johansen, cause-specific CIF
 
 1_data_process.ipynb                  cohorts, features, splits
@@ -63,10 +64,12 @@ survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Joh
 8_thesis_figures.py                   figures derived from stored results
 9_predictive_sensitivity.py           supplementary selection among singles and ensembles
 10_stacking_sensitivity.py            supplementary stacking and calibrated test sensitivities
+11_classification_explainability.py  classifier-wide interpretation of frozen predictive options
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
 tests/test_predictive_sensitivity.py  supplementary selection and cache guards
 tests/test_stacking.py                nested stacking and bootstrap equivalence
+tests/test_classification_explainability.py metric, bootstrap and SHAP replay checks
 
 data/raw          source workbooks, never modified
 data/processed    cohorts and the stored split assignment
@@ -598,6 +601,55 @@ interpretations should rely on the calibrated predictions.
   development analyses and cannot feed back into model selection.
 - `tests/test_pipeline.py` asserts these properties, including a spy that fails
   if the hyperparameter search ever receives a validation or test row.
+
+## Supplementary classification interpretation
+
+`11_classification_explainability.py` extends SHAP, training-mean ablation and
+permutation importance to all eight individual classifier families and the
+selected voting and stacking options across five predictor sets and both
+horizons. Notebook 4 and its original outputs remain available. The extension
+does not change predictive selection or the primary locked AUROC comparison.
+
+Executed outputs are stored in `results/classification_explainability/`:
+152 labelled options, 348 probability-scale SHAP explanations and 500
+scale/threshold evaluation cases. Policy labels remain separate when their
+predictive functions coincide. SHAP uses 64 shared test patients and 16
+training background patients per horizon with two permutation cycles.
+Ablation and joint permutation use the complete strict test cohorts of
+878 and 523 patients, ten permutations per target and 2000 paired bootstrap
+draws for ablation macro-F1 intervals. These are descriptive perturbation
+quantities, not incremental-value comparisons against a refitted CV17 model.
+
+The separate `same_members_reselected_C` stacking sensitivity retains baseline
+members and selects the logistic meta-model's C on validation. The existing
+`same_baseline` policy retains both members and C. Executed fitted meta-models,
+OOF-derived calibrators and validation thresholds for all five C candidates
+are preserved in `cache/classification_explainability/`; corresponding test
+probabilities are in `predictions/classification_explainability/`.
+
+```bash
+python 11_classification_explainability.py --verify
+python 11_classification_explainability.py --summary
+python 11_classification_explainability.py --stage shap
+python 11_classification_explainability.py --stage importance
+python 11_classification_explainability.py --pilot --patients 6
+```
+
+Completed groups are retained after source validation. Missing or stale
+fitted source caches raise an error without refitting base classifiers.
+Source manifests record partitions, fitted-member specifications and SHA-256
+checksums. Verification reconstructs probabilities and thresholds for every
+option. Vectorised metrics and paired bootstrap calculations are tested
+against scikit-learn; seeded SHAP replay is tested against direct evaluation.
+The executed extension exactly reproduces the original seven-year continuous
+thyroid reference-voting ablation intervals and permutation scores.
+
+The self-contained browsable reports are
+[SHAP](results/classification_explainability/shap/all_results.html) and
+[ablation/permutation](results/classification_explainability/importance/all_results.html).
+Complete permutation repeats are preserved as losslessly compressed CSV.
+[Extension notes](results/classification_explainability/README.md) describe
+the files, masking assumptions and uncertainty.
 
 ## Reproducibility notes
 
