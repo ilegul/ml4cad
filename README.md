@@ -664,8 +664,9 @@ intervals use frozen selected configurations, probabilities and thresholds.
 
 The [CI notes](results/table_confidence_intervals/README.md) describe conditional
 uncertainty, source artifacts and metric-specific valid replicate counts. The
-[copy-paste tables](results/table_confidence_intervals/copy_paste_tables.md) retain
-the thesis point labels; three PDF display differences are documented separately.
+[copy-paste tables](results/table_confidence_intervals/copy_paste_tables.md) use
+direct rounding from the verified CSV estimates. A separate thesis-label view
+preserves the original PDF labels; three display differences are documented.
 Original results, model selection and the thesis are unchanged.
 
 ## Reproducibility notes

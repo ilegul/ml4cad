@@ -40,14 +40,15 @@ Values are point estimates [95% percentile patient-bootstrap CI].
 | Years | Predictors | Threshold | AUROC | AP | macro-F1 | Brier |
 |---:|:---|---:|---:|---:|---:|---:|
 | 7 | CV17 | 0.44 | 0.844 [0.809, 0.877] | 0.618 [0.548, 0.695] | 0.738 [0.699, 0.777] | 0.108 [0.094, 0.121] |
-| 7 | CV17_THY_CONT | 0.39 | 0.848 [0.812, 0.880] | 0.625 [0.554, 0.699] | 0.760 [0.723, 0.795] | 0.107 [0.094, 0.120] |
+| 7 | CV17_THY_CONT | 0.39 | 0.847 [0.812, 0.880] | 0.625 [0.554, 0.699] | 0.760 [0.723, 0.795] | 0.107 [0.094, 0.120] |
 | 7 | CV17_THY_STATES | 0.41 | 0.845 [0.809, 0.877] | 0.604 [0.533, 0.681] | 0.741 [0.703, 0.779] | 0.109 [0.095, 0.123] |
 | 7 | CV17_THY_CONT_STATES | 0.40 | 0.844 [0.808, 0.876] | 0.617 [0.547, 0.693] | 0.744 [0.707, 0.780] | 0.108 [0.095, 0.122] |
 | 7 | CV17_THY_CONT_RATIO | 0.35 | 0.848 [0.813, 0.880] | 0.623 [0.552, 0.697] | 0.756 [0.720, 0.790] | 0.107 [0.094, 0.121] |
 | 10 | CV17 | 0.38 | 0.855 [0.822, 0.886] | 0.785 [0.730, 0.836] | 0.753 [0.716, 0.789] | 0.150 [0.131, 0.168] |
-| 10 | CV17_THY_CONT | 0.38 | 0.858 [0.825, 0.889] | 0.794 [0.740, 0.842] | 0.756 [0.719, 0.793] | 0.148 [0.129, 0.166] |
+| 10 | CV17_THY_CONT | 0.38 | 0.858 [0.825, 0.889] | 0.793 [0.740, 0.842] | 0.756 [0.719, 0.793] | 0.148 [0.129, 0.166] |
 | 10 | CV17_THY_STATES | 0.35 | 0.856 [0.824, 0.887] | 0.788 [0.733, 0.837] | 0.753 [0.714, 0.789] | 0.149 [0.131, 0.167] |
 | 10 | CV17_THY_CONT_STATES | 0.42 | 0.857 [0.824, 0.888] | 0.791 [0.735, 0.840] | 0.763 [0.726, 0.800] | 0.148 [0.130, 0.167] |
-| 10 | CV17_THY_CONT_RATIO | 0.37 | 0.857 [0.824, 0.887] | 0.792 [0.738, 0.840] | 0.754 [0.716, 0.791] | 0.148 [0.130, 0.167] |
+| 10 | CV17_THY_CONT_RATIO | 0.37 | 0.856 [0.824, 0.887] | 0.792 [0.738, 0.840] | 0.754 [0.716, 0.791] | 0.148 [0.130, 0.167] |
 
-The thesis point labels are retained; three display differences are documented in thesis_display_differences.csv. All intervals and full-precision CSV estimates use the original verified source values.
+All point estimates and confidence limits in this copy-paste view are rounded directly from the full-precision verified CSV values.
+The three display differences in the current thesis PDF are documented in thesis_display_differences.csv.

@@ -284,7 +284,7 @@ def bootstrap_arm(arm, metrics, calibration=False):
     return rows
 
 
-def display_ci(rows, horizon, feature_set, model, metric, scale=None, digits=3):
+def display_ci(rows, horizon, feature_set, model, metric, scale=None, digits=3, preserve_thesis_labels=False):
     selected = rows[rows.horizon.eq(horizon) & rows.feature_set.eq(feature_set)
                     & rows.model_or_configuration.eq(MODEL_LABELS[model]) & rows.metric.eq(metric)]
     if scale is not None:
@@ -292,7 +292,9 @@ def display_ci(rows, horizon, feature_set, model, metric, scale=None, digits=3):
     if len(selected) != 1:
         raise ValueError("The copy-paste table does not have a unique interval row")
     row = selected.iloc[0]
-    label = THESIS_DISPLAY_OVERRIDES.get((row.table, horizon, feature_set, metric), f"{row.estimate:.{digits}f}")
+    label = f"{row.estimate:.{digits}f}"
+    if preserve_thesis_labels:
+        label = THESIS_DISPLAY_OVERRIDES.get((row.table, horizon, feature_set, metric), label)
     return f"{label} [{row.ci_lo:.{digits}f}, {row.ci_hi:.{digits}f}]"
 
 
@@ -309,7 +311,7 @@ def display_audit(combined):
     pd.DataFrame(rows).to_csv(OUTPUT / "thesis_display_differences.csv", index=False)
 
 
-def copy_tables(tables):
+def copy_tables(tables, preserve_thesis_labels=False):
     text = "Values are point estimates [95% percentile patient-bootstrap CI].\n\n"
     for number, rows in tables.items():
         text += f"## Table {number}\n\n"
@@ -336,7 +338,8 @@ def copy_tables(tables):
             for h in (7, 10):
                 for fs in config.FEATURE_SETS:
                     threshold = rows[rows.horizon.eq(h) & rows.feature_set.eq(fs)].iloc[0].threshold
-                    values = [display_ci(rows, h, fs, "paper", metric) for metric in ("AUROC", "AP", "macro-F1", "Brier score")]
+                    values = [display_ci(rows, h, fs, "paper", metric, preserve_thesis_labels=preserve_thesis_labels)
+                              for metric in ("AUROC", "AP", "macro-F1", "Brier score")]
                     text += "| " + " | ".join([str(h), fs, f"{threshold:.2f}"] + values) + " |\n"
         text += "\n"
     return text
@@ -370,9 +373,11 @@ def run():
     combined.to_csv(OUTPUT / "all_table_ci.csv", index=False)
     display_audit(combined)
     (OUTPUT / "copy_paste_tables.md").write_text(copy_tables(tables) +
-        "The point labels already printed in the thesis are retained. Three Table 5.5 labels differ "
-        "from direct rounding of the full-precision source estimates; see thesis_display_differences.csv. "
-        "Intervals and numeric CSV estimates use the original verified result values.\n", encoding="utf-8")
+        "Point estimates and intervals are rounded directly from the verified CSV values. "
+        "Three thesis PDF display differences are documented in thesis_display_differences.csv.\n", encoding="utf-8")
+    (OUTPUT / "copy_paste_tables_thesis_labels.md").write_text(copy_tables(tables, preserve_thesis_labels=True) +
+        "The existing thesis point labels are retained in this alternative view. "
+        "Numeric estimates and intervals remain those of the verified CSV files.\n", encoding="utf-8")
     readme = """# Confidence intervals for thesis Tables 5.2 to 5.5
 
 Each interval is the 2.5th/97.5th percentile of 2000 patient bootstrap resamples
@@ -413,12 +418,14 @@ are excluded, consistently with the existing classification bootstrap.
 
 The four table_5_*_ci.csv files and all_table_ci.csv use one metric per row,
 with full precision numeric values and explicit prediction_source. The
-copy_paste_tables.md file follows the thesis order and display precision.
+copy_paste_tables.md file follows the thesis order and display precision,
+rounding directly from the full-precision estimates. The alternative
+copy_paste_tables_thesis_labels.md retains the original PDF point labels.
 OOF probabilities, fold assignments and generation signatures are preserved
 under predictions/. Bootstrap metric arrays are preserved under bootstrap/.
 The original thesis, numerical results and predictive artifacts are unchanged.
 
-The copy-paste view retains the existing PDF point labels. Three Table 5.5
+The alternative thesis-label view retains the existing PDF point labels. Three Table 5.5
 labels differ from direct three-decimal rounding of the full-precision CSV:
 7-year CV17_THY_CONT AUROC (PDF 0.848 versus direct 0.847), 10-year
 CV17_THY_CONT AP (0.794 versus 0.793) and 10-year CV17_THY_CONT_RATIO

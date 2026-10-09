@@ -83,6 +83,7 @@ def test_thesis_display_does_not_replace_the_verified_source_estimate():
                          "model_or_configuration": ["Reference soft voting"], "metric": ["AUROC"],
                          "estimate": [.8474765258215964], "ci_lo": [.812], "ci_hi": [.880]})
     before = rows.copy(deep=True)
-    text = ci.display_ci(rows, 7, "CV17_THY_CONT", "paper", "AUROC")
+    text = ci.display_ci(rows, 7, "CV17_THY_CONT", "paper", "AUROC", preserve_thesis_labels=True)
     assert text == "0.848 [0.812, 0.880]"
+    assert ci.display_ci(rows, 7, "CV17_THY_CONT", "paper", "AUROC") == "0.847 [0.812, 0.880]"
     pd.testing.assert_frame_equal(before, rows)
