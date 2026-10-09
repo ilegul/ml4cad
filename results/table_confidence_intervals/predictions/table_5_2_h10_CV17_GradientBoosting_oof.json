@@ -1,0 +1,8 @@
+{
+  "signature": "ac5e0f44eacc99b29fde",
+  "model": "GradientBoosting",
+  "sampler": "RandomOverSampler",
+  "outer_cv": 5,
+  "seed": 42,
+  "parameters": "{'memory': None, 'steps': [('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler()), ('sampler', RandomOverSampler(random_state=42)), ('model', GradientBoostingClassifier(random_state=42))], 'transform_input': None, 'verbose': False, 'imputer': SimpleImputer(strategy='median'), 'scaler': StandardScaler(), 'sampler': RandomOverSampler(random_state=42), 'model': GradientBoostingClassifier(random_state=42), 'imputer__add_indicator': False, 'imputer__copy': True, 'imputer__fill_value': None, 'imputer__keep_empty_features': False, 'imputer__missing_values': nan, 'imputer__strategy': 'median', 'scaler__copy': True, 'scaler__with_mean': True, 'scaler__with_std': True, 'sampler__random_state': 42, 'sampler__sampling_strategy': 'auto', 'sampler__shrinkage': None, 'model__ccp_alpha': 0.0, 'model__criterion': 'friedman_mse', 'model__init': None, 'model__learning_rate': 0.1, 'model__loss': 'log_loss', 'model__max_depth': 3, 'model__max_features': None, 'model__max_leaf_nodes': None, 'model__min_impurity_decrease': 0.0, 'model__min_samples_leaf': 1, 'model__min_samples_split': 2, 'model__min_weight_fraction_leaf': 0.0, 'model__n_estimators': 100, 'model__n_iter_no_change': None, 'model__random_state': 42, 'model__subsample': 1.0, 'model__tol': 0.0001, 'model__validation_fraction': 0.1, 'model__verbose': 0, 'model__warm_start': False}"
+}

@@ -1,0 +1,8 @@
+{
+  "signature": "75fa267ff143f05daba0",
+  "model": "LogisticRegression",
+  "sampler": "RandomOverSampler",
+  "outer_cv": 5,
+  "seed": 42,
+  "parameters": "{'memory': None, 'steps': [('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler()), ('sampler', RandomOverSampler(random_state=42)), ('model', LogisticRegression(max_iter=5000, random_state=42))], 'transform_input': None, 'verbose': False, 'imputer': SimpleImputer(strategy='median'), 'scaler': StandardScaler(), 'sampler': RandomOverSampler(random_state=42), 'model': LogisticRegression(max_iter=5000, random_state=42), 'imputer__add_indicator': False, 'imputer__copy': True, 'imputer__fill_value': None, 'imputer__keep_empty_features': False, 'imputer__missing_values': nan, 'imputer__strategy': 'median', 'scaler__copy': True, 'scaler__with_mean': True, 'scaler__with_std': True, 'sampler__random_state': 42, 'sampler__sampling_strategy': 'auto', 'sampler__shrinkage': None, 'model__C': 1.0, 'model__class_weight': None, 'model__dual': False, 'model__fit_intercept': True, 'model__intercept_scaling': 1, 'model__l1_ratio': None, 'model__max_iter': 5000, 'model__multi_class': 'deprecated', 'model__n_jobs': None, 'model__penalty': 'l2', 'model__random_state': 42, 'model__solver': 'lbfgs', 'model__tol': 0.0001, 'model__verbose': 0, 'model__warm_start': False}"
+}

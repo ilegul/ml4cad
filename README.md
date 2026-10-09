@@ -65,11 +65,13 @@ survival.py   ML indicator, Cox, Kaplan-Meier, Random Survival Forest, Aalen-Joh
 9_predictive_sensitivity.py           supplementary selection among singles and ensembles
 10_stacking_sensitivity.py            supplementary stacking and calibrated test sensitivities
 11_classification_explainability.py  classifier-wide interpretation of frozen predictive options
+13_table_confidence_intervals.py     patient-bootstrap intervals for thesis Tables 5.2 to 5.5
 
 tests/test_pipeline.py                cohort, split and leakage acceptance tests
 tests/test_predictive_sensitivity.py  supplementary selection and cache guards
 tests/test_stacking.py                nested stacking and bootstrap equivalence
 tests/test_classification_explainability.py metric, bootstrap and SHAP replay checks
+tests/test_table_confidence_intervals.py fixed-prediction bootstrap and point guards
 
 data/raw          source workbooks, never modified
 data/processed    cohorts and the stored split assignment
@@ -650,6 +652,21 @@ The self-contained browsable reports are
 Complete permutation repeats are preserved as losslessly compressed CSV.
 [Extension notes](results/classification_explainability/README.md) describe
 the files, masking assumptions and uncertainty.
+
+## Confidence intervals for thesis tables
+
+`python 13_table_confidence_intervals.py` adds 95% percentile patient-bootstrap
+intervals for Tables 5.2 to 5.5 using 2000 resamples and seed 42. It writes
+only under `results/table_confidence_intervals/`. All original point estimates
+must reproduce before interval export. Default CV17 development OOF predictions
+are regenerated with the unchanged notebook-2 protocol; validation and test
+intervals use frozen selected configurations, probabilities and thresholds.
+
+The [CI notes](results/table_confidence_intervals/README.md) describe conditional
+uncertainty, source artifacts and metric-specific valid replicate counts. The
+[copy-paste tables](results/table_confidence_intervals/copy_paste_tables.md) retain
+the thesis point labels; three PDF display differences are documented separately.
+Original results, model selection and the thesis are unchanged.
 
 ## Reproducibility notes
 

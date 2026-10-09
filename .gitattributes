@@ -3,3 +3,6 @@ models/** -text whitespace=cr-at-eol
 cache/** -text whitespace=cr-at-eol
 results/classification_explainability/** -text whitespace=cr-at-eol
 predictions/classification_explainability/** -text whitespace=cr-at-eol
+results/table_confidence_intervals/** -text whitespace=cr-at-eol
+13_table_confidence_intervals.py -text
+table_confidence_intervals.py -text

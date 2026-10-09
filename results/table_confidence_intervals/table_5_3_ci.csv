@@ -1,0 +1,5 @@
+table,horizon,feature_set,model_or_configuration,probability_scale,metric,metric_code,estimate,ci_lo,ci_hi,n_boot_used,bootstrap_seed,n_boot_requested,threshold,n,n_events,prediction_source
+5.3,7,CV17,Random Forest,raw,macro-F1,f1_macro,0.7188856366099254,0.6821527318376428,0.754171506865636,2000,42,2000,0.5,878,169,cache/predictive_sensitivity/member_c16d7fd028770deb774c.joblib
+5.3,7,CV17_THY_CONT,Random Forest,raw,macro-F1,f1_macro,0.7313335823525564,0.6922400158013989,0.7677942687917733,2000,42,2000,0.5,878,169,cache/predictive_sensitivity/member_f1823b5b2bbd4e106db8.joblib
+5.3,10,CV17,XGBoost,raw,macro-F1,f1_macro,0.7484466662461364,0.7097053276418582,0.7864436885201047,2000,42,2000,0.5,523,193,cache/predictive_sensitivity/member_36c688636cb15846b61d.joblib
+5.3,10,CV17_THY_CONT,Reference soft voting,raw,macro-F1,f1_macro,0.7429554390563565,0.703899319295547,0.781943631329688,2000,42,2000,0.5,523,193,models/final_h10_CV17_THY_CONT_paper.joblib

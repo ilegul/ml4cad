@@ -1,0 +1,4 @@
+table,horizon,feature_set,metric,source_csv_estimate,source_direct_three_decimal_label,thesis_pdf_label,source_pdf,action
+5.5,7,CV17_THY_CONT,AUROC,0.8474765258215964,0.847,0.848,"Gulino_Thesis_a.pdf, printed page 67",preserve the thesis label in the copy-paste view; keep the CSV estimate unchanged
+5.5,10,CV17_THY_CONT,AP,0.7934856954408889,0.793,0.794,"Gulino_Thesis_a.pdf, printed page 67",preserve the thesis label in the copy-paste view; keep the CSV estimate unchanged
+5.5,10,CV17_THY_CONT_RATIO,AUROC,0.8564797331319235,0.856,0.857,"Gulino_Thesis_a.pdf, printed page 67",preserve the thesis label in the copy-paste view; keep the CSV estimate unchanged

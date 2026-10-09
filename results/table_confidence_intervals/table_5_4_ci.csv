@@ -1,0 +1,33 @@
+table,horizon,feature_set,model_or_configuration,probability_scale,metric,metric_code,estimate,ci_lo,ci_hi,n_boot_used,bootstrap_seed,n_boot_requested,threshold,n,n_events,prediction_source
+5.4,7,CV17,Reference soft voting,raw,O:E,observed_to_expected,0.47693770123376594,0.4187724730737903,0.5364264711400355,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,raw,calibration slope,calibration_slope,1.9282833321444857,1.642631454923513,2.2893476563959885,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,raw,ECE,ece,0.20984881919053158,0.191010477873913,0.23461366430966402,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,raw,Brier score,brier,0.15810708391593856,0.14959997880324877,0.16682164790199958,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,sigmoid,O:E,observed_to_expected,0.9930465148231735,0.8778136511787494,1.1053355668933442,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,sigmoid,calibration slope,calibration_slope,1.0080235504682422,0.8589998457265536,1.197202484909261,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,sigmoid,ECE,ece,0.02114094305565034,0.019635465193451433,0.05099333300915785,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17,Reference soft voting,sigmoid,Brier score,brier,0.10768249189922871,0.0944843595138188,0.12147868459208638,2000,42,2000,,878,168,predictions/h7_CV17_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,raw,O:E,observed_to_expected,0.5003697346485525,0.4397922770968623,0.5611845530479428,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,raw,calibration slope,calibration_slope,1.846849795367022,1.5790281075229846,2.1762588421384534,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,raw,ECE,ece,0.1944735458346178,0.17445244331072068,0.21725677013874561,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,raw,Brier score,brier,0.1491673793358199,0.1405054215467991,0.15802965820520448,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,sigmoid,O:E,observed_to_expected,0.9993875179281941,0.8838750047901297,1.1117202126512207,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,sigmoid,calibration slope,calibration_slope,0.9912796163461116,0.8479230941154172,1.1683189948314594,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,sigmoid,ECE,ece,0.026676650640967463,0.023943395600872597,0.05602646757156819,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,7,CV17_THY_CONT,Reference soft voting,sigmoid,Brier score,brier,0.10681940292729261,0.09369854976595271,0.12047617451364748,2000,42,2000,,878,168,predictions/h7_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17,Reference soft voting,raw,O:E,observed_to_expected,0.7781467638354973,0.7001123424602428,0.8522808715415482,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,raw,calibration slope,calibration_slope,2.088963107419577,1.7941215900596497,2.4741939217395212,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,raw,ECE,ece,0.13350971490214233,0.10755298835703825,0.16825486602707107,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,raw,Brier score,brier,0.16999859899443956,0.15893333618691127,0.18088786708827348,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,sigmoid,O:E,observed_to_expected,0.936807804580654,0.8498684748177332,1.0166697156873727,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,sigmoid,calibration slope,calibration_slope,0.9105937235954343,0.7818668358178736,1.0786066575095254,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,sigmoid,ECE,ece,0.0461143113257373,0.04037720284766249,0.09034364512069572,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17,Reference soft voting,sigmoid,Brier score,brier,0.14956751380328231,0.1309811153889981,0.16782000968322497,2000,42,2000,,523,192,predictions/h10_CV17_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,raw,O:E,observed_to_expected,0.786463210893057,0.7081476251458689,0.8592513926800665,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,raw,calibration slope,calibration_slope,1.9380828357812832,1.6617518620223353,2.2920025045144263,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,raw,ECE,ece,0.1305990877389227,0.10675299893682477,0.16644620103605,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,raw,Brier score,brier,0.1649916709584005,0.15347189103807668,0.17648479778717296,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,sigmoid,O:E,observed_to_expected,0.9396049793448152,0.8514536650160893,1.0204868775313194,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,sigmoid,calibration slope,calibration_slope,0.9099775518328926,0.7801864581268197,1.0765670662534188,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,sigmoid,ECE,ece,0.041551253382177966,0.035926997296437044,0.08534201024684016,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
+5.4,10,CV17_THY_CONT,Reference soft voting,sigmoid,Brier score,brier,0.14765126537729634,0.12929664735776103,0.16599299788218635,2000,42,2000,,523,192,predictions/h10_CV17_THY_CONT_paper_test.csv
